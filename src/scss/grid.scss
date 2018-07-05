@@ -1,239 +1,256 @@
-
-
-body{
-    margin: 0;
+body {
+    position: relative;
     font-family: "OpenSans";
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
+    color: #333;
+    background-color: #fff;
+    margin: 0;
 }
 
-.container{
-    width: 100%;
+.container {
     height: auto;
-    position: absolute;
     display: block;
-    margin: 0 auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 1170px;
 }
 
-.row{
+.row {
     height: auto;
     margin: auto;
     display: table;
     position: relative;
     overflow: hidden;
     display: block;
-    width: 1170px;
 }
 
-.coll__1{
+.coll__1 {
     width: (100%/12*1);
     float: left;
 }
-.coll__2{
+
+.coll__2 {
     width: (100%/12*2);
     float: left;
 }
-.coll__3{
+
+.coll__3 {
     width: (100%/12*3);
     float: left;
 }
-.coll__4{
+
+.coll__4 {
     width: (100%/12*4);
     float: left;
 }
-.coll__5{
+
+.coll__5 {
     float: left;
     width: (100%/12*5);
 }
-.coll__6{
+
+.coll__6 {
     width: (100%/12*6);
     float: left;
 }
-.coll__7{
+
+.coll__7 {
     width: (100%/12*7);
     float: left;
 }
-.coll__8{
+
+.coll__8 {
     width: (100%/12*8);
     float: left;
 }
-.coll__9{
+
+.coll__9 {
     width: (100%/12*9);
     float: left;
 }
-.coll__10{
+
+.coll__10 {
     width: (100%/12*10);
     float: left;
 }
-.coll__11{
+
+.coll__11 {
     width: (100%/12*11);
     float: left;
 }
-.coll__12{
+
+.coll__12 {
     width: 100%;
     float: left;
 }
 
+@media (min-width: 970px) and (max-width: 1170px) {
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+        width: 970px;
+    }
+    .coll-nbook__1 {
+        width: (100%/12*1);
+        float: left;
+    }
+    .coll-nbook__2 {
+        width: (100%/12*2);
+        float: left;
+    }
+    .coll-nbook__3 {
+        width: (100%/12*3);
+        float: left;
+    }
+    .coll-nbook__4 {
+        width: (100%/12*4);
+        float: left;
+    }
+    .coll-nbook__5 {
+        float: left;
+        width: (100%/12*5);
+    }
+    .coll-nbook__6 {
+        width: (100%/12*6);
+        float: left;
+    }
+    .coll-nbook__7 {
+        width: (100%/12*7);
+        float: left;
+    }
+    .coll-nbook__8 {
+        width: (100%/12*8);
+        float: left;
+    }
+    .coll-nbook__9 {
+        width: (100%/12*9);
+        float: left;
+    }
+    .coll-nbook__10 {
+        width: (100%/12*10);
+        float: left;
+    }
+    .coll-nbook__11 {
+        width: (100%/12*11);
+        float: left;
+    }
+    .coll-nbook__12 {
+        width: 100%;
+        float: left;
+    }
+}
 
-@media (min-width: 970px) and (max-width: 1170px){
-    .row{
-        min-width: 970px;
-        max-width: 1170px;
+@media (min-width: 750px) and (max-width: 970px) {
+    .container {
+        padding-right: 10px;
+        padding-left: 10px;
+        width: 750px;
     }
-    .coll-nbook__1{
+    .coll-tablet__1 {
         width: (100%/12*1);
         float: left;
     }
-    .coll-nbook__2{
+    .coll-tablet__2 {
         width: (100%/12*2);
         float: left;
     }
-    .coll-nbook__3{
+    .coll-tablet__3 {
         width: (100%/12*3);
         float: left;
     }
-    .coll-nbook__4{
+    .coll-tablet__4 {
         width: (100%/12*4);
         float: left;
     }
-    .coll-nbook__5{
+    .coll-tablet__5 {
         float: left;
         width: (100%/12*5);
     }
-    .coll-nbook__6{
+    .coll-tablet__6 {
         width: (100%/12*6);
         float: left;
     }
-    .coll-nbook__7{
+    .coll-tablet__7 {
         width: (100%/12*7);
         float: left;
     }
-    .coll-nbook__8{
+    .coll-tablet__8 {
         width: (100%/12*8);
         float: left;
     }
-    .coll-nbook__9{
+    .coll-tablet__9 {
         width: (100%/12*9);
         float: left;
     }
-    .coll-nbook__10{
+    .coll-tablet__10 {
         width: (100%/12*10);
         float: left;
     }
-    .coll-nbook__11{
+    .coll-tablet__11 {
         width: (100%/12*11);
         float: left;
     }
-    .coll-nbook__12{
+    .coll-tablet__12 {
         width: 100%;
         float: left;
     }
 }
-@media (min-width: 750px) and (max-width: 970px){
-    .row{
-        min-width: 750px;
-        max-width: 970px;
+
+@media (max-width: 750px) {
+    .container {
+        padding-right: 5px;
+        padding-left: 5px;
+        width: auto;
     }
-    .coll-tablet__1{
-        width: (100%/12*1);
-        float: left;
-    }
-    .coll-tablet__2{
-        width: (100%/12*2);
-        float: left;
-    }
-    .coll-tablet__3{
-        width: (100%/12*3);
-        float: left;
-    }
-    .coll-tablet__4{
-        width: (100%/12*4);
-        float: left;
-    }
-    .coll-tablet__5{
-        float: left;
-        width: (100%/12*5);
-    }
-    .coll-tablet__6{
-        width: (100%/12*6);
-        float: left;
-    }
-    .coll-tablet__7{
-        width: (100%/12*7);
-        float: left;
-    }
-    .coll-tablet__8{
-        width: (100%/12*8);
-        float: left;
-    }
-    .coll-tablet__9{
-        width: (100%/12*9);
-        float: left;
-    }
-    .coll-tablet__10{
-        width: (100%/12*10);
-        float: left;
-    }
-    .coll-tablet__11{
-        width: (100%/12*11);
-        float: left;
-    }
-    .coll-tablet__12{
-        width: 100%;
-        float: left;
-    }
-}
-@media (max-width: 750px){
-    .row{
-        min-width: auto;
-        max-width: 750px;
-    }
-   .coll-phone__1{
+    .coll-phone__1 {
         width: (100%/6*1);
         float: left;
     }
-    .coll-phone__2{
+    .coll-phone__2 {
         width: (100%/6*2);
         float: left;
     }
-    .coll-phone__3{
+    .coll-phone__3 {
         width: (100%/6*3);
         float: left;
     }
-    .coll-phone__4{
+    .coll-phone__4 {
         width: (100%/6*4);
         float: left;
     }
-    .coll-phone__5{
+    .coll-phone__5 {
         float: left;
         width: (100%/6*5);
     }
-    .coll-phone__6{
+    .coll-phone__6 {
         width: 100%;
         float: left;
     }
-    .coll-phone__7{
+    .coll-phone__7 {
         width: 100%;
         float: left;
     }
-    .coll-phone__8{
+    .coll-phone__8 {
         width: 100%;
         float: left;
     }
-    .coll-phone__9{
+    .coll-phone__9 {
         width: 100%;
         float: left;
     }
-    .coll-phone__10{
+    .coll-phone__10 {
         width: 100%;
         float: left;
     }
-    .coll-phone__11{
+    .coll-phone__11 {
         width: 100%;
         float: left;
     }
-    .coll-phone__12{
+    .coll-phone__12 {
         width: 100%;
         float: left;
     }

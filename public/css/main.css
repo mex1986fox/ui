@@ -71,7 +71,8 @@ body {
 
 @media (min-width: 970px) and (max-width: 1170px) {
   .row {
-    width: 970px; }
+    min-width: 970px;
+    max-width: 1170px; }
   .coll-nbook__1 {
     width: 8.33333%;
     float: left; }
@@ -111,7 +112,8 @@ body {
 
 @media (min-width: 750px) and (max-width: 970px) {
   .row {
-    width: 750px; }
+    min-width: 750px;
+    max-width: 970px; }
   .coll-tablet__1 {
     width: 8.33333%;
     float: left; }
@@ -151,7 +153,8 @@ body {
 
 @media (max-width: 750px) {
   .row {
-    width: auto; }
+    min-width: auto;
+    max-width: 750px; }
   .coll-phone__1 {
     width: 16.66667%;
     float: left; }
