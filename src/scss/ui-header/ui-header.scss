@@ -1,0 +1,26 @@
+.ui-header {
+  display: block;
+  font-family: "OpenSans";
+  font-weight: 600;
+  line-height: 32px;
+  color: $color-text-header;
+
+  &_1 {
+    font-size: 26px;
+  }
+  &_2 {
+    font-size: 22px;
+  }
+  &_3 {
+    font-size: 18px;
+  }
+  &_4 {
+    font-size: 16px;
+  }
+  &_5 {
+    font-size: 14px;
+  }
+  &_6 {
+    font-size: 11px;
+  }
+}

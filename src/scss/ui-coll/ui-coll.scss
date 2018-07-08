@@ -1,0 +1,229 @@
+.ui-coll {
+    &_1 {
+        width: (100%/12*1);
+        float: left;
+    }
+    &_2 {
+        width: (100%/12*2);
+        float: left;
+    }
+    &_3 {
+        width: (100%/12*3);
+        float: left;
+    }
+    &_4 {
+        width: (100%/12*4);
+        float: left;
+    }
+    &_5 {
+        float: left;
+        width: (100%/12*5);
+    }
+    &_6 {
+        width: (100%/12*6);
+        float: left;
+    }
+    &_7 {
+        width: (100%/12*7);
+        float: left;
+    }
+    &_8 {
+        width: (100%/12*8);
+        float: left;
+    }
+    &_9 {
+        width: (100%/12*9);
+        float: left;
+    }
+    &_10 {
+        width: (100%/12*10);
+        float: left;
+    }
+    &_11 {
+        width: (100%/12*11);
+        float: left;
+    }
+    &_12 {
+        width: (100%/12*12);
+        float: left;
+    }
+
+}
+
+.ui-border_5 {
+  padding: 0px 5px;
+}
+.ui-border_15 {
+    padding: 0px 15px;
+}
+.ui-border_25 {
+  padding: 0px 25px;
+}
+
+@media (min-width: 970px) and (max-width: 1170px) {
+    .ui-coll {
+        &_nbook-none {
+            display: none;
+        }
+        &_nbook-1 {
+            width: (100%/12*1);
+            float: left;
+        }
+        &_nbook-2 {
+            width: (100%/12*2);
+            float: left;
+        }
+        &_nbook-3 {
+            width: (100%/12*3);
+            float: left;
+        }
+        &_nbook-4 {
+            width: (100%/12*4);
+            float: left;
+        }
+        &_nbook-5 {
+            float: left;
+            width: (100%/12*5);
+        }
+        &_nbook-6 {
+            width: (100%/12*6);
+            float: left;
+        }
+        &_nbook-7 {
+            width: (100%/12*7);
+            float: left;
+        }
+        &_nbook-8 {
+            width: (100%/12*8);
+            float: left;
+        }
+        &_nbook-9 {
+            width: (100%/12*9);
+            float: left;
+        }
+        &_nbook-10 {
+            width: (100%/12*10);
+            float: left;
+        }
+        &_nbook-11 {
+            width: (100%/12*11);
+            float: left;
+        }
+        &_nbook-12 {
+            width: 100%;
+            float: left;
+        }
+    }
+}
+
+@media (min-width: 750px) and (max-width: 970px) {
+    .ui-coll {
+        &_tablet-none {
+            display: none;
+        }
+        &_tablet-1 {
+            width: (100%/12*1);
+            float: left;
+        }
+        &_tablet-2 {
+            width: (100%/12*2);
+            float: left;
+        }
+        &_tablet-3 {
+            width: (100%/12*3);
+            float: left;
+        }
+        &_tablet-4 {
+            width: (100%/12*4);
+            float: left;
+        }
+        &_tablet-5 {
+            float: left;
+            width: (100%/12*5);
+        }
+        &_tablet-6 {
+            width: (100%/12*6);
+            float: left;
+        }
+        &_tablet-7 {
+            width: (100%/12*7);
+            float: left;
+        }
+        &_tablet-8 {
+            width: (100%/12*8);
+            float: left;
+        }
+        &_tablet-9 {
+            width: (100%/12*9);
+            float: left;
+        }
+        &_tablet-10 {
+            width: (100%/12*10);
+            float: left;
+        }
+        &_tablet-11 {
+            width: (100%/12*11);
+            float: left;
+        }
+        &_tablet-12 {
+            width: 100%;
+            float: left;
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    .ui-coll {
+        &_phone-none {
+            display: none;
+        }
+        &_phone-1 {
+            width: (100%/6*1);
+            float: left;
+        }
+        &_phone-2 {
+            width: (100%/6*2);
+            float: left;
+        }
+        &_phone-3 {
+            width: (100%/6*3);
+            float: left;
+        }
+        &_phone-4 {
+            width: (100%/6*4);
+            float: left;
+        }
+        &_phone-5 {
+            float: left;
+            width: (100%/6*5);
+        }
+        &_phone-6 {
+            width: 100%;
+            float: left;
+        }
+        &_phone-7 {
+            width: 100%;
+            float: left;
+        }
+        &_phone-8 {
+            width: 100%;
+            float: left;
+        }
+        &_phone-9 {
+            width: 100%;
+            float: left;
+        }
+        &_phone-10 {
+            width: 100%;
+            float: left;
+        }
+        &_phone-11 {
+            width: 100%;
+            float: left;
+        }
+        &_phone-12 {
+            width: 100%;
+            float: left;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+.ui-avatar {
+    height: 56px;
+    width: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    &__img {
+        height: 100%;
+        width: 100%;
+    }
+}
