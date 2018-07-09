@@ -1,0 +1,36 @@
+.ui-select {
+    position: relative;
+    width: 100%;
+    float: left;
+    &__menu-list {
+        height: 20px;
+        width: 100%;
+        cursor: pointer;
+        color: $color-text;
+        font-size: 14px;
+        padding: 10px;
+        padding-right: 0px;
+        &:hover {
+            background-color: $color-list-hover;
+            transition-duration: 200ms;
+        }
+        &:active {
+            background-color: $color-list-active;
+            transition-duration: 200ms;
+        }
+    }
+    &__check {
+        color: $color-links;
+        font-weight: 600;
+        height: 100%;
+        margin-left: 5px;
+        width: 20px;
+    }
+    &__arrow {
+        position: absolute;
+        float: right;
+        right: 8px;
+        top: 35px;
+        font-size: 18px;
+    }
+}

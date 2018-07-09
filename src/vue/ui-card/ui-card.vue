@@ -1,0 +1,7 @@
+<template>
+<div class="ui-card">
+  <slot>
+
+  </slot>
+</div>
+</template>

@@ -2,6 +2,7 @@ const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const Webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
     // входная точка нашего приложения
@@ -26,6 +27,11 @@ module.exports = {
                 }
             },
             {
+                test: /\.vue$/,
+                exclude: /node_modules|.vscode|app|bootstrapp|config|database|resources|routes|storage|tre/,
+                loader: 'vue-loader'
+            },
+            {
                 test: /\.(sa|sc|c)ss$/,
                 exclude: /node_modules/,
                 use: [
@@ -45,9 +51,11 @@ module.exports = {
         new Webpack.IgnorePlugin(/public\/fonts/),
         new UglifyJSPlugin(),
         new MiniCssExtractPlugin({
-            filename:'css/[name].css',
+            filename: 'css/[name].css',
             chunkFilename: 'css/[id].css',
-        })
+        }),
+        new VueLoaderPlugin()
+
     ]
 
 };

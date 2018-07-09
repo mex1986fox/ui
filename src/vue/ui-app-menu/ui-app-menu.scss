@@ -1,0 +1,46 @@
+.ui-app-menu {
+    width: 100%;
+    background-color: $color-fon;
+    display: block;
+    overflow: hidden;
+    &__button {
+        margin: 21px 46px 7px 12px;
+    }
+    &__header {
+        margin-top: 31px;
+        margin-bottom: 15px;
+    }
+    &__link {
+        font-size: 14px;
+        float: left;
+        height: 52px;
+        width: 100%;
+        text-transform: uppercase;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 52px;
+        margin-left: 15px;
+        color: $color-links;
+    }
+    &__item {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+        &>a {
+            width: 100%;
+        }
+        &:hover {
+            background-color: $color-list-hover;
+        }
+        &:active {
+            background-color: $color-list-active;
+        }
+    }
+    &__content-frame {
+        border-top: 1px solid $color-links-pasiv;
+        margin: 12px 15px;
+        overflow: hidden;
+    }
+}
