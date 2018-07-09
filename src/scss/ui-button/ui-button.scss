@@ -15,18 +15,20 @@
     text-transform: uppercase;
     border-radius: 3px;
     border: 0;
-    background-color: #fcfcfc;
+    background-color: #ffffff;
     box-shadow: $color-shadow;
     overflow: hidden;
     float: left;
-    &:active {
-        box-shadow: $color-shadow-active;
-        transition-duration: 200ms;
-    }
-    &:hover {
+        &:hover {
         cursor: pointer;
         background-color: $color-list-hover;
     }
+    &:active {
+        box-shadow: $color-shadow-active;
+        transition-duration: 200ms;
+        background-color: #ffffff;
+    }
+
     &_circle {
         width: 46px;
         height: 46px;
@@ -67,12 +69,18 @@
         &:hover {
             background-color: #0c5c85;
         }
+        &:active{
+            background-color: #0e6c9a;
+        }
     }
     &_red {
         background-color: #d62526;
         color: #ffffff;
         &:hover {
             background-color: #c42222;
+        }
+        &:active {
+            background-color: #d62526;
         }
     }
     &_flat {
