@@ -1,0 +1,96 @@
+.ui-button {
+    width: auto;
+    height: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin: 6px;
+    line-height: 40px;
+    background-color: $color-fon;
+    font-family: "OpenSans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: $color-links;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    border-radius: 3px;
+    border: 0;
+    background-color: #ffffff;
+    box-shadow: $color-shadow;
+    overflow: hidden;
+    float: left;
+        &:hover {
+        cursor: pointer;
+        background-color: $color-list-hover;
+    }
+    &:active {
+        box-shadow: $color-shadow-active;
+        transition-duration: 200ms;
+        background-color: #ffffff;
+    }
+
+    &_circle {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 26px;
+        padding: 0;
+        box-shadow: 0px 5px 6px rgba(100, 124, 137, 0.49);
+        &_big {
+            width: 52px;
+            height: 52px;
+        }
+        &_mini {
+            width: 36px;
+            height: 36px;
+            font-size: 17px;
+            line-height: 36px;
+        }
+        &:active {
+            box-shadow: 0px 9px 10px rgba(100, 124, 137, 0.49);
+            transition-duration: 200ms;
+        }
+    }
+    &_big {
+        height: 46px;
+        font-size: 17px;
+    }
+    &_mini {
+        height: 36px;
+        line-height: 36px;
+        font-size: 12px;
+    }
+    &_blue {
+        background-color: #0e6c9a;
+        color: #ffffff;
+        &:hover {
+            background-color: #0c5c85;
+        }
+        &:active{
+            background-color: #0e6c9a;
+        }
+    }
+    &_red {
+        background-color: #d62526;
+        color: #ffffff;
+        &:hover {
+            background-color: #c42222;
+        }
+        &:active {
+            background-color: #d62526;
+        }
+    }
+    &_flat {
+        background-color: rgba(255, 255, 255, 0);
+        color: $color-links;
+        box-shadow: none;
+        &:active {
+            box-shadow: none;
+            background-color: $color-list-active;
+            transition-duration: 200ms;
+        }
+    }
+}

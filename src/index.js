@@ -1,15 +1,18 @@
-require('./index.scss');
+require('./ui/index.scss');
 
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
-
+//import Vue from 'vue'
+import Vue from 'vue/dist/vue.js'
 import router from './router/index.js'
 // import store from "./stores/index.js"
 
 // подключаем библиотеку UI
-import "./vue/index.js"
+import "./ui/index.js"
 
+// подключаем лейаут
+import Layout from './pages/layout.vue'
+Vue.component('layout', Layout);
 
 //подключаем библиотеку AJAX запросов
 // import Resourсe from "vue-resource"
@@ -29,8 +32,8 @@ import "./vue/index.js"
 // Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-new Vue({
-    router: router,
+const vue =new Vue({
+    router
     //   store: store,
     //   //глобальная шина событий
     //   data: {
@@ -41,3 +44,4 @@ new Vue({
     //     store.dispatch('download');
     //   }
 }).$mount('#app')
+console.log(vue);

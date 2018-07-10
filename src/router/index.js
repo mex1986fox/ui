@@ -1,10 +1,12 @@
-import Vue from 'vue'
+import Vue from 'vue/dist/vue.js'
 import Router from 'vue-router'
-import test from '../pages/test.vue'
+import Grid from '../pages/grid.vue'
+import Buttons from '../pages/buttons.vue'
 
 Vue.use(Router)
 export default new Router({
   routes: [
-    { path: '/ui', component: test },
+    { path: '/grid', component: Grid },
+    { path: '/buttons', component: Buttons },
   ]
 })
