@@ -1,8 +1,10 @@
 // имортируем всю библиотеку в глобальную область vue
 
-import Vue from 'vue/dist/vue.js'
-import UiText from './ui-text/ui-text.vue'
+import Vue from 'vue/dist/vue.js';
+import UiText from './ui-text/ui-text.vue';
 Vue.component('ui-text', UiText);
+import UiCode from './ui-code/ui-code.vue';
+Vue.component('ui-code', UiCode);
 
 // import UiText2 from './ui-text2/ui-text2.vue'
 // Vue.component('ui-text2', UiText2);
@@ -64,4 +66,3 @@ Vue.component('ui-text', UiText);
 // Vue.component('ui-table', UiTable);
 // import UiAppMenu from './ui-app-menu/ui-app-menu.vue'
 // Vue.component('ui-app-menu', UiAppMenu);
-

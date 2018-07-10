@@ -10,6 +10,14 @@
         <div class="col_12">
           <p>Размер маленькие</p>
         </div>
+        <div class="col_12">
+          <ui-code value='<button class="ui-button ui-button_mini">
+  <i class="fa fa-apple" aria-hidden="true"></i>
+  Кнопка 
+</button>'>
+        </ui-code>
+        </div>
+
         <div class="col_12 col-nbook_12 col-tablet_12 col-phone_6">
           <button class="ui-button ui-button_mini">
             <i class="fa fa-apple" aria-hidden="true"></i>
