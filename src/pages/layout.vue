@@ -5,8 +5,10 @@
                 <div class="col_12">
                     <router-link to="/grid" class="ui-link">Сетка</router-link>
                     <router-link to="/buttons" class="ui-link">Кнопки</router-link>
+                    <router-link to="/typography" class="ui-link">Tипография</router-link>
+                    <router-link to="/inputs" class="ui-link">Инпуты</router-link>
                     <router-link to="/selects" class="ui-link">Селекты</router-link>
-                    <router-link to="/texts" class="ui-link">Тексты</router-link>
+                    
                 </div>
             </div>
         </div>

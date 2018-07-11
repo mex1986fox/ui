@@ -1,6 +1,5 @@
 //убираем стили по умолчанию 
 select {
-    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
 }
@@ -14,9 +13,10 @@ $color-fon: #ffffff;
 $color-links: #0e6c9a;
 $color-links-pasiv: #afafaf;
 // $color-text: #5c5c5c;
-$color-text: #617179;
+$color-description: #333333;
+$color-text: rgb(43, 43, 43);
 // $color-text-header: #3a3a3a;
-$color-text-header: #58676e;
+$color-text-header: #333;
 $color-list-hover:rgba(247, 247, 247, 0.95);
 $color-list-active: rgba(233, 233, 233, 0.95);
 $color-shadow: 0px 2px 4px rgba(100, 124, 137, 0.49);

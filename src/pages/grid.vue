@@ -103,6 +103,28 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col_12">
+                    <ui-code value='<div class="container">
+    <div class="row">
+        <div class="col_1 col-nbook_1 col-tablet_1 col-phone_1">
+            <p>col_1</p>
+        </div>
+        <div class="col_2 col-nbook_2 col-tablet_2 col-phone_2">
+            <p>col_2</p>
+        </div>
+        
+        ...
+
+        <div class="col_12 col-nbook_12 col-tablet_12 col-phone_6">
+            <p>col_12</p>
+        </div>
+    </div>
+</div>'>
+                    </ui-code>
+                </div>
+            </div>
         </div>
         <div class="container">
             <div class="row">
@@ -114,26 +136,6 @@
                 <div class="col_12">
                     <h4>Классы: col_offset-1, col-nbook_offset-1, col-tablet_offset-1, col-phone_offset-1</h4>
                     <p>классы col_offset- добавляют смещение слева margin-left к классам coll </p>
-                    <p>Пример кода:</p>
-                </div>
-
-                <div class="col_12">
-
-                    <pre style="background:#000;color:#f8f8f8">    &lt;div class<span style="color:#e28964">=</span><span style="color:#65b042">"container"</span>>
-        &lt;div class<span style="color:#e28964">=</span><span style="color:#65b042">"row"</span>>
-            &lt;div class<span style="color:#e28964">=</span><span style="color:#65b042">"col_1 
-                        col_offset-1
-                        col-nbook_1 
-                        col-nbook_offset-2
-                        col-tablet_1 
-                        col-tablet_offset-3
-                        col-phone_1
-                        col-phone_offset-5"</span>>
-                &lt;p>col_1&lt;<span style="color:#e28964">/</span>p>
-            &lt;<span style="color:#e28964">/</span>div>
-        &lt;<span style="color:#e28964">/</span>div>
-    &lt;<span style="color:#e28964">/</span>div>
-</pre>
                 </div>
             </div>
             <div class="row">
@@ -150,32 +152,30 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col_12">
+                    <ui-code value='<div class="container">
+    <div class="row">
+        <div class="col_1 
+                col_offset-1
+                col-nbook_1 
+                col-nbook_offset-2
+                col-tablet_1 
+                col-tablet_offset-3
+                col-phone_1
+                col-phone_offset-5">
+            <p>col_1</p>
+        </div>
+    </div>
+</div>'>
+                    </ui-code>
+                </div>
+            </div>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col_12">
                     <h3>Вложенность </h3>
-                </div>
-                <p>Пример кода:</p>
-                <div class="col_12">
-                    <pre style="background:#000;color:#f8f8f8">&lt;div class<span style="color:#e28964">=</span><span style="color:#65b042">"container"</span>>
-    &lt;div class<span style="color:#e28964">=</span><span style="color:#65b042">"row"</span>>
-        &lt;div class<span style="color:#e28964">=</span><span style="color:#65b042">"col_6"</span>>
-            &lt;p>levele <span style="color:#3387cc">1</span>&lt;<span style="color:#e28964">/</span>p>
-
-            &lt;div class<span style="color:#e28964">=</span><span style="color:#65b042">"row"</span>>
-                &lt;div class<span style="color:#e28964">=</span><span style="color:#65b042">"col_6"</span>>
-                    &lt;p>levele <span style="color:#3387cc">2</span>&lt;<span style="color:#e28964">/</span>p>
-                &lt;<span style="color:#e28964">/</span>div>
-                &lt;div class<span style="color:#e28964">=</span><span style="color:#65b042">"col_6"</span>>
-                    &lt;p>levele <span style="color:#3387cc">2</span>&lt;<span style="color:#e28964">/</span>p>
-                &lt;<span style="color:#e28964">/</span>div>
-            &lt;<span style="color:#e28964">/</span>div>
-
-        &lt;<span style="color:#e28964">/</span>div>
-    &lt;<span style="color:#e28964">/</span>div>
-&lt;<span style="color:#e28964">/</span>div>
-</pre>
                 </div>
             </div>
 
@@ -243,6 +243,28 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col_12">
+                    <ui-code value='<div class="container">
+    <div class="row">
+        <div class="col_6">
+            <p>levele 1</p>
+
+            <div class="row">
+                <div class="col_6">
+                    <p>levele 2</p>
+                </div>
+                <div class="col_6">
+                    <p>levele 2</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>'>
+                    </ui-code>
                 </div>
             </div>
         </div>
