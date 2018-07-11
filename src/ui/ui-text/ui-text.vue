@@ -1,9 +1,33 @@
 <template>
-    <div class="ui-text">
-        <span class="ui-text__caption" :class="{'ui-text__caption_active':modFocus, 'ui-text__caption_completed':modCompleted}">Заголовок</span>
-        <input class="ui-text__input" :class="{'ui-text__input_active':modFocus}" ref="input" @focus="isFocus()" @blur="isBlur()" />
-        <hr class="ui-text__border" :class="{'ui-text__border_active':modFocus}">
-        <span class="ui-text__help">Подсказка</span>
+    <div class="ui-text" @click="isClickText()">
+        <span 
+          class="ui-text__caption" 
+          :class="{'ui-text__caption_active':modFocus, 
+                   'ui-text__caption_completed':modCompleted,
+                   'ui-text__caption_disabled':dDisabled}">
+            {{dCaption}}
+        </span>
+        <input 
+          class="ui-text__input" 
+          :class="{'ui-text__input_active':modFocus,
+                   'ui-text__input_disabled':dDisabled}" 
+          ref="input" 
+          @focus="isFocus()" 
+          @blur="isBlur()" 
+          @input="isInputText()"
+          :value="dValue"
+          :readonly="dReadonly"
+          :disabled="dDisabled"
+          />
+        <hr 
+          class="ui-text__border" 
+          :class="{'ui-text__border_active':modFocus,
+                  'ui-text__border_disabled':dDisabled}">
+        <span class="ui-text__help" 
+            :class="{'ui-text__help_active':dHelp,
+                    'ui-text__help_disabled':dDisabled}">
+          {{dHelp}}
+        </span>
     </div>
 </template>
 
@@ -13,8 +37,36 @@ export default {
   data() {
     return {
       modFocus: false,
-      modCompleted: false
+      modCompleted: false,
+      dValue: this.value,
+      dCaption: this.caption,
+      dDisabled: this.disabled,
+      dHelp: this.help,
+      dReadonly: this.readonly
     };
+  },
+  props: {
+    value: {
+      type: String,
+      default: ""
+    },
+    caption:{
+      type: String,
+      default: ""
+    },
+    readonly:{
+      type: Boolean,
+      default: false
+    },
+    help:{
+      type: String,
+      default: ""
+    },
+    disabled:{
+      type: String,
+      default: false
+    }
+
   },
   methods: {
     isFocus() {
@@ -23,12 +75,40 @@ export default {
     },
     isBlur() {
       this.modFocus = false;
-      if (this.$refs.input.value == "") {
+      if (this.dValue == "") {
         this.modCompleted = false;
       } else {
         this.modCompleted = true;
       }
+    },
+    isClickText() {
+      this.$emit("onClickText");
+      if (this.$refs.input.value == "") {
+        this.$refs.input.focus();
+      }
+    },
+    isInputText() {
+      this.dValue = this.$refs.input.value;
+      this.$emit("onInput", [this.dValue]);
     }
+  },
+  // watch: {
+  //   value(newQ, oldQ) {
+  //     this.dValue = newQ ? newQ : "";
+  //    if (this.dValue == "") {
+  //       this.modCompleted = false;
+  //     } else {
+  //       this.modCompleted = true;
+  //     }
+  //   }
+  // },
+  
+   mounted() {
+     if (this.dValue == "") {
+        this.modCompleted = false;
+      } else {
+        this.modCompleted = true;
+      }
   }
 };
 </script>

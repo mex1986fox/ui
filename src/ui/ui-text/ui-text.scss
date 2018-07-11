@@ -10,7 +10,7 @@
         width: 100%;
         height: 30px;
         font-size: 16px;
-        color: #cccccc;
+        color: #888888;
         position: absolute;
         transition-duration: 300ms;
         line-height: 90px;
@@ -25,6 +25,9 @@
             line-height: 45px;
             transition-duration: 300ms;
         }
+        &_disabled {
+            color: #cccccc;
+        }
     }
     &__input {
         width: 100%;
@@ -32,7 +35,7 @@
         border: 0;
         border-radius: 0px;
         border-bottom: 1px solid $color-links-pasiv;
-        color: $color-text;
+        color: $color-description;
         font-size: 16px;
         padding: 0;
         margin-top: 30px;
@@ -50,8 +53,12 @@
             outline: none;
         }
         &_active {
-            border: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0);
             transition-duration: 300ms;
+        }
+        &_disabled {
+            background-color: rgba(255, 255, 255, 0);
+            color: #cccccc;
         }
     }
     &__border {
@@ -71,6 +78,9 @@
             width: 100%;
             transition-duration: 300ms;
         }
+        &_disabled {
+            background-color: #cccccc;
+        }
     }
     &__help {
         width: 100%;
@@ -80,11 +90,14 @@
         line-height: 14px;
         display: none;
         transition-duration: 300ms;
+        padding-top: 3px;
         &_active {
-            padding-top: 1px;
             color: #e01313;
             transition-duration: 300ms;
             display: block;
+        }
+        &_disabled {
+            color: #cccccc;
         }
     }
 }
