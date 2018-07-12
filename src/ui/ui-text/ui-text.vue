@@ -1,10 +1,11 @@
 <template>
-    <div class="ui-text" @click="isClickText()">
+    <div class="ui-text" @click="isClick()">
         <span 
           class="ui-text__caption" 
           :class="{'ui-text__caption_active':modFocus, 
                    'ui-text__caption_completed':modCompleted,
-                   'ui-text__caption_disabled':dDisabled}">
+                   'ui-text__caption_disabled':dDisabled}"
+          @click="isClick()">
             {{dCaption}}
         </span>
         <input 
@@ -25,7 +26,8 @@
                   'ui-text__border_disabled':dDisabled}">
         <span class="ui-text__help" 
             :class="{'ui-text__help_active':dHelp,
-                    'ui-text__help_disabled':dDisabled}">
+                    'ui-text__help_disabled':dDisabled}"
+            @click="isClick()">
           {{dHelp}}
         </span>
     </div>
@@ -81,11 +83,9 @@ export default {
         this.modCompleted = true;
       }
     },
-    isClickText() {
-      this.$emit("onClickText");
-      if (this.$refs.input.value == "") {
-        this.$refs.input.focus();
-      }
+    isClick() {
+      this.$emit("onClick");
+      this.$refs.input.focus();
     },
     isInputText() {
       this.dValue = this.$refs.input.value;

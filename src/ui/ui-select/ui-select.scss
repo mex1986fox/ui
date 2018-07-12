@@ -1,23 +1,59 @@
 .ui-select {
-    position: relative;
+    position: absolute;
     width: 100%;
     float: left;
-    &__menu-list {
-        height: 20px;
+    &__menu {
+        margin: 0;
+        border: 0;
+        padding: 0;
+        max-height: 200px;
         width: 100%;
-        cursor: pointer;
-        color: $color-text;
+        color: #2b2b2b;
         font-size: 14px;
-        padding: 10px;
-        padding-right: 0px;
+        position: absolute;
+        background-color: #ffffff;
+        display: block;
+        float: right;
+        z-index: 100;
+        box-shadow: $color-shadow-active;
+        left: 3px;
+        overflow-y: none;
+        overflow-x: auto;
+    }
+    &__option {
+        position: relative;
+        border: 0;
+        padding: 0px 30px;
+        margin: 0;
+        list-style-type: none;
+        cursor: pointer;
+        height: 40px;
+        width: auto;
+        font-size: 14px;
+        line-height: 38px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #202020;
         &:hover {
-            background-color: $color-list-hover;
-            transition-duration: 200ms;
+            background-color: #f3f3f3;
         }
-        &:active {
-            background-color: $color-list-active;
-            transition-duration: 200ms;
-        }
+    }
+    &__group {
+        position: relative;
+        border: 0;
+        padding: 0 20px;
+        margin: 0;
+        list-style-type: none;
+        height: 40px;
+        width: auto;
+        font-size: 15px;
+        line-height: 41px;
+        color: #7d7d7d;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-transform: uppercase;
     }
     &__check {
         color: $color-links;

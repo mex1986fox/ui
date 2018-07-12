@@ -5,12 +5,13 @@ import UiText from './ui-text/ui-text.vue';
 Vue.component('ui-text', UiText);
 import UiCode from './ui-code/ui-code.vue';
 Vue.component('ui-code', UiCode);
+import UiSelect from './ui-select/ui-select.vue'
+Vue.component('ui-select', UiSelect);
 
 // import UiText2 from './ui-text2/ui-text2.vue'
 // Vue.component('ui-text2', UiText2);
 
-// import UiSelect from './ui-select/ui-select.vue'
-// Vue.component('ui-select', UiSelect);
+
 // import UiSelect2 from './ui-select2/ui-select2.vue'
 // Vue.component('ui-select2', UiSelect2);
 // import UiOption from './ui-option/ui-option.vue'
