@@ -1,8 +1,9 @@
 .ui-select {
-    position: absolute;
+    position: relative;
     width: 100%;
     float: left;
     &__menu {
+        top: 90px;
         margin: 0;
         border: 0;
         padding: 0;

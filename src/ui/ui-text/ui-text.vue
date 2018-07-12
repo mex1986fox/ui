@@ -65,7 +65,7 @@ export default {
       default: ""
     },
     disabled:{
-      type: String,
+      type: Boolean,
       default: false
     }
 

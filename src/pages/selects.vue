@@ -11,7 +11,14 @@
                     <ui-select 
                     value="Select test 1"
                     caption="Классический селект"
-                    help="Строка помощи">
+                    help="Строка помощи"
+                    :menu="[{option:'Мартышка', group:'Обезьяны', selected:false},
+                        {option:'Соловей', group:'Птици', selected:true},
+                        {option:'Макака', group:'Обезьяны', selected:false},
+                        {option:'Петух', group:'Птици',selected:true},
+                        {option:'Гибон', group:'Обезьяны',selected:true}]
+                        
+                        ">
                     </ui-select>
                 </div>
                 <div class="col_12">

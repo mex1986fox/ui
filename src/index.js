@@ -32,7 +32,7 @@ Vue.component('layout', Layout);
 // Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-const vue =new Vue({
+const vue = new Vue({
     router
     //   store: store,
     //   //глобальная шина событий
@@ -43,5 +43,4 @@ const vue =new Vue({
     //     //загружаем типы транспорта в глобальное хранилище
     //     store.dispatch('download');
     //   }
-}).$mount('#app')
-console.log(vue);
+}).$mount('#app');
