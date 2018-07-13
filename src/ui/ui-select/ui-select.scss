@@ -20,6 +20,18 @@
         left: 3px;
         overflow-y: none;
         overflow-x: auto;
+        &-enter,
+        &-leave-to {
+            max-height: 0px;
+        }
+        &-enter-active,
+        &-leave-active {
+            transition: max-height 0.5s ease;
+        }
+        &-enter-to,
+        &-leave {
+            max-height: 200px;
+        }
     }
     &__option {
         position: relative;
@@ -69,5 +81,44 @@
         right: 8px;
         top: 35px;
         font-size: 18px;
+        transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        &-enter {
+            transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -webkit-transform: rotate(180deg);
+        }
+        &-enter-active {
+            transition: transform .8s ease-in-out;
+        }
+        &-enter-to{
+            transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+        }
+     }
+    &__arrow_transit {
+        position: absolute;
+        float: right;
+        right: 8px;
+        top: 35px;
+        font-size: 18px;
+        transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        &-enter {
+            transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+        }
+        &-enter-active {
+            transition: transform .8s ease-in-out;
+        }
+        &-enter-to{
+            transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -webkit-transform: rotate(180deg);
+        }
     }
 }

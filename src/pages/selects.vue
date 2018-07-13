@@ -9,23 +9,26 @@
                 </div>
                 <div class="col_4 col-phone_6">
                     <ui-select 
-                    value="Select test 1"
-                    caption="Классический селект"
-                    help="Строка помощи"
-                    :menu="[{option:'Мартышка', group:'Обезьяны', selected:false},
-                        {option:'Соловей', group:'Птици', selected:true},
-                        {option:'Макака', group:'Обезьяны', selected:false},
-                        {option:'Петух', group:'Птици',selected:true},
-                        {option:'Гибон', group:'Обезьяны',selected:true}]
-                        
-                        ">
+                        value="Select test 1"
+                        caption="Классический селект"
+                        help="Строка помощи"
+                        :menu="[{option:'Мартышка', group:'Обезьяны', selected:false},
+                            {option:'Соловей', group:'Птици', selected:true},
+                            {option:'Макака', group:'Обезьяны', selected:false},
+                            {option:'Петух', group:'Птици',selected:true},
+                            {option:'Гибон', group:'Обезьяны',selected:true}]">
                     </ui-select>
                 </div>
                 <div class="col_12">
-                    <ui-code value='<ui-select
+                    <ui-code value='<ui-select 
     value="Select test 1"
     caption="Классический селект"
-    help="Строка помощи">
+    help="Строка помощи"
+    :menu=`[{option:"Мартышка", group:"Обезьяны", selected:false},
+        {option:"Соловей", group:"Птици", selected:true},
+        {option:"Макака", group:"Обезьяны", selected:false},
+        {option:"Петух", group:"Птици",selected:true},
+        {option:"Гибон", group:"Обезьяны",selected:true}]`>
 </ui-select>'>
                     </ui-code>
                 </div>

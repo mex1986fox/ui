@@ -74,6 +74,7 @@ export default {
     isFocus() {
       this.modFocus = true;
       this.modCompleted = true;
+      this.$emit("onFocus");
     },
     isBlur() {
       this.modFocus = false;
@@ -81,7 +82,8 @@ export default {
         this.modCompleted = false;
       } else {
         this.modCompleted = true;
-      }
+      };
+      this.$emit("onBlur");
     },
     isClick() {
       this.$emit("onClick");
