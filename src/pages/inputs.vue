@@ -41,15 +41,16 @@
                     <ui-text 
                         value="Text test 3"
                         caption="Текстовое поле которое нельзя изменить"
-                        readonly="true"
+                        :readonly="true"
                         >
                     </ui-text>
                 </div>
                 <div class="col_12">
                     <ui-code value='<ui-text 
+    name="tex1"                
     value="Text test 1"
     caption="Описание текстового поля 1"
-    readonly="true">
+    :readonly="true">
 </ui-text>'>
                     </ui-code>
                 </div>
@@ -57,7 +58,7 @@
                     <ui-text 
                         value="Text test 4"
                         caption="Неактивное текстовое поле"
-                        disabled="true"
+                        :disabled="true"
                         >
                     </ui-text>
                 </div>
@@ -66,7 +67,7 @@
                     <ui-code value='<ui-text 
     value="Text test 1"
     caption="Описание текстового поля 1"
-    disabled="true">
+    :disabled="true">
 </ui-text>'>
                     </ui-code>
                 </div>

@@ -1,9 +1,9 @@
 <template>
-<div class="ui-checkbox" @click="emitClickUiChecbox()">
+<div class="ui-checkbox" @click="isClick()">
     <span class="ui-checkbox__check" :class="{'ui-checkbox__check_active': checked}" aria-hidden="true">
         <i class="fa fa-check" aria-hidden="true"></i>
     </span>
-    <input class="ui-checkbox__input" type="checkbox" :checked="checked"/>
+    <input class="ui-checkbox__input" type="checkbox" :name="dName"  :checked="dChecked" :value="dValue"/>
     <span  class="ui-checkbox__caption">
         <slot name="caption"></slot>
     </span>
@@ -14,24 +14,39 @@ export default {
   name: "uiCheckBox",
   data() {
     return {
-      checked: false
+      dChecked: this.checked,
+      dName: this.name,
+      dValue: this.value
     };
   },
   methods: {
-    emitClickUiChecbox() {
-      this.checked = !this.checked;
-      this.$emit("onClickUiChecbox");
+    isClick() {
+      this.dChecked = !this.dChecked;
+      this.$emit("onClick");
     }
   },
-  props: {propsChecked: Boolean},
+  props: {
+    name:{
+      type: String,
+      default: ""
+    },
+    value:{
+      type: String,
+      default: ""
+    },
+    checked:{
+      type: Boolean,
+      default: false
+    } 
+  },
   mounted() {
-    if (this.propsChecked) {
-      this.checked = this.propsChecked;
+    if (this.checked) {
+      this.dChecked = this.checked;
     }
   },
   watch: {
-    propsChecked() {
-      this.checked = this.propsChecked;
+    checked() {
+      this.dChecked = this.checked;
     }
   }
 };

@@ -16,6 +16,7 @@
           @focus="isFocus()" 
           @blur="isBlur()" 
           @input="isInputText()"
+          :name="dName"
           :value="dValue"
           :readonly="dReadonly"
           :disabled="dDisabled"
@@ -39,7 +40,8 @@ export default {
   data() {
     return {
       modFocus: false,
-      modCompleted: false,
+      //modCompleted: false,
+      dName:this.name,
       dValue: this.value,
       dCaption: this.caption,
       dDisabled: this.disabled,
@@ -48,6 +50,10 @@ export default {
     };
   },
   props: {
+    name:{
+      type: String,
+      default: ""
+    },
     value: {
       type: String,
       default: ""
@@ -73,16 +79,10 @@ export default {
   methods: {
     isFocus() {
       this.modFocus = true;
-      this.modCompleted = true;
       this.$emit("onFocus");
     },
     isBlur() {
       this.modFocus = false;
-      if (this.dValue == "") {
-        this.modCompleted = false;
-      } else {
-        this.modCompleted = true;
-      };
       this.$emit("onBlur");
     },
     isClick() {
@@ -92,6 +92,15 @@ export default {
     isInputText() {
       this.dValue = this.$refs.input.value;
       this.$emit("onInput", [this.dValue]);
+    }
+  },
+  computed: {
+    modCompleted(){
+      if (this.dValue == "") {
+        return false;
+      } else {
+        return true;
+      };
     }
   },
   // watch: {
@@ -105,12 +114,6 @@ export default {
   //   }
   // },
   
-   mounted() {
-     if (this.dValue == "") {
-        this.modCompleted = false;
-      } else {
-        this.modCompleted = true;
-      }
-  }
+
 };
 </script>

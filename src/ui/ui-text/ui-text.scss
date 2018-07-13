@@ -40,6 +40,9 @@
         padding: 0;
         margin-top: 30px;
         transition-duration: 300ms;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         &:invalid {
             box-shadow: none;
         }

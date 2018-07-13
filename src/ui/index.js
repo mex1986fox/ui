@@ -5,9 +5,10 @@ import UiText from './ui-text/ui-text.vue';
 Vue.component('ui-text', UiText);
 import UiCode from './ui-code/ui-code.vue';
 Vue.component('ui-code', UiCode);
-import UiSelect from './ui-select/ui-select.vue'
+import UiSelect from './ui-select/ui-select.vue';
 Vue.component('ui-select', UiSelect);
-
+import UiCheckBox from './ui-check-box/ui-check-box.vue';
+Vue.component('ui-check-box', UiCheckBox);
 // import UiText2 from './ui-text2/ui-text2.vue'
 // Vue.component('ui-text2', UiText2);
 
@@ -25,8 +26,7 @@ Vue.component('ui-select', UiSelect);
 // Vue.component('ui-menu', UiMenu);
 // import UiButton from './ui-button/ui-button.vue'
 // Vue.component('ui-button', UiButton);
-// import UiCheckBox from './ui-check-box/ui-check-box.vue'
-// Vue.component('ui-check-box', UiCheckBox);
+
 // import UiSwitch from './ui-switch/ui-switch.vue'
 // Vue.component('ui-switch', UiSwitch);
 // import UiChips from './ui-chips/ui-chips.vue'

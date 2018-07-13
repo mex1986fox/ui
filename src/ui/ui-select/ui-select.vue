@@ -1,25 +1,27 @@
 <template>
   <div class="ui-select">
-    <ui-text ref="text" :value="this.dValue" :caption="this.dCaption" :help="this.dHelp" @onFocus="isFocus" @onBlur="isBlur">
+    <ui-text ref="text" :disabled="dDisabled" :value="this.dValue" :caption="this.dCaption" :help="this.dHelp" :readonly="true" @onFocus="isFocus" @onBlur="isBlur">
     </ui-text>
+    
     <transition name="ui-select__arrow">
-      <div class="ui-select__arrow" v-if="!dFocus" @click="$refs.text.$emit('onClick')">
+      <div class="ui-select__arrow" v-if="!dFocus && !dDisabled" @click="dFocus=!dFocus">
         <i class="fa fa-angle-down"></i>
       </div>
     </transition>
     <transition name="ui-select__arrow_transit">
-      <div class="ui-select__arrow_transit" v-if="dFocus" @click="$refs.text.$emit('onClick')">
+      <div class="ui-select__arrow_transit" v-if="dFocus && !dDisabled" @click="dFocus=!dFocus">
         <i class="fa fa-angle-down"></i>
       </div>
     </transition>
 
     <transition name="ui-select__menu">
-      <ul class="ui-select__menu" v-if="dFocus">
+      <ul class="ui-select__menu" v-show="dFocus">
         <template v-for="(val, key) in sortMenu">
           <li v-if="key==0 || sortMenu[key-1].group!=sortMenu[key].group" class="ui-select__group" :key="key">
             {{val.group}}
           </li>
           <li class="ui-select__option" :key="'option'+key" @click="isClickOption(key)">
+             <ui-check-box :name="dName" :checked="val.selected" :value="val.value" v-show="dMultiple"/>
             {{val.option}}
           </li>
         </template>
@@ -32,21 +34,36 @@
 export default {
   data() {
     return {
+      dName: this.name,
       dValue: "",
       dCaption: this.caption,
+      dMultiple: this.multiple,
       dHelp: this.help,
       dMenu: this.menu,
+      dDisabled: this.disabled,
       dFocus: false
     };
   },
   props: {
+    name:{
+      type: String,
+      default:""
+    },
     caption: {
       type: String,
       default: ""
     },
+    multiple:{
+      type: Boolean,
+      default:false
+    },
     help: {
       type: String,
       default: ""
+    },
+    disabled: {
+      stype: Boolean,
+      default: false
     },
     menu: {
       type: Array,
@@ -58,15 +75,22 @@ export default {
       this.dFocus = true;
     },
     isBlur() {
-      this.dFocus = false;
+      //this.dMultip==true? this.dFocus=true : this.dFocus = false;
     },
     isClickOption(key) {
       let copyDMeny = this.dMenu;
-      for (let k in copyDMeny) {
-        key == k
-          ? (copyDMeny[k].selected = true)
-          : (copyDMeny[k].selected = false);
+      if(this.dMultiple==true){
+
+        copyDMeny[key].selected = !copyDMeny[key].selected
+        console.log(copyDMeny[key])
+      }else{
+        for (let k in copyDMeny) {
+          key == k
+            ? (copyDMeny[k].selected = true)
+            : (copyDMeny[k].selected = false);
+        }
       }
+      
       this.dMenu = copyDMeny;
       this.isCreatedValue();
     },
@@ -94,12 +118,35 @@ export default {
       });
     }
   },
+   mounted() {
+    window.addEventListener(
+      "click",
+      event => {
+        let ev = event.target;
+        let flCl = false;
+        while (ev) {
+          if (ev == this.$el) {
+            flCl = true;
+            break;
+          }
+          if (ev == undefined) {
+            flCl = false;
+            break;
+          }
+          ev = ev.parentNode;
+        }
+        if (!flCl) {
+          this.dFocus = false;
+        }
+      },
+      true
+    );
+  },
   created() {
     this.isCreatedValue();
   },
   updated(){
-    console.log(this.dValue);
-    this.$refs.text.$forceUpdate();
+    this.$refs.text.dValue=this.dValue;
   }
 };
 </script>
