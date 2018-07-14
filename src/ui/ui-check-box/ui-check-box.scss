@@ -33,17 +33,27 @@
         background-color: $color-fon;
         line-height: 0px;
         transition-duration: 500ms;
-        margin-top: 8px;
+        margin-top: 5px;
         margin-left: 8px;
-    }
-    &__check_active {
-        border: 2px solid $color-links;
-        background-color: $color-links;
-        transition-duration: 1100ms;
+        &_checked {
+            border: 2px solid $color-links;
+            background-color: $color-links;
+            transition-duration: 1100ms;
+        }
+        &_disabled {
+            border: 2px solid $color-disabled;
+            background-color: $color-fon;
+            cursor: auto;
+            &_checked {
+                border: 2px solid $color-disabled;
+                background-color: $color-disabled;
+                cursor: auto;
+            }
+        }
     }
     &__caption {
         font-size: 16px;
-        color: $color-links;
+        color: $color-text;
         z-index: 10;
         position: absolute;
         margin-top: -12px;
@@ -52,5 +62,8 @@
         line-height: 51px;
         margin-left: -19px;
         white-space: nowrap;
+        &_disabled {
+            color: $color-disabled;
+        }
     }
 }

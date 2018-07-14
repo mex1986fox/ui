@@ -1,10 +1,16 @@
 <template>
-  <div class="ui-switch" v-on:click="emitClickUiSwith()">
-      <input class="ui-switch__checkbox" type="checkbox" :checked="checked">
-        <div class="ui-switch__track"
-        v-bind:class="{ 'ui-switch__track_active': checked }"></div>
-        <div class="ui-switch__thumb"
-        v-bind:class="{ 'ui-switch__thumb_active': checked }"></div>
+  <div class="ui-switch" v-on:click="isClick()">
+      <input class="ui-switch__checkbox" type="checkbox" :disabled="dDisabled" :value="dValue" :name="dName" :checked="dChecked">
+      <div class="ui-switch__track"
+            :class="{ 'ui-switch__track_active': dChecked,
+                      'ui-switch__track_disabled': dDisabled }"></div>
+      <div class="ui-switch__thumb"
+            :class="{ 'ui-switch__thumb_active': dChecked,
+                      'ui-switch__thumb_disabled': dDisabled }"></div>
+      <span  class="ui-switch__caption" 
+        :class="{'ui-switch__caption_disabled': dDisabled}">
+        <slot></slot>
+      </span>               
   </div>
 </template>
 <script>
@@ -12,24 +18,41 @@ export default {
   name: "uiSwitch",
   data() {
     return {
-      checked: false
+      dChecked: this.checked,
+      dName: this.name,
+      dValue: this.value,
+      dDisabled: this.disabled
     };
   },
-  methods: {
-    emitClickUiSwith() {
-      this.checked = !this.checked;
-      this.$emit("onClickUiSwitch");
-    }
+  props: {
+    name:{
+      type: String,
+      default: ""
+    },
+    value:{
+      type: String,
+      default: ""
+    },
+    checked:{
+      type: Boolean,
+      default: false
+    },
+    disabled:{
+      type: Boolean,
+      default: false
+    } 
   },
-  props: ["propsChecked"],
-  mounted() {
-    if (this.propsChecked) {
-      this.checked = this.propsChecked;
+ methods: {
+    isClick() {
+      if(this.dDisabled==false){
+        this.dChecked = !this.dChecked;
+      }
+      this.$emit("onClick");
     }
   },
   watch: {
-    propsChecked() {
-      this.checked = this.propsChecked;
+    сhecked() {
+      this.dChecked = this.сhecked;
     }
   }
 };

@@ -1,21 +1,23 @@
 .ui-link {
     color: $color-links;
-    font-size: 16px;
+    font-size: $text-size;
     cursor: pointer;
     text-decoration: none;
     &:hover {
         text-decoration: underline;
     }
-    a {
+    &:active {
         color: $color-links;
         text-decoration: none;
-        &:active {
-            color: $color-links;
-            text-decoration: none;
-        }
-        &:visited {
-            color: $color-links;
-            text-decoration: none;
-        }
+    }
+    &:visited {
+        color: $color-links;
+        text-decoration: none;
+    }
+    &_mini {
+        font-size: $text-size-mini;
+    }
+    &_big {
+        font-size: $text-size-big;
     }
 }

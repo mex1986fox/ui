@@ -27,8 +27,8 @@ Vue.component('ui-check-box', UiCheckBox);
 // import UiButton from './ui-button/ui-button.vue'
 // Vue.component('ui-button', UiButton);
 
-// import UiSwitch from './ui-switch/ui-switch.vue'
-// Vue.component('ui-switch', UiSwitch);
+import UiSwitch from './ui-switch/ui-switch.vue'
+Vue.component('ui-switch', UiSwitch);
 // import UiChips from './ui-chips/ui-chips.vue'
 // Vue.component('ui-chips', UiChips);
 // import UiList from './ui-list/ui-list.vue'

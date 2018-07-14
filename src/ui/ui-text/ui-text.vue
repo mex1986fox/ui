@@ -103,16 +103,11 @@ export default {
       };
     }
   },
-  // watch: {
-  //   value(newQ, oldQ) {
-  //     this.dValue = newQ ? newQ : "";
-  //    if (this.dValue == "") {
-  //       this.modCompleted = false;
-  //     } else {
-  //       this.modCompleted = true;
-  //     }
-  //   }
-  // },
+  watch: {
+    value(newQ, oldQ) {
+      this.dValue = newQ;
+    }
+  },
   
 
 };

@@ -8,6 +8,7 @@
                     <router-link to="/typography" class="ui-link">Tипография</router-link>
                     <router-link to="/inputs" class="ui-link">Инпуты</router-link>
                     <router-link to="/selects" class="ui-link">Селекты</router-link>
+                     <router-link to="/checkboxs" class="ui-link">Чекбоксы</router-link>
                     
                 </div>
             </div>

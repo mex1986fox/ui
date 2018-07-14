@@ -10,9 +10,8 @@
                 <div class="col_4 col-phone_6">
                     <ui-select 
                         name="select1"
-                        value="Select test 1"
                         caption="Классический селект"
-                        :menu="[{value:'1',option:'Мартышка', group:'Обезьяны', selected:false},
+                        :menu="[{value:'1',option:'Мартышка', group:'Обезьяны', selected:false, disabled:true},
                                 {value:'2',option:'Соловей', group:'Птици', selected:true},
                                 {value:'3',option:'Макака', group:'Обезьяны', selected:false},
                                 {value:'4',option:'Петух', group:'Птици',selected:false},
@@ -24,9 +23,8 @@
                 <div class="col_12">
                     <ui-code value='<ui-select 
     name="select1"
-    value="Select test 1"
     caption="Классический селект"
-    :menu=`[{value:"1",option:"Мартышка", group:"Обезьяны", selected:false},
+    :menu=`[{value:"1",option:"Мартышка", group:"Обезьяны", selected:false, disabled:true},
             {value:"2",option:"Соловей", group:"Птици", selected:true},
             {value:"3",option:"Макака", group:"Обезьяны", selected:false},
             {value:"4",option:"Петух", group:"Птици",selected:true},
@@ -42,11 +40,10 @@
                 <div class="col_4 col-phone_6">
                     <ui-select 
                         name="select2"
-                        value="Select test 2"
                         caption="Множественный селект"
                         help="Строка помощи"
                         :multiple="true"
-                        :menu="[{value:'1',option:'Мартышка', group:'Обезьяны', selected:false},
+                        :menu="[{value:'1',option:'Мартышка', group:'Обезьяны', selected:false, disabled:true},
                                 {value:'2',option:'Соловей', group:'Птици', selected:true},
                                 {value:'3',option:'Макака', group:'Обезьяны', selected:false},
                                 {value:'4',option:'Петух', group:'Птици',selected:true},
@@ -58,11 +55,10 @@
                 <div class="col_12">
                     <ui-code value='<ui-select 
     name="select2"
-    value="Select test 2"
     caption="Классический селект"
     help="Строка помощи"
     :multiple="true"
-    :menu=`[{value:"1",option:"Мартышка", group:"Обезьяны", selected:false},
+    :menu=`[{value:"1",option:"Мартышка", group:"Обезьяны", selected:false, disabled:true},
             {value:"2",option:"Соловей", group:"Птици", selected:true},
             {value:"3",option:"Макака", group:"Обезьяны", selected:false},
             {value:"4",option:"Петух", group:"Птици",selected:false},
@@ -78,7 +74,6 @@
                 <div class="col_4 col-phone_6">
                     <ui-select 
                         name="select3"
-                        value="Select test 3"
                         caption="Неактивный селект"
                         :disabled="true"
                         :menu="[{value:'1',option:'Мартышка', group:'Обезьяны', selected:false},
@@ -93,7 +88,6 @@
                 <div class="col_12">
                     <ui-code value='<ui-select 
     name="select3"
-    value="Select test 3"
     caption="Неактивный селект"
     :disabled="true"
     :menu=`[{value:"1",option:"Мартышка", group:"Обезьяны", selected:false},

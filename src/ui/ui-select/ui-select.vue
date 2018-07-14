@@ -20,8 +20,14 @@
           <li v-if="key==0 || sortMenu[key-1].group!=sortMenu[key].group" class="ui-select__group" :key="key">
             {{val.group}}
           </li>
-          <li class="ui-select__option" :key="'option'+key" @click="isClickOption(key)">
-             <ui-check-box :name="dName" :checked="val.selected" :value="val.value" v-show="dMultiple"/>
+          <li class="ui-select__option ui-select__option_disabled" 
+              :key="'option'+key" 
+              v-if="val.disabled">
+             <ui-check-box :name="dName" :disabled="true" :checked="val.selected" :value="val.value" v-show="dMultiple"/>
+            {{val.option}}
+          </li>
+          <li class="ui-select__option" :key="'option'+key" @click="isClickOption(key)" v-if="!val.disabled">
+             <ui-check-box :name="dName" :disabled="false" :checked="val.selected" :value="val.value" v-show="dMultiple"/>
             {{val.option}}
           </li>
         </template>
@@ -80,9 +86,7 @@ export default {
     isClickOption(key) {
       let copyDMeny = this.dMenu;
       if(this.dMultiple==true){
-
-        copyDMeny[key].selected = !copyDMeny[key].selected
-        console.log(copyDMeny[key])
+        copyDMeny[key].selected = !copyDMeny[key].selected;
       }else{
         for (let k in copyDMeny) {
           key == k
@@ -144,9 +148,6 @@ export default {
   },
   created() {
     this.isCreatedValue();
-  },
-  updated(){
-    this.$refs.text.dValue=this.dValue;
   }
 };
 </script>

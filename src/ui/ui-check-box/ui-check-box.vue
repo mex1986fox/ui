@@ -1,11 +1,15 @@
 <template>
 <div class="ui-checkbox" @click="isClick()">
-    <span class="ui-checkbox__check" :class="{'ui-checkbox__check_active': checked}" aria-hidden="true">
+    <span class="ui-checkbox__check" 
+          :class="{'ui-checkbox__check_disabled': dDisabled,
+                    'ui-checkbox__check_disabled_checked': dChecked && dDisabled,
+                    'ui-checkbox__check_checked': dChecked && !dDisabled}">
         <i class="fa fa-check" aria-hidden="true"></i>
     </span>
-    <input class="ui-checkbox__input" type="checkbox" :name="dName"  :checked="dChecked" :value="dValue"/>
-    <span  class="ui-checkbox__caption">
-        <slot name="caption"></slot>
+    <input class="ui-checkbox__input" type="checkbox" :name="dName" :disabled="dDisabled"  :checked="dChecked" :value="dValue"/>
+    <span  class="ui-checkbox__caption" 
+          :class="{'ui-checkbox__caption_disabled': dDisabled}">
+        <slot></slot>
     </span>
 </div>
 </template>
@@ -16,12 +20,15 @@ export default {
     return {
       dChecked: this.checked,
       dName: this.name,
-      dValue: this.value
+      dValue: this.value,
+      dDisabled: this.disabled
     };
   },
   methods: {
     isClick() {
-      this.dChecked = !this.dChecked;
+      if(this.dDisabled==false){
+        this.dChecked = !this.dChecked;
+      }
       this.$emit("onClick");
     }
   },
@@ -37,17 +44,16 @@ export default {
     checked:{
       type: Boolean,
       default: false
+    },
+    disabled:{
+      type: Boolean,
+      default: false
     } 
   },
-  mounted() {
-    if (this.checked) {
-      this.dChecked = this.checked;
+    watch: {
+    checked(newQ, oldQ) {
+      this.dChecked = newQ;
     }
   },
-  watch: {
-    checked() {
-      this.dChecked = this.checked;
-    }
-  }
 };
 </script>
