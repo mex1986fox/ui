@@ -17,6 +17,8 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col_12">
+            <div class="row">
                 <div class="col_1 
                         col-nbook_1 
                         col-tablet_1 
@@ -26,6 +28,9 @@
                     </div>
                 </div>
             </div>
+                </div></div>
+                <div class="row">
+                <div class="col_12">
             <div class="row">
                 <div class="col_2 col-nbook_2 col-tablet_2 col-phone_2">
                     <div class="bit">
@@ -33,6 +38,9 @@
                     </div>
                 </div>
             </div>
+                </div></div>
+                <div class="row">
+                <div class="col_12">
             <div class="row">
                 <div class="col_3 col-nbook_3 col-tablet_3 col-phone_3">
                     <div class="bit">
@@ -40,13 +48,18 @@
                     </div>
                 </div>
             </div>
+                </div></div>
+                <div class="row">
+                <div class="col_12">
             <div class="row">
                 <div class="col_4 col-nbook_4 col-tablet_4 col-phone_4">
                     <div class="bit">
                         <p>col_4</p>
                     </div>
                 </div>
-            </div>
+            </div></div></div>
+            <div class="row">
+                <div class="col_12">
             <div class="row">
                 <div class="col_5 col-nbook_5 col-tablet_5 col-phone_5">
                     <div class="bit">
@@ -54,6 +67,9 @@
                     </div>
                 </div>
             </div>
+                </div></div>
+                <div class="row">
+                <div class="col_12">
             <div class="row">
                 <div class="col_6 col-nbook_6 col-tablet_6 col-phone_6">
                     <div class="bit">
@@ -61,6 +77,9 @@
                     </div>
                 </div>
             </div>
+            </div></div>
+                <div class="row">
+                <div class="col_12">
             <div class="row">
                 <div class="col_7 col-nbook_7 col-tablet_7 col-phone_6">
                     <div class="bit">
@@ -68,6 +87,9 @@
                     </div>
                 </div>
             </div>
+            </div></div>
+                <div class="row">
+                <div class="col_12">
             <div class="row">
                 <div class="col_8 col-nbook_8 col-tablet_8 col-phone_6">
                     <div class="bit">
@@ -75,6 +97,9 @@
                     </div>
                 </div>
             </div>
+            </div></div>
+                <div class="row">
+                <div class="col_12">
             <div class="row">
                 <div class="col_9 col-nbook_9 col-tablet_9 col-phone_6">
                     <div class="bit">
@@ -82,6 +107,9 @@
                     </div>
                 </div>
             </div>
+            </div></div>
+                <div class="row">
+                <div class="col_12">
             <div class="row">
                 <div class="col_10 col-nbook_10 col-tablet_10 col-phone_6">
                     <div class="bit">
@@ -89,6 +117,9 @@
                     </div>
                 </div>
             </div>
+            </div></div>
+                <div class="row">
+                <div class="col_12">
             <div class="row">
                 <div class="col_11 col-nbook_11 col-tablet_11 col-phone_6">
                     <div class="bit">
@@ -96,6 +127,9 @@
                     </div>
                 </div>
             </div>
+            </div></div>
+                <div class="row">
+                <div class="col_12">
             <div class="row">
                 <div class="col_12 col-nbook_12 col-tablet_12 col-phone_6">
                     <div class="bit">
@@ -103,6 +137,7 @@
                     </div>
                 </div>
             </div>
+            </div></div>
 
             <div class="row">
                 <div class="col_12">

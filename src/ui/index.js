@@ -9,6 +9,8 @@ import UiSelect from './ui-select/ui-select.vue';
 Vue.component('ui-select', UiSelect);
 import UiCheckBox from './ui-check-box/ui-check-box.vue';
 Vue.component('ui-check-box', UiCheckBox);
+import UiDatepicker from './ui-datepicker/ui-datepicker.vue';
+Vue.component('ui-datepicker', UiDatepicker);
 // import UiText2 from './ui-text2/ui-text2.vue'
 // Vue.component('ui-text2', UiText2);
 

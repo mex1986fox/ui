@@ -6,6 +6,7 @@ import Typography from '../pages/typography.vue';
 import Inputs from '../pages/inputs.vue';
 import Selects from '../pages/selects.vue';
 import CheckBoxs from '../pages/checkboxs.vue';
+import DatePicker from '../pages/datepicker.vue';
 
 Vue.use(Router)
 export default new Router({
@@ -15,6 +16,7 @@ export default new Router({
         { path: '/typography', component: Typography },
         { path: '/inputs', component: Inputs },
         { path: '/selects', component: Selects },
-        { path: '/checkboxs', component: CheckBoxs }
+        { path: '/checkboxs', component: CheckBoxs },
+        { path: '/datepicker', component: DatePicker }
     ]
 })
