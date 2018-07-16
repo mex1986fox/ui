@@ -9,6 +9,10 @@ import UiSelect from './ui-select/ui-select.vue';
 Vue.component('ui-select', UiSelect);
 import UiCheckBox from './ui-check-box/ui-check-box.vue';
 Vue.component('ui-check-box', UiCheckBox);
+import UiRadio from './ui-radio/ui-radio.vue';
+Vue.component('ui-radio', UiRadio);
+import UiSwitch from './ui-switch/ui-switch.vue';
+Vue.component('ui-switch', UiSwitch);
 import UiDatepicker from './ui-datepicker/ui-datepicker.vue';
 Vue.component('ui-datepicker', UiDatepicker);
 // import UiText2 from './ui-text2/ui-text2.vue'
@@ -29,8 +33,7 @@ Vue.component('ui-datepicker', UiDatepicker);
 // import UiButton from './ui-button/ui-button.vue'
 // Vue.component('ui-button', UiButton);
 
-import UiSwitch from './ui-switch/ui-switch.vue'
-Vue.component('ui-switch', UiSwitch);
+
 // import UiChips from './ui-chips/ui-chips.vue'
 // Vue.component('ui-chips', UiChips);
 // import UiList from './ui-list/ui-list.vue'

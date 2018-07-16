@@ -57,6 +57,35 @@
                     '>
                     </ui-code>
                 </div>
+                <div class="col_4 col-phone_6">
+                    <ui-radio
+                        name="radio1"
+                        value="1"
+                        :disabled="false"
+                        >
+                    Radio переключатель    
+                    </ui-radio>
+                    <ui-radio
+                        name="radio1"
+                        value="2"
+                        :checked="true"
+                        :disabled="false"
+                        >
+                    Radio переключатель    
+                    </ui-radio>
+                </div>
+                <div class="col_12">
+                    <ui-code value='
+<ui-switch
+    name="switch1"
+    value="1"
+    :checked="false"
+    :disabled="false">
+    Switch переключатель    
+</ui-switch>
+                    '>
+                    </ui-code>
+                </div>
             </div>
         </div>
     </layout>

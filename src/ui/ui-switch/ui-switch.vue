@@ -50,10 +50,10 @@ export default {
       this.$emit("onClick");
     }
   },
-  watch: {
-    сhecked() {
-      this.dChecked = this.сhecked;
-    }
-  }
+ // watch: {
+ //   сhecked(newQ) {
+  //    this.dChecked = newQ;
+   // }
+ // }
 };
 </script>
