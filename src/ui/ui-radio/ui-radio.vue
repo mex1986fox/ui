@@ -8,7 +8,7 @@
                 </span>
             </transition>
         </span>
-        <input class="ui-radio__input" type="radio" :name="dName" :checked="dChecked" :value="dValue">
+        <input ref="input" @onchange="isChange()" :checked="dChecked" class="ui-radio__input" type="radio" :name="dName" :value="dValue">
         <span  class="ui-radio__caption" 
                :class="{'ui-radio__caption_disabled': dDisabled}">
             <slot></slot>
@@ -27,7 +27,12 @@ export default {
     },
     methods:{
         isClick(){
-            this.dChecked=!this.dChecked;
+             this.dChecked=!this.dChecked;
+            this.$refs.input.click();
+           
+        },
+        isChange(){
+            this.dChecked=false;
         }
     },
     props:{
