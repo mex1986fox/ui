@@ -57,13 +57,24 @@
                     '>
                     </ui-code>
                 </div>
+                <div class="col_12 col-phone_6">
+                    <span class="ui-header ui-header_2"> Radio переключатель: </span>
+                    <br/>
+                </div>
                 <div class="col_4 col-phone_6">
                     <ui-radio
                         name="radio1"
                         value="1"
                         :disabled="false"
                         >
-                    Radio переключатель    
+                    Radio 1    
+                    </ui-radio>
+                    <ui-radio
+                        name="radio1"
+                        value="2"
+                        :disabled="false"
+                        >
+                    Radio 2    
                     </ui-radio>
                     <ui-radio
                         name="radio1"
@@ -71,18 +82,43 @@
                         :checked="true"
                         :disabled="false"
                         >
-                    Radio переключатель    
+                    Radio 3    
+                    </ui-radio>
+                    <ui-radio
+                        name="radio1"
+                        value="2"
+                        :disabled="false"
+                        >
+                    Radio 4    
                     </ui-radio>
                 </div>
                 <div class="col_12">
                     <ui-code value='
-<ui-switch
-    name="switch1"
+<ui-radio
+    name="radio1"
     value="1"
-    :checked="false"
     :disabled="false">
-    Switch переключатель    
-</ui-switch>
+    Radio 1    
+</ui-radio>
+<ui-radio
+    name="radio1"
+    value="2"
+    :disabled="false">
+    Radio 2    
+</ui-radio>
+<ui-radio
+    name="radio1"
+    value="2"
+    :checked="true"
+    :disabled="false">
+    Radio 3    
+</ui-radio>
+<ui-radio
+    name="radio1"
+    value="2"
+    :disabled="false">
+    Radio 4    
+</ui-radio>
                     '>
                     </ui-code>
                 </div>
