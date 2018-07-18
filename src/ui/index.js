@@ -34,8 +34,8 @@ Vue.component('ui-datepicker', UiDatepicker);
 // Vue.component('ui-button', UiButton);
 
 
-// import UiChips from './ui-chips/ui-chips.vue'
-// Vue.component('ui-chips', UiChips);
+import UiChips from './ui-chips/ui-chips.vue'
+Vue.component('ui-chips', UiChips);
 // import UiList from './ui-list/ui-list.vue'
 // Vue.component('ui-list', UiList);
 // import UiHeader from './ui-header/ui-header.vue'

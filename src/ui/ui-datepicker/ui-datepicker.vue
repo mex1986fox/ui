@@ -45,7 +45,7 @@
                     {{key}}
                 </div>
                 <div class="ui-datepicker__footer">
-                    <button class="ui-button ui-button_flat ui-button_mini ui-datepicker__button" @click="dActiveMenyYear=true">
+                    <button class="ui-button ui-button_flat ui-datepicker__button" @click="dActiveMenyYear=true">
                         Выбрать год
                     </button>
                 </div>

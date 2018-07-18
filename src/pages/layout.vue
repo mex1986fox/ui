@@ -10,6 +10,7 @@
                     <router-link to="/selects" class="ui-link">Селекты</router-link>
                     <router-link to="/checkboxs" class="ui-link">Чекбоксы</router-link>
                     <router-link to="/datepicker" class="ui-link">Датапикер</router-link>
+                    <router-link to="/chips" class="ui-link">chips</router-link>
                 </div>
             </div>
         </div>
