@@ -23,6 +23,13 @@
 
                     </ui-code>
                 </div>
+                <div class="col_12">
+                    <wg-desc-example :classes="[
+                        {name:'.ui-header', desc:'Корневой класс для заголовков'},
+                        {name:'.ui-header_1, ..., ui-header_6', desc:'Модификаторы размера заголовка.'}
+                    ]">
+                    </wg-desc-example>
+                </div>
                 <div class="col_12 col-phone_12">
                     <br/>
                     <span class="ui-header ui-header_2"> Описания </span>
@@ -46,27 +53,36 @@
                     </span>
                     <ui-code value='<span class="ui-description ui-description_big"> Текст .... </span>'>
                     </ui-code>
+
+                </div>
+                <div class="col_12">
+                    <wg-desc-example :classes="[
+                        {name:'.ui-description', desc:'Корневой класс для описаний'},
+                        {name:'.ui-description_big', desc:'Модификаторы размера описания. Устанавливает большие буквы.'},
+                        {name:'.ui-description_mini', desc:'Модификаторы размера описания. Устанавливает маленькие буквы.'}
+                    ]">
+                    </wg-desc-example>
                 </div>
                 <div class="col_12 col-phone_12">
-                     <br/>
+                    <br/>
                     <span class="ui-header ui-header_2"> Ссылки </span>
                     <br/>
                     <span class="ui-header ui-header_4"> Ссылка стандартная: </span>
                     <span class="ui-description ui-description">
-                        Lorem ipsum dolor sit amet.  
-                        <router-link to="/checkboxs" class="ui-link">Чекбоксы...</router-link> 
+                        Lorem ipsum dolor sit amet.
+                        <router-link to="/checkboxs" class="ui-link">Чекбоксы...</router-link>
                         Unde inventore eius, molestias!
                     </span>
                     <span class="ui-header ui-header_4"> Ссылка маленькая: </span>
                     <span class="ui-description ui-description_mini">
-                        Lorem ipsum dolor sit amet.  
-                        <router-link to="/checkboxs" class="ui-link ui-link_mini">Чекбоксы...</router-link> 
+                        Lorem ipsum dolor sit amet.
+                        <router-link to="/checkboxs" class="ui-link ui-link_mini">Чекбоксы...</router-link>
                         Unde inventore eius, molestias!
                     </span>
                     <span class="ui-header ui-header_4"> Ссылка большая: </span>
                     <span class="ui-description ui-description_big">
-                        Lorem ipsum dolor sit amet.  
-                        <router-link to="/checkboxs" class="ui-link ui-link_big">Чекбоксы...</router-link> 
+                        Lorem ipsum dolor sit amet.
+                        <router-link to="/checkboxs" class="ui-link ui-link_big">Чекбоксы...</router-link>
                         Unde inventore eius, molestias!
                     </span>
 
@@ -74,6 +90,16 @@
 <router-link to="/checkboxs" class="ui-link ui-link_mini">Чекбоксы...</router-link>
 <router-link to="/checkboxs" class="ui-link ui-link_big">Чекбоксы...</router-link>'>
                     </ui-code>
+                    <div class="col_12">
+                        <wg-desc-example 
+                            :classes="[
+                                {name:'.ui-link', desc:'Корневой класс для ссылок'},
+                                {name:'.ui-link_big', desc:'Модификаторы размера ссылки. Устанавливает большие ссылки.'},
+                                {name:'.ui-link_mini', desc:'Модификаторы размера ссылки. Устанавливает маленькие ссылки.'}
+                            ]">
+                        </wg-desc-example>
+                    </div>
+
                     <span class="ui-header ui-header_4"> Ссылки кнопочные: </span>
                     <div class="row">
                         <div class="col_12">
@@ -82,13 +108,13 @@
                             </router-link>
                             <router-link to="/checkboxs" class="ui-button ui-button_blue">
                                 Сылка
-                            </router-link> 
+                            </router-link>
                             <router-link to="/checkboxs" class="ui-button ui-button_big ui-button_red">
                                 Сылка
-                            </router-link> 
+                            </router-link>
                             <router-link to="/checkboxs" class="ui-button ui-button_big ui-button_flat">
                                 Сылка
-                            </router-link> 
+                            </router-link>
                         </div>
                     </div>
                     <ui-code value='<router-link to="/checkboxs" class="ui-button ui-button_mini">
@@ -111,13 +137,13 @@
                             </router-link>
                             <router-link to="/checkboxs" class="ui-button ui-button_circle ui-button_blue">
                                 <i class="fa fa-heart-o" aria-hidden="true"></i>
-                            </router-link> 
+                            </router-link>
                             <router-link to="/checkboxs" class="ui-button ui-button_circle ui-button_circle_big ui-button_red">
                                 <i class="fa fa-heart-o" aria-hidden="true"></i>
-                            </router-link> 
+                            </router-link>
                             <router-link to="/checkboxs" class="ui-button ui-button_circle ui-button_circle_big ui-button_flat">
                                 <i class="fa fa-heart-o" aria-hidden="true"></i>
-                            </router-link> 
+                            </router-link>
                         </div>
                     </div>
                     <ui-code value='<router-link to="/checkboxs" class="ui-button ui-button_circle ui-button_circle_mini">

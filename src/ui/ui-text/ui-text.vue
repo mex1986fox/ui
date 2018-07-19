@@ -91,7 +91,7 @@ export default {
     },
     isInputText() {
       this.dValue = this.$refs.input.value;
-      this.$emit("onInput", [this.dValue]);
+      this.$emit("onInput", this.dValue);
     }
   },
   computed: {
