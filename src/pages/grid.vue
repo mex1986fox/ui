@@ -3,17 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col_12">
-                    <h2>Сетка адаптивная</h2>
-                    <h4>Классы: container, row, col_1, col-nbook_1, col-tablet_1, col-phone_1</h4>
-                    <p>container - класс контейнера</p>
-                    <p>row - класс рядов, помещается в container или в такой же row</p>
-                    <p>col_ - классы колонок, помещаются в row (всего 12 колонок, для телефона 6 колонок)</p>
-                    <ul>
-                        <li>col_ - компьютерные дисплеи</li>
-                        <li>col-nbook_ - дисплеи ноутбуков</li>
-                        <li>col-tablet_ - дисплеи планшетов</li>
-                        <li>col-phone_ - дисплеи телефонов</li>
-                    </ul>
+                    <span class="ui-header ui-header_2">Сетка адаптивная</span>
                 </div>
             </div>
             <div class="row">
@@ -158,6 +148,18 @@
     </div>
 </div>'>
                     </ui-code>
+                </div>
+
+                <div class="col_12">
+                    <wg-desc-example :classes="[
+                        {name:'.container', desc:'Класс контейнера. В него помещается адаптивная сетка, а именно классы .row и .coll_ '},
+                        {name:'.row', desc:'Класс рядов, помещается в .container или в такой же .row'},
+                        {name:'.col_1, .col_12',desc:'Классы колонок для широких экранов, помещаются в row (всего 12 колонок)'},
+                        {name:'.col-nbook_1, .col-nbook_12',desc:'Классы колонок для экранов от 1190px до 990px, помещаются в row (всего 12 колонок)'},
+                        {name:'.col-tablet_1, .col-tablet_12',desc:'Классы колонок для экранов от 990px до 770px, помещаются в row (всего 12 колонок)'},
+                        {name:'.col-phone_1, .col-phone_6',desc:'Классы колонок для экранов от 770px, помещаются в row (всего 6 колонок)'}
+                    ]">
+          </wg-desc-example>
                 </div>
             </div>
         </div>

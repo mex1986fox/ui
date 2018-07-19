@@ -1,5 +1,5 @@
 require('./ui/index.scss');
-
+require('./wg/index.scss');
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 //import Vue from 'vue'
@@ -7,9 +7,10 @@ import Vue from 'vue/dist/vue.js'
 import router from './router/index.js'
 // import store from "./stores/index.js"
 
-// подключаем библиотеку UI
+// подключаем библиотеку UI-простейшие компоненты
 import "./ui/index.js"
-
+// подключаем библиотеку WG-компоненты виджетов
+import "./wg/index.js"
 // подключаем лейаут
 import Layout from './pages/layout.vue'
 Vue.component('layout', Layout);

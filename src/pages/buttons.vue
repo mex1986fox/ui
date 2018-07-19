@@ -42,6 +42,7 @@
   Кнопка 
 </button>'>
           </ui-code>
+
         </div>
         <div class="col_12">
           <p>Размер по умолчанию</p>
@@ -183,6 +184,20 @@
   <i class="fa fa-heart-o" aria-hidden="true"></i>
 </button>'>
           </ui-code>
+        </div>
+        <div class="col_12">
+          <wg-desc-example :classes="[
+                        {name:'.ui-button', desc:'Корневой класс для всех кнопок'},
+                        {name:'.ui-button_mini', desc:'Модификатор размера кнопки. Задает маленький размер.'},
+                        {name:'.ui-button_big', desc:'Модификатор размера кнопки. Задает большой размер.'},
+                        {name:'.ui-button_blue', desc:'Модификатор чвета. Задает голубой цвет.'},
+                        {name:'.ui-button_red', desc:'Модификатор чвета. Задает красный цвет.'},
+                        {name:'.ui-button_flat', desc:'Модификатор чвета. Задает прозрачный цвет.'},
+                        {name:'.ui-button_circle', desc:'Модификатор формы. Задает круглую форму.'},
+                        {name:'.ui-button_circle_mini', desc:'Модификатор размера для круглых кнопок. Задает маленький размер.'},
+                        {name:'.ui-button_circle_big', desc:'Модификатор размера для круглых кнопок. Задает большой размер.'}
+                    ]">
+          </wg-desc-example>
         </div>
       </div>
     </div>

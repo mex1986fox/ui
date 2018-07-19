@@ -1,6 +1,8 @@
 <template>
     <div class="ui-code">
-        <span class="ui-code__header"><h3>{{header}}</h3></span>
+        <span class="ui-code__header">
+          <span class="ui-header ui-header_3">{{header}}</span>
+        </span>
         <div class="ui-code__text" ref="code"></div>
     </div>
 </template>
