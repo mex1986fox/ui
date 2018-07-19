@@ -97,6 +97,14 @@ export default {
       
       this.dMenu = copyDMeny;
       this.isCreatedValue();
+
+      let selOdjects = [];
+      for(let k in copyDMeny){
+        if(copyDMeny[k].selected==true){
+          selOdjects.push(copyDMeny[k]);
+        }
+      }
+      this.$emit('onSelect', selOdjects);
     },
     isCreatedValue() {
       let selValStr = "";
