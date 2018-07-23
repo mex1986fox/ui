@@ -29,9 +29,10 @@ export default {
       if(this.dDisabled==false){
         this.dChecked = !this.dChecked;
       }
-      this.$emit("onClick");
+      this.$emit("onClick", this.dChecked);
     }
   },
+
   props: {
     name:{
       type: String,

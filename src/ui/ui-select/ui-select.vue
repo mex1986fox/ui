@@ -1,8 +1,8 @@
 <template>
-  <div class="ui-select">
-    <ui-text ref="text" :disabled="dDisabled" :value="this.dValue" :caption="this.dCaption" :help="this.dHelp" :readonly="true" @onFocus="isFocus" @onBlur="isBlur">
+  <div class="ui-select" @click="isClick">
+    <ui-text ref="text" :disabled="dDisabled" :value="this.dValue" :caption="this.dCaption" :help="this.dHelp" :readonly="true" @onFocus="isFocus">
     </ui-text>
-    
+
     <transition name="ui-select__arrow">
       <div class="ui-select__arrow" v-if="!dFocus && !dDisabled" @click="dFocus=!dFocus">
         <i class="fa fa-angle-down"></i>
@@ -20,15 +20,11 @@
           <li v-if="key==0 || sortMenu[key-1].group!=sortMenu[key].group" class="ui-select__group" :key="key">
             {{val.group}}
           </li>
-          <li class="ui-select__option ui-select__option_disabled" 
-              :key="'option'+key" 
-              v-if="val.disabled">
-             <ui-check-box :name="dName" :disabled="true" :checked="val.selected" :value="val.value" v-show="dMultiple"/>
-            {{val.option}}
+          <li class="ui-select__option ui-select__option_disabled" :key="'option'+key" v-if="val.disabled">
+            <ui-check-box :name="dName" :disabled="true" :checked="val.selected" :value="val.value" v-show="dMultiple" /> {{val.option}}
           </li>
           <li class="ui-select__option" :key="'option'+key" @click="isClickOption(key)" v-if="!val.disabled">
-             <ui-check-box :name="dName" :disabled="false" :checked="val.selected" :value="val.value" v-show="dMultiple"/>
-            {{val.option}}
+            <ui-check-box :name="dName" :disabled="false" :checked="val.selected" :value="val.value" v-show="dMultiple" /> {{val.option}}
           </li>
         </template>
       </ul>
@@ -51,17 +47,17 @@ export default {
     };
   },
   props: {
-    name:{
+    name: {
       type: String,
-      default:""
+      default: ""
     },
     caption: {
       type: String,
       default: ""
     },
-    multiple:{
+    multiple: {
       type: Boolean,
-      default:false
+      default: false
     },
     help: {
       type: String,
@@ -80,31 +76,32 @@ export default {
     isFocus() {
       this.dFocus = true;
     },
-    isBlur() {
-      //this.dMultip==true? this.dFocus=true : this.dFocus = false;
+    isClick() {
+      this.$emit("onClick");
     },
     isClickOption(key) {
       let copyDMeny = this.dMenu;
-      if(this.dMultiple==true){
+      if (this.dMultiple == true) {
         copyDMeny[key].selected = !copyDMeny[key].selected;
-      }else{
+      } else {
         for (let k in copyDMeny) {
           key == k
             ? (copyDMeny[k].selected = true)
             : (copyDMeny[k].selected = false);
         }
       }
-      
+
       this.dMenu = copyDMeny;
       this.isCreatedValue();
 
       let selOdjects = [];
-      for(let k in copyDMeny){
-        if(copyDMeny[k].selected==true){
+      for (let k in copyDMeny) {
+        if (copyDMeny[k].selected == true) {
           selOdjects.push(copyDMeny[k]);
         }
       }
-      this.$emit('onSelect', selOdjects);
+      this.$emit("onSelect", selOdjects);
+      this.dMultiple ? (this.dFocus = true) : (this.dFocus = false);
     },
     isCreatedValue() {
       let selValStr = "";
@@ -114,10 +111,8 @@ export default {
       for (let k in selValArr) {
         selValStr = selValStr + selValArr[k].option + ",  ";
       }
-      this.dValue=selValStr.replace(/,\s*$/, "");
-      
+      this.dValue = selValStr.replace(/,\s*$/, "");
     }
-
   },
   computed: {
     // возвращает отсортированное меню
@@ -130,7 +125,13 @@ export default {
       });
     }
   },
-   mounted() {
+  watch: {
+    dFocus(newQ) {
+      newQ == true ? this.$emit("onFocus") : this.$emit("onBlur");
+    }
+  },
+  mounted() {
+    //отлавливаем событие клика мимо объекта
     window.addEventListener(
       "click",
       event => {

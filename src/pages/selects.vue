@@ -10,7 +10,6 @@
                 <div class="col_4 col-phone_6">
                     <ui-select 
                         name="select1"
-                        
                         :menu="[{value:'1',option:'Мартышка', group:'Обезьяны', selected:false, disabled:true},
                                 {value:'2',option:'Соловей', group:'Птици', selected:true},
                                 {value:'3',option:'Макака', group:'Обезьяны', selected:false},
@@ -42,7 +41,6 @@
                         name="select2"
                         caption="Множественный селект"
                         help="Строка помощи"
-                        
                         :multiple="true"
                         :menu="[{value:'1',option:'Мартышка', group:'Обезьяны', selected:false, disabled:true},
                                 {value:'2',option:'Соловей', group:'Птици', selected:true},
@@ -115,10 +113,10 @@
                                 {name:'disabled', desc:'Устанавливает селект в положение неактивного',def:'false'},
                                 {name:'menu',desc:'Массив объектов из которых строится меню селекта.', def:'[]'}
                             ]" :events="[
-                                {name:'onSelect',desc:'Событие возникает при клике на поле option в меню селекта',val:'Возвращает массив выбранных объектов'},
-                                {name:'onFocus',desc:'Не реализованно! Событие возникает при фокусировке на текстовое поле',val:'Ничего не возвращает'},
-                                {name:'onBlur',desc:'Не реализованно! Событие возникает при потере фокуса',val:'Ничего не возвращает'},
-                                {name:'onClick',desc:'Не реализованно! Событие возникает при клике',val:'Ничего не возвращает'},
+                                {name:'onSelect',desc:'Событие возникает при клике на поле option в меню селекта',val:'Возвращает массив выбранных объектов [{value:`1`,option:`Мартышка`, group:`Обезьяны`, selected:false, disabled:true}, ..., ...]'},
+                                {name:'onFocus',desc:'Событие возникает при фокусировке на текстовое поле',val:'Ничего не возвращает'},
+                                {name:'onBlur',desc:'Событие возникает при потере фокуса',val:'Ничего не возвращает'},
+                                {name:'onClick',desc:'Событие возникает при клике на любой участок селекта',val:'Ничего не возвращает'},
                             ]">
                     </wg-desc-example>
                 </div>
@@ -130,7 +128,9 @@
 export default {
   name: "page-selects",
   methods: {
-
+      cons(v){
+          console.log(v);
+      }
   }
 };
 </script>
