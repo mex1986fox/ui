@@ -1,9 +1,12 @@
 <template>
     <div class="ui-radio" @click="isClick()">
         <span class="ui-radio__radio"
-            :class="{'ui-radio__radio_active':dChecked}">
+            :class="{'ui-radio__radio_active':dChecked,
+                     'ui-radio__radio_disabled':dDisabled}">
             <transition name="ui-radio__radio-point">
-                <span class="ui-radio__radio-point" v-if="dChecked">
+                <span class="ui-radio__radio-point" 
+                      :class="{'ui-radio__radio-point_disabled':dDisabled}"  
+                        v-if="dChecked">
                 
                 </span>
             </transition>
@@ -28,12 +31,15 @@ export default {
     },
     methods:{
         isClick(){
-            let checked=this.dChecked
-            let brath = this.$parent.$children;
-            for(let br in brath){
-                if (brath[br].dName==this.dName) brath[br].dChecked=false;
+            if(this.dDisabled==false){
+                let checked=this.dChecked
+                let brath = this.$parent.$children;
+                for(let br in brath){
+                    if (brath[br].dName==this.dName) brath[br].dChecked=false;
+                }
+                this.dChecked=!checked; 
+                this.$emit('onClick', this.dChecked);
             }
-            this.dChecked=!checked; 
         }
     },
     props:{
@@ -52,6 +58,15 @@ export default {
         disabled:{
             type: Boolean,
             default: false
+        }
+    },
+    mounted(){
+        if(this.dChecked==true){
+            let brath = this.$parent.$children;
+            for(let br in brath){
+                if (brath[br].dName==this.dName) brath[br].dChecked=false;
+            }
+            this.dChecked=true; 
         }
     }
 }

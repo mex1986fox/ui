@@ -17,6 +17,10 @@
             transition: border 0.6s;
             border: 2px solid $color-links;
         }
+        &_disabled {
+            cursor: auto;
+            border: 2px solid $color-disabled;
+        }
     }
     &__radio-point {
         background-color: $color-links;
@@ -36,6 +40,10 @@
         &-enter-to,
         &-leave {
             opacity: 1;
+        }
+        &_disabled {
+            cursor: auto;
+            background-color: $color-disabled;
         }
     }
     &__input {
@@ -62,6 +70,7 @@
         margin-left: 16px;
         white-space: nowrap;
         &_disabled {
+            cursor: auto;
             color: $color-disabled;
         }
     }

@@ -46,14 +46,9 @@ export default {
     isClick() {
       if(this.dDisabled==false){
         this.dChecked = !this.dChecked;
+        this.$emit("onClick", this.dChecked);
       }
-      this.$emit("onClick");
     }
-  },
- // watch: {
- //   сhecked(newQ) {
-  //    this.dChecked = newQ;
-   // }
- // }
+  }
 };
 </script>
