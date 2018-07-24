@@ -15,6 +15,8 @@ import UiSwitch from './ui-switch/ui-switch.vue';
 Vue.component('ui-switch', UiSwitch);
 import UiDatepicker from './ui-datepicker/ui-datepicker.vue';
 Vue.component('ui-datepicker', UiDatepicker);
+import UiBlind from './ui-blind/ui-blind.vue';
+Vue.component('ui-blind', UiBlind);
 // import UiText2 from './ui-text2/ui-text2.vue'
 // Vue.component('ui-text2', UiText2);
 

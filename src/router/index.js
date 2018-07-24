@@ -7,7 +7,8 @@ import Inputs from '../pages/inputs.vue';
 import Selects from '../pages/selects.vue';
 import CheckBoxs from '../pages/checkboxs.vue';
 import DatePicker from '../pages/datepicker.vue';
-import Chips from '../pages/chips.vue'
+import Chips from '../pages/chips.vue';
+import Windows from '../pages/windows.vue';
 
 Vue.use(Router)
 export default new Router({
@@ -19,6 +20,7 @@ export default new Router({
         { path: '/selects', component: Selects },
         { path: '/checkboxs', component: CheckBoxs },
         { path: '/datepicker', component: DatePicker },
-        { path: '/chips', component: Chips}
+        { path: '/chips', component: Chips },
+        { path: '/windows', component: Windows }
     ]
 })

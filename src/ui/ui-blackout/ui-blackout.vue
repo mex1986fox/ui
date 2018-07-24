@@ -8,7 +8,7 @@
 </template>
 <script>
 export default {
-  name: "Blacout",
+  name: "UiBlacout",
   props: {
     show: {
       type: Boolean,

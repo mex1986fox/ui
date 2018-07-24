@@ -29,6 +29,7 @@
     &:active {
         color: $color-links;
         text-decoration: none;
+        box-shadow: $color-shadow-active;
     }
     &:visited {
         color: $color-links;
