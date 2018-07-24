@@ -1,5 +1,5 @@
 .ui-chips {
-    background-color: rgb(14, 108, 157);
+    background-color: $color-list-active;
     height: 22px;
     display: inline-block;
     border-radius: 20px;
@@ -9,43 +9,59 @@
     overflow: hidden;
     white-space: nowrap;
     margin-right: 10px;
-    color: #fff;
+    color: $color-text-header;
     transition: all 600ms;
-    &:active {
-        background-color: $color-list-active;
-    }
-    &:hover {
-        background-color: rgb(26, 137, 197);
-        transition: all 600ms;
-    }
-    &__button {
-        background-color: #003b5a;
-        border: 0;
+    &__input{
+        position: absolute;
+        width: 0;
+        height: 0;
         margin: 0;
         padding: 0;
-        border-radius: 50%;
-        height: 22px;
-        width: 22px;
+        opacity: 0;
+        -ms-appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        border: none;
+    }
+    &__button {
+        background-color: #666666;
         color: #fff;
-        font-size: 13px;
+        border: 6px solid $color-list-active;
+        margin: -8px -8px 0 0px;
+        padding: 0;
+        border-radius: 50%;
+        height: 26px;
+        width: 26px;
+        font-size: 15px;
         text-align: center;
-        float: left;
-        overflow: hidden;
         transition: all 600ms;
+        display: block;
+        float: right;
+        line-height: 24px;
         &:hover {
             cursor: pointer;
-            background-color: #d3d3d3;
-            color: #003b5a;
+            background-color: #464646;
             transition: all 600ms;
+        }
+        &_disabled{
+            background-color: $color-disabled;
+            &:hover {
+                cursor: auto;
+                background-color: $color-disabled;
+            }
         }
     }
     &__caption {
-        color: #fff;
+        color: $color-text-header;
         margin-left: 10px;
         margin-right: 10px;
         float: left;
         margin-top: 1px;
         width: 0%;
+        &_disabled{
+            color: $color-disabled;
+        }
     }
     &__icon {
         border-radius: 50%;
@@ -60,5 +76,8 @@
         border-radius: 50%;
         height: 36px;
         width: 36px;
+        &_disabled{
+            opacity: 0.2;
+        }
     }
 }

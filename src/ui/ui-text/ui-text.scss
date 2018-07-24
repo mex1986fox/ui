@@ -26,7 +26,7 @@
             transition-duration: 300ms;
         }
         &_disabled {
-            color: #cccccc;
+            color: $color-disabled;
         }
     }
     &__input {
@@ -61,7 +61,7 @@
         }
         &_disabled {
             background-color: rgba(255, 255, 255, 0);
-            color: #cccccc;
+            color: $color-disabled;
         }
     }
     &__border {
@@ -82,7 +82,7 @@
             transition-duration: 300ms;
         }
         &_disabled {
-            background-color: #cccccc;
+            background-color: $color-disabled;
         }
     }
     &__help {
@@ -100,7 +100,7 @@
             display: block;
         }
         &_disabled {
-            color: #cccccc;
+            color: $color-disabled;
         }
     }
 }

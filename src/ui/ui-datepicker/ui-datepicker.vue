@@ -1,69 +1,60 @@
 <template>
-    <div class="ui-datepicker">
-        <ui-text :name="dName" :caption="dCaption" :readonly="true" :value="dSelectDate" @onFocus="isFocus" @onBlur="isBlur">
-        </ui-text>
-        <div class="ui-datepicker__arrow" @click="dFocus=!dFocus">
-            <i class="fa fa-calendar" aria-hidden="true"></i>
+  <div class="ui-datepicker">
+    <ui-text :name="dName" :caption="dCaption" :readonly="true" :disabled="dDisabled" :value="dSelectDate" @onFocus="isFocus" @onBlur="isBlur">
+    </ui-text>
+    <div class="ui-datepicker__arrow"
+         :class="{'ui-datepicker__arrow_disabled':dDisabled}"
+         @click="isFocus">
+      <i class="fa fa-calendar" aria-hidden="true"></i>
+    </div>
+
+    <transition name="ui-datepicker__menu">
+      <div class="ui-datepicker__menu" v-if="dFocus">
+        <div class="ui-datepicker__header">
+          <div @click="clickLeft()" class="ui-button ui-button_circle ui-button_circle_mini ui-button_flat ui-datepicker__button_left">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+          </div>
+          <div @click="clickRight()" class="ui-button ui-button_circle ui-button_circle_mini ui-button_flat ui-datepicker__button_right">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+          </div>
+          {{compMonth.name +" "+compYear}}
         </div>
 
-        <transition name="ui-datepicker__menu">
-            <div class="ui-datepicker__menu" v-if="dFocus">
-                <div class="ui-datepicker__header">
-                    <div @click="clickLeft()" class="ui-button ui-button_circle ui-button_circle_mini ui-button_flat ui-datepicker__button_left">
-                        <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    </div>
-                    <div @click="clickRight()" class="ui-button ui-button_circle ui-button_circle_mini ui-button_flat ui-datepicker__button_right">
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                    </div>
-                    {{compMonth.name +" "+compYear}}
-                </div>
-                <div class="ui-datepicker__day">
-                    Пн
-                </div>
-                <div class="ui-datepicker__day">
-                    Вт
-                </div>
-                <div class="ui-datepicker__day">
-                    Ср
-                </div>
-                <div class="ui-datepicker__day">
-                    Чт
-                </div>
-                <div class="ui-datepicker__day">
-                    Пт
-                </div>
-                <div class="ui-datepicker__day">
-                    Сб
-                </div>
-                <div class="ui-datepicker__day">
-                    Вс
-                </div>
-                <div class="ui-datepicker__number-day ui-datepicker__number-day_flat" v-for="keyn in compNumberDay" :key="'n'+keyn">
+        <div class="ui-datepicker__day">Пн</div>
+        <div class="ui-datepicker__day">Вт</div>
+        <div class="ui-datepicker__day">Ср</div>
+        <div class="ui-datepicker__day">Чт</div>
+        <div class="ui-datepicker__day">Пт</div>
+        <div class="ui-datepicker__day">Сб</div>
+        <div class="ui-datepicker__day">Вс</div>
 
-                </div>
-                <div @click="clickNumber(key)" class="ui-datepicker__number-day" v-for="key in compSumDays" :key="key">
-                    {{key}}
-                </div>
-                <div class="ui-datepicker__footer">
-                    <button class="ui-button ui-button_flat ui-datepicker__button" @click="dActiveMenyYear=true">
-                        Выбрать год
-                    </button>
-                </div>
-                <transition name="ui-datepicker__menu-yaer">
-                    <div class="ui-datepicker__menu-yaer" v-if="dActiveMenyYear">
-                        <ul class="ui-datepicker__menu-yaer__select">
-                            <li class="ui-datepicker__menu-yaer__option" v-for="key in 400" :key="key" @click="clickYear(dPresentYear-key+1)">
-                                {{dPresentYear-key+1}}
-                            </li>
-                        </ul>
-                    </div>
-                </transition>
+        <div class="ui-datepicker__number-day ui-datepicker__number-day_flat" v-for="keyn in compNumberDay" :key="'n'+keyn"></div>
 
-            </div>
+        <div @click="clickNumber(key)" class="ui-datepicker__number-day" :class="{'ui-datepicker__number-day_checked':dDate.getFullYear()==dBuferDate.getFullYear() && dDate.getMonth()==dBuferDate.getMonth() && dBuferDate.getDate()==key}" v-for="key in compSumDays" :key="key">
+          {{key}}
+        </div>
 
+        <div class="ui-datepicker__footer">
+          <button class="ui-button ui-button_flat ui-datepicker__button" @click="dActiveMenyYear=true">
+            Выбрать год
+          </button>
+        </div>
+
+        <transition name="ui-datepicker__menu-yaer">
+          <div class="ui-datepicker__menu-yaer" v-if="dActiveMenyYear">
+            <ul class="ui-datepicker__menu-yaer__select">
+              <li class="ui-datepicker__menu-yaer__option" v-for="key in 400" :key="key" @click="clickYear(dPresentYear-key+1)">
+                {{dPresentYear-key+1}}
+              </li>
+            </ul>
+          </div>
         </transition>
 
-    </div>
+      </div>
+
+    </transition>
+
+  </div>
 </template>
 <script>
 export default {
@@ -74,8 +65,10 @@ export default {
       dFocus: false,
       dCaption: this.caption,
       dName: this.name,
-      dSelectDate: "",
-      dDate: new Date(),
+      dDisabled: this.disabled,
+      dSelectDate: this.value,
+      dDate: new Date(this.value),
+      dBuferDate: new Date(this.value),
       dMonth: [
         { id: "01", name: "Январь", leapDays: 31, days: 31 },
         { id: "02", name: "Февраль", leapDays: 29, days: 28 },
@@ -100,11 +93,33 @@ export default {
     caption: {
       type: String,
       default: ""
+    },
+    value: {
+      type: String,
+      default: () =>
+        new String(
+          new Date().getFullYear() +
+            "-" +
+            (new Date().getMonth() > 9
+              ? new Date().getMonth()
+              : "0" + new Date().getMonth()) +
+            "-" +
+            (new Date().getDate() > 9
+              ? new Date().getDate()
+              : "0" + new Date().getDate())
+        )
+    },
+    disabled:{
+      type: Boolean,
+      default: false
     }
   },
   methods: {
     isFocus() {
-      this.dFocus = true;
+      if(this.disabled!=true){
+        this.dFocus = true;
+      }
+      
     },
     isBlur() {
       // this.dFocus=false
@@ -149,6 +164,8 @@ export default {
         "-" +
         (number > 9 ? number : "0" + number);
       this.dFocus = false;
+      this.dBuferDate = new Date(this.dSelectDate);
+      this.$emit("onSelect", this.dSelectDate);
     },
     clickYear(yaer) {
       this.dDate = new Date(

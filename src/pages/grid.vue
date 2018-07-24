@@ -216,10 +216,10 @@
                 </div>
                 <div class="col_12">
                     <wg-desc-example :classes="[
-                        {name:'col_offset-1, ...,  col_offset-11', desc:'Классы добавляют смещение слева margin-left к классам .coll_1, ...,  col_12 '},
-                        {name:' col-nbook_offset-1, ...,  col-nbook_offset-11', desc:'Классы добавляют смещение слева margin-left к классам .col-nbook_1, ..., col-nbook_12 '},
-                        {name:' col-tablet_offset-1, ...,  col-tablet_offset-11', desc:'Классы добавляют смещение слева margin-left к классам .col-tablet_1, ..., col-tablet_12'},
-                        {name:' col-phone_offset-1, ...,  col-phone_offset-5', desc:'Классы добавляют смещение слева margin-left к классам .col-phone_1, ..., col-phone_6'},
+                        {name:'col_offset-0, ...,  col_offset-11', desc:'Классы добавляют смещение слева margin-left к классам .coll_1, ...,  col_12 '},
+                        {name:' col-nbook_offset-0, ...,  col-nbook_offset-11', desc:'Классы добавляют смещение слева margin-left к классам .col-nbook_1, ..., col-nbook_12 '},
+                        {name:' col-tablet_offset-0, ...,  col-tablet_offset-11', desc:'Классы добавляют смещение слева margin-left к классам .col-tablet_1, ..., col-tablet_12'},
+                        {name:' col-phone_offset-0, ...,  col-phone_offset-5', desc:'Классы добавляют смещение слева margin-left к классам .col-phone_1, ..., col-phone_6'},
                     ]">
                     </wg-desc-example>
                 </div>
