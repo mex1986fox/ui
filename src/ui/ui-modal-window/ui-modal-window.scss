@@ -1,18 +1,45 @@
 .ui-modal-window {
-    width: 100%;
+    width: auto;
     background-color: $color-fon;
-    margin: 25px 0 25px 0;
+    padding: 25px;
+    overflow: hidden;
     &__header {
-        padding: 10px;
+        display: block;
+        overflow: hidden;
+        height: 60px;
+        width: 85%;
+        line-height: 60px;
+        font-size: 18px;
+        font-weight: 600;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin: 0 0 20px 0;
+        color: $color-text-header;
+        &__button {
+            float: right;
+            position: absolute;
+            right: 17px;
+            left: auto;
+            top: 30px;
+        }
+    }
+    &__content {
+        display: block;
+        overflow: hidden;
+        height: auto;
         width: 100%;
-        margin-bottom: 20px;
+        &__img {
+            height: auto;
+            width: 100%;
+            margin-bottom: 20px;
+        }
     }
-    &__button{
-      float: left;
-      margin-right: 25px;
-    }
-    &__message{
-      color: #5c5c5c;
-      margin-top: 14px;
+    &__footer {
+        display: block;
+        overflow: hidden;
+        height: auto;
+        width: auto;
+        margin: 35px 0 0 0;
+        float: right;
     }
 }

@@ -17,6 +17,8 @@ import UiDatepicker from './ui-datepicker/ui-datepicker.vue';
 Vue.component('ui-datepicker', UiDatepicker);
 import UiBlind from './ui-blind/ui-blind.vue';
 Vue.component('ui-blind', UiBlind);
+import UiNavigation from './ui-navigation/ui-navigation.vue'
+Vue.component('ui-navigation', UiNavigation);
 // import UiText2 from './ui-text2/ui-text2.vue'
 // Vue.component('ui-text2', UiText2);
 
