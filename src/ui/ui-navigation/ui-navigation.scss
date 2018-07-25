@@ -1,5 +1,76 @@
-.ui-navigation{
+.ui-navigation {
     height: 100%;
-    width: 120px;
+    width: 280px;
     background-color: $color-fon;
+    &__header {
+        margin: 10px 0;
+        padding-bottom: 20px;
+        height: 30px;
+        overflow: hidden;
+        position: relative;
+        &__label {
+            height: 24px;
+            width: auto;
+            position: absolute;
+            left: 88px;
+            top: 12px;
+        }
+        &__burger {
+            left: 27px;
+            display: block;
+            position: relative;
+        }
+    }
+    &__unit {
+        margin: 10px 0;
+        border-top: 1px solid #e7e7e7;
+        padding-bottom: 20px;
+        &__header {
+            text-transform: uppercase;
+            text-align: left;
+            font-size: 14px;
+            font-weight: 400;
+            margin: 15px 0;
+            color: #b3b3b3;
+            padding: 0 40px;
+        }
+        &__button {
+            display: block;
+            text-align: left;
+            font-size: 14px;
+            margin: 5px 0;
+            padding: 0 40px 0 90px;
+            height: 40px;
+            line-height: 40px;
+            text-decoration: none;
+            color: $color-description;
+            &:hover {
+                cursor: pointer;
+                background-color: $color-list-hover;
+                color: $color-description;
+                text-decoration: none;
+            }
+            &:active {
+                color: $color-description;
+                background-color: $color-list-active;
+                text-decoration: none;
+            }
+            &:visited {
+                color: $color-description;
+                text-decoration: none;
+            }
+        }
+        &__icon {
+            position: absolute;
+            font-size: 22px;
+            left: 38px;
+            color: #b6b6b6;
+            height: 30px;
+            width: 30px;
+            text-align: center;
+            border-radius: 50%;
+            line-height: 27px;
+            margin-top: 5px;
+        }
+    }
 }

@@ -88,7 +88,76 @@
                         Показать навигационное менбю
                     </button>
                    <ui-navigation :show="showNavigation" @onHide="showNavigation=false">
+                       <div class="ui-navigation__header">
+                           <img class="ui-navigation__header__label" src="/public/img/label.png" alt="">
+                           <div class="ui-navigation__header__burger">
+                               <button class="ui-button ui-button_circle ui-button_circle_mini ui-button_flat">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                              </button>
+                           </div>
+                       </div>
 
+
+                       <div class="ui-navigation__unit">
+                           <div class="ui-navigation__unit__header">
+                               Элементы формы
+                           </div>
+                            <router-link to="/grid" class="ui-navigation__unit__button">
+                                <div class="ui-navigation__unit__icon">
+                                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                               </div>
+                                Сетка
+                            </router-link>
+                            <router-link to="/buttons" class="ui-navigation__unit__button">
+                                <div class="ui-navigation__unit__icon">
+                                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                               </div>
+                                Кнопки
+                            </router-link>
+                            <router-link to="/typography" class="ui-navigation__unit__button">
+                                <div class="ui-navigation__unit__icon">
+                                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                               </div>
+                                Типография
+                            </router-link>
+                            <router-link to="/inputs" class="ui-navigation__unit__button">
+                                <div class="ui-navigation__unit__icon">
+                                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                               </div>
+                                Строка ввода
+                            </router-link>
+                            <router-link to="/selects" class="ui-navigation__unit__button">
+                                <div class="ui-navigation__unit__icon">
+                                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                               </div>
+                                Селект
+                            </router-link>
+                            <router-link to="/checkboxs" class="ui-navigation__unit__button">
+                                <div class="ui-navigation__unit__icon">
+                                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                               </div>
+                                Чекбокс
+                            </router-link>
+                            <router-link to="/datepicker" class="ui-navigation__unit__button">
+                                <div class="ui-navigation__unit__icon">
+                                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                               </div>
+                                Датапикер
+                            </router-link>
+                            <router-link to="/chips" class="ui-navigation__unit__button">
+                                <div class="ui-navigation__unit__icon">
+                                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                               </div>
+                               Chips
+                            </router-link>
+                            <router-link to="/windows" class="ui-navigation__unit__button">
+                                <div class="ui-navigation__unit__icon">
+                                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                               </div>
+                                Окна
+                            </router-link>
+                       </div>
+                      
                    </ui-navigation>
                 </div>
                 <div class="col_12">
