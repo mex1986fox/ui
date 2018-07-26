@@ -19,6 +19,9 @@ import UiBlind from './ui-blind/ui-blind.vue';
 Vue.component('ui-blind', UiBlind);
 import UiNavigation from './ui-navigation/ui-navigation.vue'
 Vue.component('ui-navigation', UiNavigation);
+import UiNavigationList from './ui-navigation/ui-navigation-list.vue'
+Vue.component('ui-navigation-list', UiNavigationList);
+
 // import UiText2 from './ui-text2/ui-text2.vue'
 // Vue.component('ui-text2', UiText2);
 
