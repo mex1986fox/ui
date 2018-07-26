@@ -20,7 +20,9 @@
 
                     <ui-navigation :show="showNavigation" @onHide="showNavigation=false">
                         <div class="ui-navigation__header">
-                            <img class="ui-navigation__header__label" src="/public/img/label.png" alt="">
+                            <router-link to="/">
+                                <img class="ui-navigation__header__label" src="/public/img/label.png" alt="">
+                            </router-link>
                             <div class="ui-navigation__header__burger">
                                 <button @click="showNavigation=false" class="ui-button ui-button_circle ui-button_circle_mini ui-button_flat">
                                     <i class="fa fa-bars" aria-hidden="true"></i>
@@ -96,7 +98,7 @@
                 </div>
             </div>
         </div>
-        <slot>
+        <slot >
 
         </slot>
     </div>

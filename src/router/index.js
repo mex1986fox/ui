@@ -9,10 +9,12 @@ import CheckBoxs from '../pages/checkboxs.vue';
 import DatePicker from '../pages/datepicker.vue';
 import Chips from '../pages/chips.vue';
 import Windows from '../pages/windows.vue';
+import Hello from '../pages/hello.vue';
 
 Vue.use(Router)
 export default new Router({
     routes: [
+        { path: '/', component: Hello },
         { path: '/grid', component: Grid },
         { path: '/buttons', component: Buttons },
         { path: '/typography', component: Typography },
