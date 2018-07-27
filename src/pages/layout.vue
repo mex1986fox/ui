@@ -100,6 +100,24 @@
                                 </div>
                             </ui-navigation-list>
                         </div>
+                        <div class="ui-navigation__unit">
+                            <ui-navigation-list  :show="true">
+                                <div slot="header">
+                                    <div class="ui-navigation__unit__header">
+                                        Примеры страниц
+                                    </div>
+                                </div>
+                                <div slot="content">
+                                    <router-link to="/registration" class="ui-navigation__unit__button">
+                                        <div class="ui-navigation__unit__icon">
+                                            <i class="fa fa-th" aria-hidden="true"></i>
+                                        </div>
+                                        Регистрация
+                                    </router-link>
+                                </div>
+                            </ui-navigation-list>
+                        </div>
+
                     </ui-navigation>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 <template>
     <nav class="ui-tabs">
-        <div class="ui-tabs__line">
+        <div ref="line" class="ui-tabs__line">
             <div class="ui-tabs__button ui-tabs__button_left" @click="clickLeft" v-if="dShowBut">
                 <i class="fa fa-angle-left" aria-hidden="true"></i>
             </div>
@@ -60,6 +60,7 @@ export default {
           childW = childW + child.$el.clientWidth;
         }
       }
+      this.$refs.line.style.marginLeft = lineW < childW ? "60px" : "";
       this.dShowBut = lineW < childW ? true : false;
     }
   },

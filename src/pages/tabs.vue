@@ -116,7 +116,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .canvas {
-  margin-top: 50px;
+  margin: 50px 0;
   text-indent: 35px;
   text-align: justify;
   line-height: 65px;

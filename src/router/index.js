@@ -11,7 +11,7 @@ import Chips from '../pages/chips.vue';
 import Windows from '../pages/windows.vue';
 import Hello from '../pages/hello.vue';
 import Tabs from '../pages/tabs.vue';
-
+import Registration from '../pages/registration.vue';
 Vue.use(Router)
 export default new Router({
     routes: [
@@ -25,6 +25,8 @@ export default new Router({
         { path: '/datepicker', component: DatePicker },
         { path: '/chips', component: Chips },
         { path: '/windows', component: Windows },
-        { path: '/tabs', component: Tabs }
+        { path: '/tabs', component: Tabs },
+
+        { path: '/registration', component: Registration }
     ]
 })
