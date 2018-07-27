@@ -98,7 +98,8 @@
         color: $color-links !important;
         box-shadow: none;
         &:hover {
-            background-color: #f3f3f3;
+            // background-color: #f3f3f3;
+            background-color: $color-list-hover;
         }
         &:active {
             box-shadow: none;

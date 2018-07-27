@@ -91,6 +91,12 @@
                                         </div>
                                         Окна
                                     </router-link>
+                                    <router-link to="/tabs" class="ui-navigation__unit__button">
+                                        <div class="ui-navigation__unit__icon">
+                                            <i class="fa fa-window-minimize" ></i>
+                                        </div>
+                                        Табы
+                                    </router-link>
                                 </div>
                             </ui-navigation-list>
                         </div>

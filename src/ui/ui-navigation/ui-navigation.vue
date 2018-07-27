@@ -1,13 +1,13 @@
 <template>
-    <div>
-        <ui-blind :show="show" @onHide="isHide">
-            <div ref="navigation" class="ui-navigation">
-                <slot>
-                  
-                </slot>
-            </div>
-        </ui-blind>
-    </div>
+  <div>
+    <ui-blind :show="show" @onHide="isHide">
+      <div ref="navigation" class="ui-navigation">
+        <slot>
+
+        </slot>
+      </div>
+    </ui-blind>
+  </div>
 </template>
 <script>
 export default {
@@ -28,8 +28,10 @@ export default {
     }
   },
   updated() {
-      let wHeight = document.documentElement.clientHeight;
-      this.$refs.navigation.style.minHeight=wHeight+"px"; 
+    let wHeight = document.documentElement.clientHeight;
+    if (this.$refs.navigation) {
+      this.$refs.navigation.style.minHeight = wHeight + "px";
+    }
   },
   watch: {
     show(newQ) {

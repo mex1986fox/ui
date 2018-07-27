@@ -29,9 +29,9 @@
     </div>
 </ui-blind>'>
                     </ui-code>
+
                 </div>
                 <div class="col_12">
-
                     <span class="ui-header ui-header_2"> Шторка (с центрированием)
                     </span>
                     <br/>
@@ -67,7 +67,18 @@
 
                     </ui-code>
                 </div>
-
+                <div class="col_12">
+                    <wg-desc-example :classes="[
+                                {name:'.ui-blind', desc:'Корневой класс'},
+                            ]" :props="[
+                                {name:'show', desc:'Скрыть, показать элемент',def:'false'},
+                                {name:'centering', desc:'Включает центрирование содержимого',def:'false'},
+                               
+                            ]" :events="[
+                                {name:'onHide',desc:'Событие возникает когда элемент скрывается',val:'Ничего не возвращает'},
+                            ]">
+                    </wg-desc-example>
+                </div>
                 <div class="col_12">
                     <span class="ui-header ui-header_2"> Классическое модальное окно
                     </span>
@@ -154,7 +165,17 @@
 
                     </ui-code>
                 </div>
-
+                <div class="col_12">
+                    <wg-desc-example :classes="[
+                                {name:'.ui-modal-window', desc:'Корневой класс'},
+                                {name:'.ui-modal-window__header', desc:'Класс заголовка'},
+                                {name:'.ui-modal-window__header__button', desc:'Класс кнопки закрытия'},
+                                {name:'.ui-modal-window__content', desc:'Класс контента'},
+                                {name:'.ui-modal-window__content__img', desc:'Класс картинки контента'},
+                                {name:'.ui-modal-window__footer', desc:'Класс подвала'}
+                            ]">
+                    </wg-desc-example>
+                </div>
                 <div class="col_12">
                     <span class="ui-header ui-header_2"> Навигационное меню
                     </span>
@@ -347,18 +368,14 @@
 
                 <div class="col_12">
                     <wg-desc-example :classes="[
-                        {name:'.ui-chips', desc:'Корневой класс для chips'},
-                        {name:'.ui-chips__button', desc:'Описывает элемент кнопки для блока chips'},
-                        {name:'.ui-chips__icon', desc:'Описывает элемент аватарки для блока chips'},
-                        {name:'.ui-chips__caption', desc:'Описывает элемент описания для блока chips'},
-                    ]" :props="[
-                        {name:'name', desc:'Задает имя chip, должно быть уникальным',def:'Пустая строка - \'\''},
-                        {name:'value', desc:'Задает значение chip',def:'Пустая строка - \'\''},
-                        {name:'caption', desc:'Задает описание chip',def:'Пустая строка - \'\''},
-                        {name:'disabled', desc:'Устанавливает chip поле в положение неактивного',def:'false'},
-                        {name:'deleted', desc:'Добавляет кнопку удаления',def:'false'}
-                    ]" :events="[
-                        {name:'onDeleted',desc:'Событие возникает при удалении chip',val:'Ничего не возвращает'},
+                        {name:'.ui-navigation', desc:'Корневой класс'},
+                        {name:'.ui-navigation__header', desc:'Класс описывает заголовок навигации'},
+                        {name:'.ui-navigation__header__label', desc:'Класс описывает лейбел заголовка'},
+                        {name:'.ui-navigation__header__burger', desc:'Классс описыват кнопку заголовка'},
+                        {name:'.ui-navigation__unit', desc:'Класс описывает раскрывающийся список'},
+                        {name:'.ui-navigation__unit__header', desc:'Заголовок раскрывающегося списка'},
+                        {name:'.ui-navigation__unit__button', desc:'Селекты (кнопки) раскрывающегося списка'},
+                         {name:'.ui-navigation__unit__icon', desc:'Иконки раскрывающегося списка'},
                     ]">
 
                     </wg-desc-example>

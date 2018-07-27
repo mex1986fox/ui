@@ -58,7 +58,7 @@ export default {
             text-align: left;
             padding: 10px 40px 39px;
             &>.ui-description{
-                font-size: 18px;
+                font-size: 16px;
                 line-height: 28px;
             }
         }
