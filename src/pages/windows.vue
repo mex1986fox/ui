@@ -70,9 +70,11 @@
                 <div class="col_12">
                     <wg-desc-example :classes="[
                                 {name:'.ui-blind', desc:'Корневой класс'},
+                                {name:'.ui-blind_flat', desc:'Модификатор фона (прозрачный)'}
                             ]" :props="[
                                 {name:'show', desc:'Скрыть, показать элемент',def:'false'},
                                 {name:'centering', desc:'Включает центрирование содержимого',def:'false'},
+                                 {name:'animate', desc:'Определяет тип анимации при появление и исчезновении. Значения (left, right, opacity)',def:'left'}
                                
                             ]" :events="[
                                 {name:'onHide',desc:'Событие возникает когда элемент скрывается',val:'Ничего не возвращает'},

@@ -1,13 +1,19 @@
 <template>
-    <transition name="ui-blind">
-        <div class="ui-blind" v-if="dShow" @click="isClick">
-            <div ref="content" class="ui-blind__content" :style="autoMargin"  @click="isClick">
-                <slot>
+  <transition name="ui-blind" 
+  :enter-class="enter+'_'+animate" 
+  :leave-class="leave+'_'+animate" 
+  :enter-active-class="enterAct+'_'+animate" 
+  :leave-active-class="leaveAct+'_'+animate"
+  :enter-to-class="enterTo+'_'+animate" 
+  :leave-to-class="leaveTo+'_'+animate">
+    <div class="ui-blind" v-if="dShow" @click="isClick">
+      <div ref="content" class="ui-blind__content" :style="autoMargin" @click="isClick">
+        <slot>
 
-                </slot>
-            </div>
-        </div>
-    </transition>
+        </slot>
+      </div>
+    </div>
+  </transition>
 </template>
 <script>
 export default {
@@ -16,7 +22,14 @@ export default {
     return {
       dShow: this.show,
       dMargin: "30px",
-      dScrollHeight: 0
+      dScrollHeight: 0,
+      enter:"ui-blind_enter",
+      leave:"ui-blind_leave",
+      enterAct:"ui-blind_enter-act",
+      leaveAct:"ui-blind_leave-act",
+      enterTo:"ui-blind_enter-to",
+      leaveTo:"ui-blind_leave-to",
+
     };
   },
   props: {
@@ -27,6 +40,10 @@ export default {
     centering: {
       type: Boolean,
       default: false
+    },
+    animate:{
+      type: String,
+      default: "left"
     }
   },
   watch: {
@@ -36,7 +53,7 @@ export default {
   },
   methods: {
     isClick(event) {
-      if (event.target == this.$el || event.target==this.$refs.content) {
+      if (event.target == this.$el || event.target == this.$refs.content) {
         this.dShow = false;
         this.$emit("onHide");
       }
