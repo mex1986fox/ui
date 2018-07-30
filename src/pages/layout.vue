@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="height:100%">
         <div class="ui-app-bar">
             <div class="ui-app-bar__content">
                 <div class="container">
@@ -12,7 +12,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="container">
             <div class="row">

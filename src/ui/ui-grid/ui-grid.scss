@@ -1,3 +1,8 @@
+html {
+    height: 100%;
+    width: 100%
+}
+
 body {
     position: relative;
     font-family: "OpenSans";
@@ -8,6 +13,7 @@ body {
     background-color: #fff;
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 .container {
@@ -15,7 +21,7 @@ body {
     display: block;
     padding: 0 10px;
     margin: 0 auto;
- }
+}
 
 .row {
     height: 100%;
@@ -135,6 +141,7 @@ body {
 .col_offset-0 {
     margin-left: 0;
 }
+
 .col_offset-1 {
     margin-left: (100%/12*1);
 }
