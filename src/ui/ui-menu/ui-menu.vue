@@ -13,16 +13,26 @@ export default {
   data() {
     return {
       dShow: this.show,
-      dX:0,
-      dY:0
+      dX: 0,
+      dY: 0
     };
   },
-  methods:{
-      isHide(){
-          document.body.style.overflow="auto";
-          this.dShow=false;
-          this.$emit("onHide");
-      }
+  methods: {
+    isHide() {
+      document.body.style.overflow = "auto";
+      this.dShow = false;
+      this.$emit("onHide");
+    },
+    disableScrolling() {
+      var x = window.scrollX;
+      var y = window.scrollY;
+      window.onscroll = () => {
+        window.scrollTo(x, y);
+      };
+    },
+    enableScrolling() {
+      window.onscroll = function() {};
+    }
   },
   props: {
     show: {
@@ -41,16 +51,19 @@ export default {
   },
   mounted() {
     window.addEventListener("click", event => {
-      this.dX=event.clientX;
-      this.dY=event.clientY;
+      this.dX = event.clientX;
+      this.dY = event.clientY;
     });
   },
   updated() {
-      if(this.dShow==true){
-          this.$refs.menu.style.top=this.dY+"px";
-          this.$refs.menu.style.left=this.dX-this.$refs.menu.clientWidth+"px";
-          document.body.style.overflow="hidden";
-      }
+    if (this.dShow == true) {
+      this.$refs.menu.style.top = this.dY + "px";
+      this.$refs.menu.style.left = this.dX - this.$refs.menu.clientWidth + "px";
+      // document.body.style.overflow = "hidden";
+      this.disableScrolling();
+    } else {
+      this.enableScrolling();
+    }
   }
 };
 </script>

@@ -74,7 +74,7 @@
                             ]" :props="[
                                 {name:'show', desc:'Скрыть, показать элемент',def:'false'},
                                 {name:'centering', desc:'Включает центрирование содержимого',def:'false'},
-                                 {name:'animate', desc:'Определяет тип анимации при появление и исчезновении. Значения (left, right, opacity)',def:'left'}
+                                 {name:'animate', desc:'Определяет тип анимации при появление и исчезновении. Значения (left, right, bottom, top, opacity)',def:'left'}
                                
                             ]" :events="[
                                 {name:'onHide',desc:'Событие возникает когда элемент скрывается',val:'Ничего не возвращает'},

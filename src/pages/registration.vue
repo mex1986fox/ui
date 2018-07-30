@@ -48,10 +48,12 @@
 
             </div>
 
-                <ui-blind @onHide="showRegistrationCard=!showRegistrationCard"
+                
+            </div>
+       <ui-blind @onHide="showRegistrationCard=!showRegistrationCard"
                             :show="showRegistrationCard">
                     <div class="container">
-                    <div class="row">
+
                         <div class="pg-registration__card-registration">
                             <div class="row">
                             <div class="col_12">
@@ -211,10 +213,8 @@
                             </div>
                         </div>
                     </div>
-                    </div >
+                
                 </ui-blind>
-            </div>
-       
     </layout>
 </template>
 
