@@ -97,6 +97,29 @@
                                         </div>
                                         Табы
                                     </router-link>
+                                    <router-link to="/avatars" class="ui-navigation__unit__button">
+                                        <div class="ui-navigation__unit__icon">
+                                            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                        </div>
+                                        Аватарки
+                                    </router-link>
+                                </div>
+                            </ui-navigation-list>
+                        </div>
+                        <div class="ui-navigation__unit">
+                            <ui-navigation-list  :show="true">
+                                <div slot="header">
+                                    <div class="ui-navigation__unit__header">
+                                        Примеры виджетов
+                                    </div>
+                                </div>
+                                <div slot="content">
+                                    <router-link to="/cards" class="ui-navigation__unit__button">
+                                        <div class="ui-navigation__unit__icon">
+                                            <i class="fa fa-th" aria-hidden="true"></i>
+                                        </div>
+                                        Карточки
+                                    </router-link>
                                 </div>
                             </ui-navigation-list>
                         </div>

@@ -11,7 +11,12 @@ import Chips from '../pages/chips.vue';
 import Windows from '../pages/windows.vue';
 import Hello from '../pages/hello.vue';
 import Tabs from '../pages/tabs.vue';
+import Avatars from '../pages/avatars.vue'
+//страници
 import Registration from '../pages/registration.vue';
+//виджеты
+import Cards from '../pages/cards.vue'
+
 Vue.use(Router)
 export default new Router({
     routes: [
@@ -26,7 +31,11 @@ export default new Router({
         { path: '/chips', component: Chips },
         { path: '/windows', component: Windows },
         { path: '/tabs', component: Tabs },
+        { path: '/avatars', component: Avatars },
 
-        { path: '/registration', component: Registration }
+        { path: '/registration', component: Registration },
+        { path: '/cards', component: Cards }
+
+
     ]
 })

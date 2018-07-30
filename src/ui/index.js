@@ -38,8 +38,8 @@ Vue.component('ui-tabs-tab', UiTabsTab);
 // import UiCard from './ui-card/ui-card.vue'
 // Vue.component('ui-card', UiCard);
 
-// import UiMenu from './ui-menu/ui-menu.vue'
-// Vue.component('ui-menu', UiMenu);
+import UiMenu from './ui-menu/ui-menu.vue'
+Vue.component('ui-menu', UiMenu);
 // import UiButton from './ui-button/ui-button.vue'
 // Vue.component('ui-button', UiButton);
 
