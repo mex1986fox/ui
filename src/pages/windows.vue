@@ -382,6 +382,93 @@
 
                     </wg-desc-example>
                 </div>
+                <div class="col_12">
+                    <span class="ui-header ui-header_2"> Кнопочное меню
+                    </span>
+                    <br/>
+                    <button class="ui-button" @click="showMenuRT=true">
+                        Правое-верхнее
+                    </button>
+                    <ui-menu :show="showMenuRT" @onHide="showMenuRT=false" position="right-top">
+                        <ul class="wg-card-ad__menu">
+                            <li class="wg-card-ad__menu-li">Ссылка 1</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 2</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 3</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 1</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 2</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 3</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 1</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 2</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 3</li>
+                        </ul>
+                    </ui-menu>
+                    <button class="ui-button" @click="showMenuRB=true">
+                        Правое-нижнее
+                    </button>
+                    <ui-menu :show="showMenuRB" @onHide="showMenuRB=false" position="right-bottom">
+                        <ul class="wg-card-ad__menu">
+                            <li class="wg-card-ad__menu-li">Ссылка 1</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 2</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 3</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 1</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 2</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 3</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 1</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 2</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 3</li>
+                        </ul>
+                    </ui-menu>
+                    <button class="ui-button" @click="showMenuLT=true">
+                        Левое-верхнее
+                    </button>
+                    <ui-menu :show="showMenuLT" @onHide="showMenuLT=false" position="left-top">
+                        <ul class="wg-card-ad__menu">
+                            <li class="wg-card-ad__menu-li">Ссылка 1</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 2</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 3</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 1</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 2</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 3</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 1</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 2</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 3</li>
+                        </ul>
+                    </ui-menu>
+                    <button class="ui-button" @click="showMenuLB=true">
+                        Левое-нижнее
+                    </button>
+                    <ui-menu :show="showMenuLB" @onHide="showMenuLB=false" position="left-bottom">
+                        <ul class="wg-card-ad__menu">
+                            <li class="wg-card-ad__menu-li">Ссылка 1</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 2</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 3</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 1</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 2</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 3</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 1</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 2</li>
+                            <li class="wg-card-ad__menu-li">Ссылка 3</li>
+                        </ul>
+                    </ui-menu>
+
+                </div>
+                <div class="col-12">
+                    <ui-code value='<ui-menu :show="showMenuLB" @onHide="showMenuLB=false" position="left-bottom">
+    <ul class="wg-card-ad__menu">
+        <li class="wg-card-ad__menu-li">Ссылка 1</li>
+        <li class="wg-card-ad__menu-li">Ссылка 2</li>
+        <li class="wg-card-ad__menu-li">Ссылка 3</li>
+        <li class="wg-card-ad__menu-li">Ссылка 1</li>
+        <li class="wg-card-ad__menu-li">Ссылка 2</li>
+        <li class="wg-card-ad__menu-li">Ссылка 3</li>
+        <li class="wg-card-ad__menu-li">Ссылка 1</li>
+        <li class="wg-card-ad__menu-li">Ссылка 2</li>
+        <li class="wg-card-ad__menu-li">Ссылка 3</li>
+    </ul>
+</ui-menu>'>
+
+                    </ui-code>
+                </div>
             </div>
         </div>
     </layout>
@@ -394,7 +481,11 @@ export default {
       showBlind: false,
       showBlindС: false,
       showModal: false,
-      showNavigation: false
+      showNavigation: false,
+      showMenuLT: false,
+      showMenuLB: false,
+      showMenuRT: false,
+      showMenuRB: false
     };
   }
 };

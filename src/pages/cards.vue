@@ -22,23 +22,17 @@
                             <button @click="showMenu=true" class="ui-button ui-button_flat ui-button_circle wg-card-ad__header__button">
                                 <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                             </button>
-                            <ui-menu :show="showMenu" @onHide="showMenu=false">
-                                <ul>
-                                    <li>dfdsdfsdfsdfsdf</li>
-                                    <li>dfdsdfsdfsdfsdf</li>
-                                    <li>dfdsdfsdfsdfsdf</li>
-                                    <li>dfdsdfsdfsdfsdf</li>
-                                    <li>dfdsdfsdfsdfsdf</li>
-                                    <li>dfdsdfsdfsdfsdf</li>
-                                    <li>dfdsdfsdfsdfsdf</li>
-                                    <li>dfdsdfsdfsdfsdf</li>
-                                    <li>dfdsdfsdfsdfsdf</li>
-                                    <li>dfdsdfsdfsdfsdf</li>
-                                    <li>dfdsdfsdfsdfsdf</li>
-                                    <li>dfdsdfsdfsdfsdf</li>
-                                    <li>dfdsdfsdfsdfsdf</li>
-                                    <li>dfdsdfsdfsdfsdf</li>
-                                    <li>dfdsdfsdfsdfsdf</li>
+                            <ui-menu :show="showMenu" @onHide="showMenu=false" position="left-bottom">
+                                <ul class="wg-card-ad__menu">
+                                    <li class="wg-card-ad__menu-li">Ссылка 1</li>
+                                    <li class="wg-card-ad__menu-li">Ссылка 2</li>
+                                    <li class="wg-card-ad__menu-li">Ссылка 3</li>
+                                    <li class="wg-card-ad__menu-li">Ссылка 1</li>
+                                    <li class="wg-card-ad__menu-li">Ссылка 2</li>
+                                    <li class="wg-card-ad__menu-li">Ссылка 3</li>
+                                    <li class="wg-card-ad__menu-li">Ссылка 1</li>
+                                    <li class="wg-card-ad__menu-li">Ссылка 2</li>
+                                    <li class="wg-card-ad__menu-li">Ссылка 3</li>
                                 </ul>
                             </ui-menu>
 

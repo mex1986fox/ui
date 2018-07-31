@@ -1,11 +1,11 @@
 <template>
-    <ui-blind :show="dShow" @onHide="isHide" class="ui-blind_flat" animate="opacity">
-        <div ref="menu" class="ui-menu" >
-            <slot>
+  <ui-blind :show="dShow" @onHide="isHide" class="ui-blind_flat" animate="opacity">
+    <div ref="menu" class="ui-menu">
+      <slot>
 
-            </slot>
-        </div>
-    </ui-blind>
+      </slot>
+    </div>
+  </ui-blind>
 
 </template>
 <script>
@@ -14,13 +14,15 @@ export default {
     return {
       dShow: this.show,
       dX: 0,
-      dY: 0
+      dY: 0,
+      dPosition: this.position
     };
   },
   methods: {
     isHide() {
       document.body.style.overflow = "auto";
       this.dShow = false;
+      this.enableScrolling();
       this.$emit("onHide");
     },
     disableScrolling() {
@@ -39,9 +41,9 @@ export default {
       type: Boolean,
       default: false
     },
-    event: {
-      type: Object,
-      default: () => {}
+    position: {
+      type: String,
+      default: "left-bottom"
     }
   },
   watch: {
@@ -57,12 +59,28 @@ export default {
   },
   updated() {
     if (this.dShow == true) {
-      this.$refs.menu.style.top = this.dY + "px";
-      this.$refs.menu.style.left = this.dX - this.$refs.menu.clientWidth + "px";
-      // document.body.style.overflow = "hidden";
-      this.disableScrolling();
-    } else {
-      this.enableScrolling();
+       this.disableScrolling();
+      let top, left;
+      switch (this.dPosition) {
+        case "left-bottom":
+          top = this.dY;
+          left = this.dX - this.$refs.menu.clientWidth;
+          break;
+        case "right-bottom":
+          top = this.dY;
+          left = this.dX;
+          break;
+        case "left-top":
+          top = this.dY - this.$refs.menu.clientHeight;
+          left = this.dX - this.$refs.menu.clientWidth;
+          break;
+        case "right-top":
+          top = this.dY - this.$refs.menu.clientHeight;
+          left = this.dX;
+          break;
+      }
+      this.$refs.menu.style.top = top + "px";
+      this.$refs.menu.style.left = left + "px";
     }
   }
 };
