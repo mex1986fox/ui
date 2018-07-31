@@ -11,13 +11,13 @@ import Chips from '../pages/chips.vue';
 import Windows from '../pages/windows.vue';
 import Hello from '../pages/hello.vue';
 import Tabs from '../pages/tabs.vue';
-import Avatars from '../pages/avatars.vue'
+import Avatars from '../pages/avatars.vue';
 //страници
 import Registration from '../pages/registration.vue';
 //виджеты
-import Cards from '../pages/cards.vue'
-
-Vue.use(Router)
+import Cards from '../pages/cards.vue';
+import wSliders from '../pages/wsliders.vue';
+Vue.use(Router);
 export default new Router({
     routes: [
         { path: '/', component: Hello },
@@ -34,7 +34,8 @@ export default new Router({
         { path: '/avatars', component: Avatars },
 
         { path: '/registration', component: Registration },
-        { path: '/cards', component: Cards }
+        { path: '/cards', component: Cards },
+        { path: '/sliders', component: wSliders }
 
 
     ]

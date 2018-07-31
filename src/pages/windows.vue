@@ -469,6 +469,22 @@
 
                     </ui-code>
                 </div>
+                 <div class="col_12">
+                    <wg-desc-example 
+                    :classes="[
+                        {name:'.ui-menu', desc:'Корневой класс'}
+                    ]"
+                    :props="[
+                        {name:'show', desc:'Показывает или скрывает меню',def:'false'},
+                        {name:'position', desc:'Позицианирует меню. Значения: left-bottom, left-top, right-bottom, right-top.',def:'left-bottom'},
+                       
+                    ]"
+                    :events="[
+                        {name:'onHide',desc:'Событие возникает при закрытии меню',val:'Ничего не возвращает'},
+                       
+                    ]">
+                    </wg-desc-example>
+                </div>
             </div>
         </div>
     </layout>

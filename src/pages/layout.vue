@@ -119,6 +119,12 @@
                                         </div>
                                         Карточки
                                     </router-link>
+                                    <router-link to="/sliders" class="ui-navigation__unit__button">
+                                        <div class="ui-navigation__unit__icon">
+                                            <i class="fa fa-th" aria-hidden="true"></i>
+                                        </div>
+                                        Slider
+                                    </router-link>
                                 </div>
                             </ui-navigation-list>
                         </div>

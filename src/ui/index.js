@@ -17,13 +17,13 @@ import UiDatepicker from './ui-datepicker/ui-datepicker.vue';
 Vue.component('ui-datepicker', UiDatepicker);
 import UiBlind from './ui-blind/ui-blind.vue';
 Vue.component('ui-blind', UiBlind);
-import UiNavigation from './ui-navigation/ui-navigation.vue'
+import UiNavigation from './ui-navigation/ui-navigation.vue';
 Vue.component('ui-navigation', UiNavigation);
-import UiNavigationList from './ui-navigation/ui-navigation-list.vue'
+import UiNavigationList from './ui-navigation/ui-navigation-list.vue';
 Vue.component('ui-navigation-list', UiNavigationList);
-import UiTabs from './ui-tabs/ui-tabs.vue'
+import UiTabs from './ui-tabs/ui-tabs.vue';
 Vue.component('ui-tabs', UiTabs);
-import UiTabsTab from './ui-tabs/ui-tabs-tab.vue'
+import UiTabsTab from './ui-tabs/ui-tabs-tab.vue';
 Vue.component('ui-tabs-tab', UiTabsTab);
 // import UiText2 from './ui-text2/ui-text2.vue'
 // Vue.component('ui-text2', UiText2);
@@ -38,13 +38,13 @@ Vue.component('ui-tabs-tab', UiTabsTab);
 // import UiCard from './ui-card/ui-card.vue'
 // Vue.component('ui-card', UiCard);
 
-import UiMenu from './ui-menu/ui-menu.vue'
+import UiMenu from './ui-menu/ui-menu.vue';
 Vue.component('ui-menu', UiMenu);
 // import UiButton from './ui-button/ui-button.vue'
 // Vue.component('ui-button', UiButton);
 
 
-import UiChips from './ui-chips/ui-chips.vue'
+import UiChips from './ui-chips/ui-chips.vue';
 Vue.component('ui-chips', UiChips);
 // import UiList from './ui-list/ui-list.vue'
 // Vue.component('ui-list', UiList);
@@ -68,8 +68,7 @@ Vue.component('ui-chips', UiChips);
 // Vue.component('ui-blackout', UiBlackout);
 // import UiModalWindow from './ui-modal-window/ui-modal-window.vue'
 // Vue.component('ui-modal-window', UiModalWindow);
-// import UiSliderPhoto from './ui-slider-photo/ui-slider-photo.vue'
-// Vue.component('ui-slider-photo', UiSliderPhoto);
+
 // import UiStatistic from './ui-statistic/ui-statistic.vue'
 // Vue.component('ui-statistic', UiStatistic);
 // import UiSnackbar from './ui-snackbar/ui-snackbar.vue'

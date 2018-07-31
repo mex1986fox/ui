@@ -1,21 +1,21 @@
 <template>
-  <div class="ui-slider-photo" @mouseover="buttonsShow=true" @mouseout="buttonsShow=false">
-    <div class="ui-slider-photo__buttons" :style="marginButtons" v-show="buttonsShow">
-      <div class="ui-slider-photo__left-button" @click="leafLeft">
-        <button class="ui-button ui-button_circle ui-button_flat ui-slider-photo__button_flat">
+  <div class="wg-slider" @mouseover="buttonsShow=true" @mouseout="buttonsShow=false">
+    <div class="wg-slider__buttons" :style="marginButtons" v-show="buttonsShow">
+      <div class="wg-slider__left-button" @click="leafLeft">
+        <button class="ui-button ui-button_circle ui-button_flat wg-slider__button_flat">
           <i aria-hidden="true" class="fa fa-angle-left"></i>
         </button>
       </div>
-      <div class="ui-slider-photo__right-button" @click="leafRight()">
-        <button class="ui-button ui-button_circle ui-button_flat ui-slider-photo__button_flat">
+      <div class="wg-slider__right-button" @click="leafRight">
+        <button class="ui-button ui-button_circle ui-button_flat wg-slider__button_flat">
           <i aria-hidden="true" class="fa fa-angle-right"></i>
         </button>
       </div>
     </div>
-    <div ref="container" class="ui-slider-photo__container">
-      <div class="ui-slider-photo__frame" v-for="(val, key) in photos" :key="key" v-if="key<3">
-        <img  class="ui-slider-photo__fon" :src="val.src" alt="">
-        <img ref="photo" class="ui-slider-photo__img" :src="val.src" alt="" >
+    <div ref="container" class="wg-slider__container">
+      <div class="wg-slider__frame" v-for="(val, key) in dSlide" :key="key" v-if="key<3">
+        <img  class="wg-slider__fon" :src="val.src" alt="">
+        <img ref="photo" class="wg-slider__img" :src="val.src" alt="" >
       </div>
     </div>
   </div>
@@ -26,17 +26,19 @@ export default {
     //выравнивает кнопки по центру
     centerButtons() {
       if (this.$el.clientHeight > 66) {
+        console.log(this.$el.clientHeight)
         this.marginButtons = { marginTop: this.$el.clientHeight / 2 + "px" };
       } else {
+        console.log(this.$el)
         this.marginButtons = {};
       }
     },
     //устанавливает главную фотку в свою позицию
     setPosition() {
-      for (let key in this.photos) {
-        if (this.photos[key].show == true) {
-          let elem = this.photos.splice(key, 1);
-          this.photos.splice(1, 0, elem[0]);
+      for (let key in this.dSlide) {
+        if (this.dSlide[key].show == true) {
+          let elem = this.dSlide.splice(key, 1);
+          this.dSlide.splice(1, 0, elem[0]);
         }
       }
     },
@@ -46,16 +48,16 @@ export default {
         "margin-left: -200%; transition: margin-left 0.3s;";
       setTimeout(() => {
         this.$refs.container.style.cssText = "";
-        this.photos.push(this.photos.shift());
-      }, 400);
+        this.dSlide.push(this.dSlide.shift());
+      }, 100);
     },
     leafRight() {
       this.$refs.container.style.cssText =
         "margin-left: 0%; transition: margin-left 0.3s;";
       setTimeout(() => {
         this.$refs.container.style.cssText = "";
-        this.photos.unshift(this.photos.pop());
-      }, 400);
+        this.dSlide.unshift(this.dSlide.pop());
+      }, 100);
     },
     // определяет размещение блока горизонтальное или вертикальное
     defineLocation(htmlEl) {
@@ -83,30 +85,31 @@ export default {
     return {
       buttonsShow: false,
       marginButtons: {},
-      photos: this.slidePhotoObject
+      dSlide: this.slide
     };
   },
   beforeMount() {
     this.setPosition();
   },
   mounted() {
-    this.centerButtons();
+    
     for (let k in this.$refs.photo) {
       this.alignmentPhoto(this.$refs.photo[k]);
       this.centerPhoto(this.$el, this.$refs.photo[k]);
     }
-    setTimeout(()=>{this.$forceUpdate()}, 1500);
+    setTimeout(()=>{this.centerButtons()}, 500);
   },
   updated(){
+    
     for (let k in this.$refs.photo) {
       this.alignmentPhoto(this.$refs.photo[k]);
       this.centerPhoto(this.$el, this.$refs.photo[k]);
     }
   },
-  props: { slidePhotoObject: Array }
+  props: { slide: Array }
 };
 
-// photos: [
+// dSlide: [
 //         { src: "/static/img/photo_car1.jpg", show: true },
 //         { src: "/static/img/photo_car2.jpg" },
 //         { src: "/static/img/photo_car3.jpg" },
