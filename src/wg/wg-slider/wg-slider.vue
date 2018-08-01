@@ -14,8 +14,8 @@
     </div>
     <div ref="container" class="wg-slider__container">
       <div class="wg-slider__frame" v-for="(val, key) in dSlide" :key="key" v-if="key<3">
-        <img  class="wg-slider__fon" :src="val.src" alt="">
-        <img ref="photo" class="wg-slider__img" :src="val.src" alt="" >
+        <img class="wg-slider__fon" :src="val.src" alt="">
+        <img ref="photo" class="wg-slider__img" :src="val.src" alt="">
       </div>
     </div>
   </div>
@@ -26,10 +26,8 @@ export default {
     //выравнивает кнопки по центру
     centerButtons() {
       if (this.$el.clientHeight > 66) {
-        console.log(this.$el.clientHeight)
         this.marginButtons = { marginTop: this.$el.clientHeight / 2 + "px" };
       } else {
-        console.log(this.$el)
         this.marginButtons = {};
       }
     },
@@ -45,19 +43,19 @@ export default {
     //листает слайдер влево
     leafLeft() {
       this.$refs.container.style.cssText =
-        "margin-left: -200%; transition: margin-left 0.3s;";
+        "margin-left: -200%;  transition: 0.2s;";
       setTimeout(() => {
         this.$refs.container.style.cssText = "";
         this.dSlide.push(this.dSlide.shift());
-      }, 100);
+      }, 300);
     },
     leafRight() {
       this.$refs.container.style.cssText =
-        "margin-left: 0%; transition: margin-left 0.3s;";
+        "margin-left: 0%;  transition: 0.2s;";
       setTimeout(() => {
         this.$refs.container.style.cssText = "";
         this.dSlide.unshift(this.dSlide.pop());
-      }, 100);
+      }, 300);
     },
     // определяет размещение блока горизонтальное или вертикальное
     defineLocation(htmlEl) {
@@ -92,21 +90,32 @@ export default {
     this.setPosition();
   },
   mounted() {
-    
+    this.$el.style.height = this.height;
+    this.$el.style.transition = "opacity 0.6s";
+    this.$el.style.opacity = 0;
+    setTimeout(() => {
+      this.$el.style.transition = "opacity 0.6s";
+      this.$el.style.opacity = 1;
+    }, 600);
     for (let k in this.$refs.photo) {
       this.alignmentPhoto(this.$refs.photo[k]);
       this.centerPhoto(this.$el, this.$refs.photo[k]);
     }
-    setTimeout(()=>{this.centerButtons()}, 500);
+    setTimeout(() => {
+      this.centerButtons();
+    }, 100);
   },
-  updated(){
-    
+  updated() {
+    this.$el.style.height = this.height;
     for (let k in this.$refs.photo) {
       this.alignmentPhoto(this.$refs.photo[k]);
       this.centerPhoto(this.$el, this.$refs.photo[k]);
     }
   },
-  props: { slide: Array }
+  props: {
+    slide: { type: Array, default: () => [] },
+    height: { type: String, default: "250px" }
+  }
 };
 
 // dSlide: [
@@ -117,5 +126,4 @@ export default {
 //       ]
 </script>
 <style lang="scss">
-
 </style>
