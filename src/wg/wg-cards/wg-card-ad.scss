@@ -5,17 +5,54 @@
     margin: 25px 0;
     &__header {
         height: 60px;
-        padding: 15px;
-        &__button {
+        padding: 10px 0;
+        &-button {
             position: absolute;
-            right: 4px;
+            right: 9px;
             left: auto;
-            top: 15px;
+            top: 51px;
         }
     }
-    &__img {
-        height: auto;
-        width: 100%;
+    &__link {
+        height: 100%;
+        width: auto;
+        font-size: 18px;
+        font-weight: 600;
+        position: relative;
+        display: block;
+        margin-bottom: 10px;
+    }
+    &__avatar-block {
+        margin-left: -5px;
+    }
+    &__slider {
+        height: 168px !important;
+    }
+    &__info {
+        height: 168px;
+        width: auto;
+        padding: 0 0 0 15px;
+        position: relative;
+        &-header {
+            height: 30px;
+            font-size: 24px;
+            color: $color-text-header;
+            font-weight: 600;
+            color: #617179;
+        }
+        &-param {
+            display: block;
+            font-size: 13px;
+            overflow: hidden;
+            margin: 7px 0 0 0;
+            color: #617179;
+        }
+        &-title {
+            float: left;
+        }
+        &-value {
+            float: right;
+        }
     }
     &__buttons {
         padding: 0 5px;

@@ -105,7 +105,6 @@ export default {
 
   mounted() {
     this.setNumbers();
-    this.$el.style.height = this.height;
     this.$el.style.transition = "opacity 0.6s";
     this.$el.style.opacity = 0;
     setTimeout(() => {
@@ -135,8 +134,7 @@ export default {
     }, 100);
   },
   props: {
-    slide: { type: Array, default: () => [] },
-    height: { type: String, default: "250px" }
+    slide: { type: Array, default: () => [] }
   }
 };
 
