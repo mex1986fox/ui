@@ -88,7 +88,7 @@
                     <button class="ui-button" @click="showModal=true">
                         Показать модальное окно
                     </button>
-                    <ui-blind :show="showModal" @onHide="showModal=false" :centering="true">
+                    <ui-blind :show="showModal" @onHide="showModal=false" :centering="true" animate="opacity">
                         <div class="container">
                             <div class="row">
                                 <div class="col_6 col_offset-3 col-phone_6 col-phone_offset-0">
@@ -125,7 +125,7 @@
                 <div class="col_12">
 
                     <ui-code value='
-<ui-blind :show="showModal" @onHide="showModal=false" :centering="true">
+<ui-blind :show="showModal" @onHide="showModal=false" :centering="true" animate="opacity">
     <div class="container">
         <div class="row">
             <div class="col_6 col_offset-3 col-phone_6 col-phone_offset-0">

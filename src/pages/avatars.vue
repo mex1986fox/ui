@@ -3,6 +3,10 @@
         <div class="container">
             <div class="row">
                 <div class="col_12">
+                    <h1 class="ui-header ui-header_1"> Аватарки </h1>
+                    <br/>
+                </div>
+                <div class="col_12">
                     <div class="ui-avatar">
                         <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                     </div>

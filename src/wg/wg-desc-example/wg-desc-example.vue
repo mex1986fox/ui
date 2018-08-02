@@ -2,21 +2,17 @@
     <div class="wg-desc-example">
         <span class="ui-header ui-header_3"> API </span>
 
-        <button @click="isShow('classes')" class="ui-button ui-button_flat ui-button_mini" 
-        :class="{'wg-desc-example__button_active':dDescShow.classes.show}"
-        v-if="dClasses.length>0">
-            Classes
-        </button>
-        <button @click="isShow('props')" class="ui-button ui-button_flat ui-button_mini"
-            :class="{'wg-desc-example__button_active':dDescShow.props.show}"
-            v-if="dProps.length>0">
-            Props
-        </button>
-        <button @click="isShow('events')" class="ui-button ui-button_flat ui-button_mini"
-            :class="{'wg-desc-example__button_active':dDescShow.events.show}"
-            v-if="dEvents.length>0">
-            & Events
-        </button>
+        <ui-tabs>
+                        <ui-tabs-tab id="1" :checked="true" @onFocus="isShow('classes')" v-if="dClasses.length>0">
+                            Классы
+                        </ui-tabs-tab>
+                        <ui-tabs-tab id="2" @onFocus="isShow('props')" v-if="dProps.length>0">
+                           Props
+                        </ui-tabs-tab>
+                        <ui-tabs-tab id="3" @onFocus="isShow('events')" v-if="dEvents.length>0">
+                            @ Events
+                        </ui-tabs-tab>
+        </ui-tabs>
         <div class="wg-desc-example__description" v-if="dDescShow.classes.show">
             <table class="wg-desc-example__table">
                 <tr class="wg-desc-example__tr">

@@ -18,6 +18,12 @@
         <img ref="photo" class="wg-slider__img" :src="val.src" alt="">
       </div>
     </div>
+    <div class="wg-slider__menu" v-show="buttonsShow">
+      <div class="wg-slider__numeric" >
+        {{dSlide[0].number}} / {{dSlide.length}}
+      </div>
+    </div>
+
   </div>
 </template>
 <script>
@@ -37,7 +43,14 @@ export default {
         if (this.dSlide[key].show == true) {
           let elem = this.dSlide.splice(key, 1);
           this.dSlide.splice(1, 0, elem[0]);
+          break;
         }
+      }
+    },
+    //номерует фотки
+    setNumbers() {
+      for (let key in this.dSlide) {
+        this.dSlide[key].number = Number(key) + 1;
       }
     },
     //листает слайдер влево
@@ -89,7 +102,9 @@ export default {
   beforeMount() {
     this.setPosition();
   },
+
   mounted() {
+    this.setNumbers();
     this.$el.style.height = this.height;
     this.$el.style.transition = "opacity 0.6s";
     this.$el.style.opacity = 0;
@@ -106,11 +121,18 @@ export default {
     }, 100);
   },
   updated() {
-    this.$el.style.height = this.height;
     for (let k in this.$refs.photo) {
       this.alignmentPhoto(this.$refs.photo[k]);
       this.centerPhoto(this.$el, this.$refs.photo[k]);
     }
+    setTimeout(() => {
+      for (let k in this.$refs.photo) {
+        if (this.$refs.photo[k].show != true) {
+          this.alignmentPhoto(this.$refs.photo[k]);
+          this.centerPhoto(this.$el, this.$refs.photo[k]);
+        }
+      }
+    }, 100);
   },
   props: {
     slide: { type: Array, default: () => [] },

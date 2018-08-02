@@ -37,7 +37,6 @@
                             </ui-menu>
 
                         </div>
-
                         <img class="wg-card-ad__img" src="/public/img/canvas.jpg" alt="">
 
                         <div class="wg-card-ad__buttons">
@@ -66,11 +65,25 @@
             </div>
         </div>
 
-        <button class="ui-button ui-button_flat ui-button_circle wg-card-ad__header__button">
+        <button @click="showMenu=true" class="ui-button ui-button_flat ui-button_circle wg-card-ad__header__button">
             <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
         </button>
-    </div>
 
+        <ui-menu :show="showMenu" @onHide="showMenu=false" position="left-bottom">
+            <ul class="wg-card-ad__menu">
+                <li class="wg-card-ad__menu-li">Ссылка 1</li>
+                <li class="wg-card-ad__menu-li">Ссылка 2</li>
+                <li class="wg-card-ad__menu-li">Ссылка 3</li>
+                <li class="wg-card-ad__menu-li">Ссылка 1</li>
+                <li class="wg-card-ad__menu-li">Ссылка 2</li>
+                <li class="wg-card-ad__menu-li">Ссылка 3</li>
+                <li class="wg-card-ad__menu-li">Ссылка 1</li>
+                <li class="wg-card-ad__menu-li">Ссылка 2</li>
+                <li class="wg-card-ad__menu-li">Ссылка 3</li>
+            </ul>
+        </ui-menu>
+    </div>
+    
     <img class="wg-card-ad__img" src="/public/img/canvas.jpg" alt="">
 
     <div class="wg-card-ad__buttons">

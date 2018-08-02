@@ -3,6 +3,10 @@
         <div class="container">
             <div class="row">
                 <div class="col_12">
+                    <h1 class="ui-header ui-header_1"> Табы </h1>
+                    <br/>
+                </div>
+                <div class="col_12">
                     <ui-tabs>
                         <ui-tabs-tab id="1" :checked="true" @onFocus="isTabs">
                             Кнопка 1
