@@ -12,18 +12,17 @@
         </button>
       </div>
     </div>
+    <div class="wg-slider__menu" v-show="buttonsShow">
+      <div class="wg-slider__numeric">
+        {{dSlide[0].number}} / {{dSlide.length}}
+      </div>
+    </div>
     <div ref="container" class="wg-slider__container">
       <div class="wg-slider__frame" v-for="(val, key) in dSlide" :key="key" v-if="key<3">
         <img class="wg-slider__fon" :src="val.src" alt="">
         <img ref="photo" class="wg-slider__img" :src="val.src" alt="">
       </div>
     </div>
-    <div class="wg-slider__menu" v-show="buttonsShow">
-      <div class="wg-slider__numeric" >
-        {{dSlide[0].number}} / {{dSlide.length}}
-      </div>
-    </div>
-
   </div>
 </template>
 <script>
@@ -31,8 +30,8 @@ export default {
   methods: {
     //выравнивает кнопки по центру
     centerButtons() {
-      if (this.$el.clientHeight > 66) {
-        this.marginButtons = { marginTop: this.$el.clientHeight / 2 + "px" };
+      if (this.$refs.container.clientHeight > 66) {
+        this.marginButtons = { marginTop: this.$refs.container.clientHeight / 2 + "px" };
       } else {
         this.marginButtons = {};
       }
@@ -76,7 +75,7 @@ export default {
     },
     // выравнивает фотографию относительно блока
     alignmentPhoto(htmlElPhoto) {
-      let locBlock = this.defineLocation(this.$el);
+      let locBlock = this.defineLocation(this.$refs.container);
       let locPhoto = this.defineLocation(htmlElPhoto);
       if (locPhoto > locBlock) {
         htmlElPhoto.style.cssText = "height:100%; width:auto;";
@@ -113,7 +112,7 @@ export default {
     }, 600);
     for (let k in this.$refs.photo) {
       this.alignmentPhoto(this.$refs.photo[k]);
-      this.centerPhoto(this.$el, this.$refs.photo[k]);
+      this.centerPhoto(this.$refs.container, this.$refs.photo[k]);
     }
     setTimeout(() => {
       this.centerButtons();
@@ -122,13 +121,13 @@ export default {
   updated() {
     for (let k in this.$refs.photo) {
       this.alignmentPhoto(this.$refs.photo[k]);
-      this.centerPhoto(this.$el, this.$refs.photo[k]);
+      this.centerPhoto(this.$refs.container, this.$refs.photo[k]);
     }
     setTimeout(() => {
       for (let k in this.$refs.photo) {
         if (this.$refs.photo[k].show != true) {
           this.alignmentPhoto(this.$refs.photo[k]);
-          this.centerPhoto(this.$el, this.$refs.photo[k]);
+          this.centerPhoto(this.$refs.container, this.$refs.photo[k]);
         }
       }
     }, 100);

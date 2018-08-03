@@ -1,6 +1,6 @@
 .wg-slider {
     width: auto;
-    height: 250px;
+    height: auto;
     display: block;
     position: relative;
     overflow: hidden;
@@ -42,7 +42,7 @@
         background-color: rgba(255, 255, 255, .4)
     }
     &__container {
-        height: 100%;
+        height: 250px;
         width: 300%;
         margin-left: -100%;
         float: left;
@@ -64,6 +64,7 @@
         width: 100%;
         top: 0px;
         position: absolute;
+        z-index: 2;
     }
     &__numeric {
         height: 100%;
@@ -75,4 +76,5 @@
         padding: 0 25px;
         right: 0;
     }
+
 }
