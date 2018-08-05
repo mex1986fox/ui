@@ -31,7 +31,9 @@ export default {
     //выравнивает кнопки по центру
     centerButtons() {
       if (this.$refs.container.clientHeight > 66) {
-        this.marginButtons = { marginTop: this.$refs.container.clientHeight / 2 + "px" };
+        this.marginButtons = {
+          marginTop: this.$refs.container.clientHeight / 2 + "px"
+        };
       } else {
         this.marginButtons = {};
       }
@@ -39,9 +41,9 @@ export default {
     //устанавливает главную фотку в свою позицию
     setPosition() {
       for (let key in this.dSlide) {
-        if (this.dSlide[key].show == true) {
-          let elem = this.dSlide.splice(key, 1);
-          this.dSlide.splice(1, 0, elem[0]);
+        if (this.dSlide[key].show === true && key > 1) {
+          let elem = this.dSlide.splice(key - 1, this.dSlide.length - key + 1);
+          this.dSlide = elem.concat(this.dSlide);
           break;
         }
       }
@@ -50,6 +52,14 @@ export default {
     setNumbers() {
       for (let key in this.dSlide) {
         this.dSlide[key].number = Number(key) + 1;
+      }
+    },
+    // определяет номер выбранной фотки
+    setInsert() {
+      if (this.dSlide[0].number == this.dSlide.length) {
+        this.$emit("onInsert", 1);
+      } else {
+        this.$emit("onInsert", this.dSlide[0].number + 1);
       }
     },
     //листает слайдер влево
@@ -95,15 +105,16 @@ export default {
     return {
       buttonsShow: false,
       marginButtons: {},
-      dSlide: this.slide
+      dSlide: this.slide,
+      dInsertNumber: 0
     };
   },
   beforeMount() {
+    this.setNumbers();
     this.setPosition();
   },
 
   mounted() {
-    this.setNumbers();
     this.$el.style.transition = "opacity 0.6s";
     this.$el.style.opacity = 0;
     setTimeout(() => {
@@ -117,6 +128,7 @@ export default {
     setTimeout(() => {
       this.centerButtons();
     }, 100);
+    this.setInsert();
   },
   updated() {
     for (let k in this.$refs.photo) {
@@ -131,6 +143,7 @@ export default {
         }
       }
     }, 100);
+    this.setInsert();
   },
   props: {
     slide: { type: Array, default: () => [] }

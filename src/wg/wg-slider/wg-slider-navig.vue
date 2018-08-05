@@ -1,21 +1,84 @@
-<template>
-    <div class="wg-slider-navig">
-        <div class="wg-slider-navig__container">
-            <div class="wg-slider-navig__slide" :class="{'wg-slider-navig__slide_active':key+1==checked}" v-for="(val, key) in slide" :key="key">
-                
-                <img class="wg-slider-navig__img" :src="val.src">
-            </div>
-
-        </div>
-    </div>
-</template>
-<script>
+<template><div class="wg-slider-navig"><div ref="container" class="wg-slider-navig__container"><div ref="slide" class="wg-slider-navig__slide" :style="{'width':dWidthSlide}" :class="{'wg-slider-navig__slide_active':val.number==checked}" v-for="(val, key) in dSlide" :key="key"><img class="wg-slider__fon" :src="val.src"><img class="wg-slider-navig__img" :src="val.src"></div></div></div></template><script>
 export default {
   name: "wg-slider-navig",
-  data: {},
+  data() {
+    return {
+      dSlide: this.slide,
+      dWidthSlide: "0px",
+      dMarginSlide: "0px"
+    };
+  },
   props: {
-    slide: { type: Array, default: () => [] },
-    checked: { type: Number, default: 1 }
+    slide: {
+      type: Array,
+      default: () => []
+    },
+    checked: {
+      type: Number,
+      default: 1
+    }
+  },
+  beforeMount() {
+    this.setNumbers();
+    this.setPosition();
+  },
+  mounted() {
+    this.computedWidth();
+    this.computedMLeft();
+  },
+  updated() {
+    this.computedMLeft();
+  },
+  methods: {
+    //   вычисляет ширину слайдов
+    computedWidth() {
+      this.dWidthSlide = this.$refs.container.clientHeight * 16 / 9 + "px";
+    }, // устанавливает отступ первого слайда
+    computedMLeft() {
+      // ширина контейнера
+      let wContainer = this.$refs.container.clientWidth; // ширина слайда
+      let wSlide = this.$refs.container.clientHeight * 16 / 9; // количество слайдов помещающихся в контейнер
+      let lengthSlids = Math.floor(wContainer / (wSlide + 2)); // центральный слайд
+      let centerSlide = Math.floor(lengthSlids / 2);
+      if (centerSlide < this.getPosition(this.checked)) {
+        this.dMarginSlide =
+          this.getPosition(this.checked) * (wSlide + 2) -
+          centerSlide * (wSlide + 2) +
+          "px";
+      }
+      if (this.getPosition(this.checked) < centerSlide) {
+        this.dMarginSlide = "0px";
+      }
+      if (
+        this.dSlide.length - this.getPosition(this.checked) <=
+        lengthSlids - centerSlide
+      ) {
+        this.dMarginSlide =
+          (this.dSlide.length - lengthSlids) * (wSlide + 2) + "px";
+      }
+
+      this.$refs.container.style.marginLeft =
+        (this.$refs.container.clientWidth - (wSlide + 2) * lengthSlids) / 2 +
+        "px";
+      this.$refs.slide[0].style.marginLeft = "-" + this.dMarginSlide;
+    },
+    setPosition() {
+      let elem = this.dSlide.splice(1, this.dSlide.length - 1);
+      this.dSlide = elem.concat(this.dSlide);
+    },
+    getPosition(number) {
+      for (let k in this.dSlide) {
+        if (this.dSlide[k].number == number) {
+          return k;
+          break;
+        }
+      }
+    },
+    setNumbers() {
+      for (let key in this.dSlide) {
+        this.dSlide[key].number = Number(key) + 1;
+      }
+    }
   }
 };
 // dSlide: [

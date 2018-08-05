@@ -1,25 +1,39 @@
-.wg-slider-navig{
+.wg-slider-navig {
     position: relative;
     display: block;
     height: 60px;
     overflow: hidden;
     width: auto;
-    text-align: center;
-    &__container{
+    &__container {
         position: relative;
         display: block;
         height: 100%;
         width: 100%;
         overflow: hidden;
     }
-    &__slide{
+    &__slide {
         height: 100%;
         width: auto;
         display: inline-block;
         position: relative;
-        &_active{
-            &:after{
-                background-color:  $color-links;
+        margin: 0px 1px;
+        overflow: hidden;
+        transition: margin-left .5s;
+        text-align: center;
+        &:after {
+            background-color: $color-links;
+            content: "";
+            position: absolute;
+            bottom: 0px;
+            width: 0%;
+            height: 3px;
+            background-color: #0e6c9a;
+            left: 0;
+            transition: width 0.5s ease;
+        }
+        &_active {
+            &:after {
+                background-color: $color-links;
                 content: "";
                 position: absolute;
                 bottom: 0px;
@@ -27,12 +41,11 @@
                 height: 3px;
                 background-color: #0e6c9a;
                 left: 0;
+                transition: width 0.5s ease;
             }
-            
         }
     }
-    &__img{
+    &__img {
         height: 100%;
     }
-    
 }

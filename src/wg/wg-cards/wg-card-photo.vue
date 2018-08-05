@@ -35,18 +35,28 @@
                                         { src: "/public/img/cam2.jpg" },
                                         { src: "/public/img/cam3.jpg" },
                                         { src: "/public/img/cam4.jpg" },
-                                        { src: "/public/img/cam5.jpg" }
+                                        { src: "/public/img/cam5.jpg"},
+                                        { src: "/public/img/canvas.jpg" , },
+                                        { src: "/public/img/canvas2.jpg" },
+                                        { src: "/public/img/canvas3.jpg" },
+                                        { src: "/public/img/canvas4.jpg" },
+                                        { src: "/public/img/label.png" }
                                     ]'
-                   :navigation="true"                 >
+                   @onInsert="isInsertPhoto">
         </wg-slider>
         <wg-slider-navig :slide='[
-                                        { src: "/public/img/cam1.jpg", show: true },
+                                         { src: "/public/img/cam1.jpg" },
                                         { src: "/public/img/cam2.jpg" },
                                         { src: "/public/img/cam3.jpg" },
                                         { src: "/public/img/cam4.jpg" },
-                                        { src: "/public/img/cam5.jpg" }
+                                        { src: "/public/img/cam5.jpg"},
+                                        { src: "/public/img/canvas.jpg" , },
+                                        { src: "/public/img/canvas2.jpg" },
+                                        { src: "/public/img/canvas3.jpg" },
+                                        { src: "/public/img/canvas4.jpg" },
+                                        { src: "/public/img/label.png" }
                                     ]'
-        :checked="1">
+        :checked="numberPhoto">
         </wg-slider-navig>
         <transition name="wg-card-photo__description">
             <span v-show="descActive" class="ui-description ui-description_mini wg-card-photo__description">
@@ -73,11 +83,18 @@
 export default {
   name: "wg-card-photo",
   data() {
-    return { showMenu: false, descActive: false };
+    return {
+      showMenu: false,
+      descActive: false,
+      numberPhoto: 1
+    };
   },
   methods: {
     isDascActive() {
       this.descActive = !this.descActive;
+    },
+    isInsertPhoto(numberPhoto) {
+      this.numberPhoto = numberPhoto;
     }
   }
 };
