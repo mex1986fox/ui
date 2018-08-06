@@ -77,10 +77,12 @@ export default {
           (this.dSlide.length - lengthSlids) * (wSlide + 2) + "px";
       }
 
-      this.$refs.container.style.marginLeft =
-        (this.$refs.container.clientWidth - (wSlide + 2) * lengthSlids) / 2 +
-        "px";
-      this.$refs.slide[0].style.marginLeft = "-" + this.dMarginSlide;
+      if (this.$refs.slide) {
+        this.$refs.slide[0].style.marginLeft = "-" + this.dMarginSlide;
+        this.$refs.container.style.marginLeft =
+          (this.$refs.container.clientWidth - (wSlide + 2) * lengthSlids) / 2 +
+          "px";
+      }
     },
     setPosition() {
       let elem = this.dSlide.splice(1, this.dSlide.length - 1);

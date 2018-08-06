@@ -50,7 +50,8 @@
                 { src: "/public/img/label.png" }
             ]'
             :select="numberPhoto"
-            @onSelect="isSelectPhoto">
+            @onSelect="isSelectPhoto"
+            @onZoom="isZoomPhoto">
         </wg-slider>
         <wg-slider-navig class="wg-card-photo__slider-navig"
             :slide='[
@@ -68,29 +69,58 @@
             :select="numberPhoto"
             @onSelect="isSelectPhoto">
         </wg-slider-navig>
-        <transition name="wg-card-photo__description">
-            <span v-show="descActive"
-                class="ui-description ui-description_mini wg-card-photo__description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum atque ex vero nam, harum impedit velit ea aliquam dolorum quia quibusdam quo maiores quod maxime beatae praesentium ullam porro quae! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, minus quaerat fugiat iste nostrum expedita, sit voluptas dolorem ducimus quos provident impedit, vel tempora excepturi illum perspiciatis cupiditate accusantium aspernatur!Nostrum nobis libero magni maxime, vero, aliquid consequuntur eligendi nesciunt suscipit repellendus adipisci, ex dolorum? Perferendis culpa minus cumque harum rem corporis nostrum voluptatum sequi possimus in, ipsa deserunt maxime. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore libero voluptatum voluptatibus culpa illum odit vero. Error voluptatum animi tempora ad quos explicabo itaque rerum delectus incidunt, quaerat non accusamus!Magni eius nobis tempora eveniet recusandae molestias minima tempore praesentium quibusdam exercitationem, modi officia dolorem ullam omnis fuga aut architecto incidunt aperiam inventore, odio beatae! Perspiciatis maiores odio modi. Corrupti! Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum atque ex vero nam, harum impedit velit ea aliquam dolorum quia quibusdam quo maiores quod maxime beatae praesentium ullam porro quae! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, minus quaerat fugiat iste nostrum expedita, sit voluptas dolorem ducimus quos provident impedit, vel tempora excepturi illum perspiciatis cupiditate accusantium aspernatur!Nostrum nobis libero magni maxime, vero, aliquid consequuntur eligendi nesciunt suscipit repellendus adipisci, ex dolorum? Perferendis culpa minus cumque harum rem corporis nostrum voluptatum sequi possimus in, ipsa deserunt maxime. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore libero voluptatum voluptatibus culpa illum odit vero. Error voluptatum animi tempora ad quos explicabo itaque rerum delectus incidunt, quaerat non accusamus!Magni eius nobis tempora eveniet recusandae molestias minima tempore praesentium quibusdam exercitationem, modi officia dolorem ullam omnis fuga aut architecto incidunt aperiam inventore, odio beatae! Perspiciatis maiores odio modi. Corrupti!
 
-            </span>
-        </transition>
+        <wg-slider-zoom :slide='[
+                { src: "/public/img/cam1.jpg"},
+                { src: "/public/img/cam2.jpg" },
+                { src: "/public/img/cam3.jpg" },
+                { src: "/public/img/cam4.jpg" },
+                { src: "/public/img/cam5.jpg"},
+                { src: "/public/img/canvas.jpg" , },
+                { src: "/public/img/canvas2.jpg" },
+                { src: "/public/img/canvas3.jpg" },
+                { src: "/public/img/canvas4.jpg" },
+                { src: "/public/img/label.png" }
+            ]'
+            :slideNavigation='[
+                { src: "/public/img/cam1.jpg"},
+                { src: "/public/img/cam2.jpg" },
+                { src: "/public/img/cam3.jpg" },
+                { src: "/public/img/cam4.jpg" },
+                { src: "/public/img/cam5.jpg"},
+                { src: "/public/img/canvas.jpg" , },
+                { src: "/public/img/canvas2.jpg" },
+                { src: "/public/img/canvas3.jpg" },
+                { src: "/public/img/canvas4.jpg" },
+                { src: "/public/img/label.png" }
+            ]'
+            :select="numberZoomPhoto"
+            :show="showZoomSlider"
+            @onHide="showZoomSlider=false">
+        </wg-slider-zoom>
 
         <div class="wg-card-photo__buttons">
             <button class="ui-button ui-button_circle ui-button_circle_mini ui-button_flat">
                 <i class="fa fa-thumbs-o-up"
                     aria-hidden="true"></i>
             </button>
+            <span class="wg-card-ad__counter">
+                123 000
+            </span>
             <button class="ui-button ui-button_circle ui-button_circle_mini ui-button_flat">
                 <i class="fa fa-thumbs-o-down"
                     aria-hidden="true"></i>
             </button>
-            <button class="ui-button ui-button_circle ui-button_flat ui-button_circle_mini wg-card-photo__angel"
-                :class="{'wg-card-photo__angel_transit':descActive}"
-                @click="isDascActive">
-                <i class="fa fa-angle-down"
+            <span class="wg-card-ad__counter">
+                9 990
+            </span>
+            <button class="ui-button ui-button_circle ui-button_circle_mini ui-button_flat">
+                <i class="fa fa-comments-o"
                     aria-hidden="true"></i>
             </button>
+            <span class="wg-card-ad__counter">
+                296
+            </span>
         </div>
 
     </div>
@@ -102,7 +132,9 @@ export default {
     return {
       showMenu: false,
       descActive: false,
-      numberPhoto: 1
+      numberPhoto: 1,
+      numberZoomPhoto: 1,
+      showZoomSlider: false
     };
   },
   methods: {
@@ -111,6 +143,11 @@ export default {
     },
     isSelectPhoto(numberPhoto) {
       this.numberPhoto = numberPhoto;
+    },
+    isZoomPhoto(numberPhoto) {
+    //   console.log(numberPhoto);
+      this.showZoomSlider = true;
+      this.numberZoomPhoto = numberPhoto;
     }
   }
 };

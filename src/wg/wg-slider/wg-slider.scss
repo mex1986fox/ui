@@ -1,6 +1,6 @@
 .wg-slider {
     width: auto;
-    height: auto;
+    height: 250px;
     display: block;
     position: relative;
     overflow: hidden;
@@ -15,6 +15,7 @@
         margin: auto;
         opacity: 1;
         transition: opacity 0.7s;
+        cursor: pointer;
     }
     &__fon {
         filter: blur(5px);
@@ -28,21 +29,24 @@
     &__buttons {
         width: 100%;
         position: absolute;
-        z-index: 2;
     }
     &__left-button {
-        float: left;
+        z-index: 2;
+        position: absolute;
+        left: 0px;
         margin-top: -33px;
     }
     &__right-button {
-        float: right;
+        z-index: 2;
+        position: absolute;
+        right: 0px;
         margin-top: -33px;
     }
     &__button_flat {
         background-color: rgba(255, 255, 255, .4)
     }
     &__container {
-        height: 250px;
+        height: 100%;
         width: 300%;
         margin-left: -100%;
         float: left;
@@ -55,6 +59,9 @@
         float: left;
         position: relative;
         overflow: hidden;
+        cursor: -moz-zoom-in;
+        cursor: -webkit-zoom-in;
+        cursor: zoom-in;
     }
     &__menu {
         background-color: rgba(255, 255, 255, .4);
@@ -76,5 +83,4 @@
         padding: 0 25px;
         right: 0;
     }
-
 }

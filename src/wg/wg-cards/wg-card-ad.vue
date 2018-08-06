@@ -4,7 +4,8 @@
 
             <div class="ui-avatar-block wg-card-ad__avatar-block">
                 <div class="ui-avatar">
-                    <img src="/public/img/avatar.jpg" alt="">
+                    <img src="/public/img/avatar.jpg"
+                        alt="">
                 </div>
                 <div class="ui-link ui-avatar-block__link">
                     Alisochka Frolova
@@ -15,10 +16,14 @@
 
             </div>
 
-            <button @click="showMenu=true" class="ui-button ui-button_flat ui-button_circle ui-button_circle_mini wg-card-ad__header-button">
-                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+            <button @click="showMenu=true"
+                class="ui-button ui-button_flat ui-button_circle ui-button_circle_mini wg-card-ad__header-button">
+                <i class="fa fa-ellipsis-v"
+                    aria-hidden="true"></i>
             </button>
-            <ui-menu :show="showMenu" @onHide="showMenu=false" position="left-bottom">
+            <ui-menu :show="showMenu"
+                @onHide="showMenu=false"
+                position="left-bottom">
                 <ul class="wg-card-ad__menu">
                     <li class="wg-card-ad__menu-li">Комментарии</li>
                     <li class="wg-card-ad__menu-li">Пожаловаться</li>
@@ -27,19 +32,21 @@
             </ui-menu>
 
         </div>
-        <a class="ui-link wg-card-ad__link" href="http://google.com">
-            Chevrolet Camaro 2009 г. Новокузнецк 
+        <a class="ui-link wg-card-ad__link"
+            href="http://google.com">
+            Chevrolet Camaro 2009 г. Новокузнецк
         </a>
         <div class="row">
             <div class="col_6 col-phone_6">
-                <wg-slider class="wg-card-ad__slider" :slide='[
+                <wg-slider class="wg-card-ad__slider"
+                    :slide='[
                                         { src: "/public/img/cam1.jpg"},
                                         { src: "/public/img/cam2.jpg" },
                                         { src: "/public/img/cam3.jpg" },
                                         { src: "/public/img/cam4.jpg" },
                                         { src: "/public/img/cam5.jpg" }
                                     ]'
-                                    :select="1">
+                    :select="1">
                 </wg-slider>
             </div>
             <div class="col_6 col-phone_6">
@@ -72,7 +79,8 @@
         </div>
 
         <transition name="wg-card-ad__description">
-            <span v-show="descActive" class="ui-description ui-description_mini wg-card-ad__description">
+            <span v-show="descActive"
+                class="ui-description ui-description_mini wg-card-ad__description">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum atque ex vero nam, harum impedit velit ea aliquam dolorum quia quibusdam quo maiores quod maxime beatae praesentium ullam porro quae! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, minus quaerat fugiat iste nostrum expedita, sit voluptas dolorem ducimus quos provident impedit, vel tempora excepturi illum perspiciatis cupiditate accusantium aspernatur!Nostrum nobis libero magni maxime, vero, aliquid consequuntur eligendi nesciunt suscipit repellendus adipisci, ex dolorum? Perferendis culpa minus cumque harum rem corporis nostrum voluptatum sequi possimus in, ipsa deserunt maxime. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore libero voluptatum voluptatibus culpa illum odit vero. Error voluptatum animi tempora ad quos explicabo itaque rerum delectus incidunt, quaerat non accusamus!Magni eius nobis tempora eveniet recusandae molestias minima tempore praesentium quibusdam exercitationem, modi officia dolorem ullam omnis fuga aut architecto incidunt aperiam inventore, odio beatae! Perspiciatis maiores odio modi. Corrupti! Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum atque ex vero nam, harum impedit velit ea aliquam dolorum quia quibusdam quo maiores quod maxime beatae praesentium ullam porro quae! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, minus quaerat fugiat iste nostrum expedita, sit voluptas dolorem ducimus quos provident impedit, vel tempora excepturi illum perspiciatis cupiditate accusantium aspernatur!Nostrum nobis libero magni maxime, vero, aliquid consequuntur eligendi nesciunt suscipit repellendus adipisci, ex dolorum? Perferendis culpa minus cumque harum rem corporis nostrum voluptatum sequi possimus in, ipsa deserunt maxime. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore libero voluptatum voluptatibus culpa illum odit vero. Error voluptatum animi tempora ad quos explicabo itaque rerum delectus incidunt, quaerat non accusamus!Magni eius nobis tempora eveniet recusandae molestias minima tempore praesentium quibusdam exercitationem, modi officia dolorem ullam omnis fuga aut architecto incidunt aperiam inventore, odio beatae! Perspiciatis maiores odio modi. Corrupti!
 
             </span>
@@ -80,13 +88,33 @@
 
         <div class="wg-card-ad__buttons">
             <button class="ui-button ui-button_circle ui-button_circle_mini ui-button_flat">
-                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                <i class="fa fa-thumbs-o-up"
+                    aria-hidden="true"></i>
+
             </button>
+            <span class="wg-card-ad__counter">
+                123
+            </span>
+
             <button class="ui-button ui-button_circle ui-button_circle_mini ui-button_flat">
-                <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+                <i class="fa fa-thumbs-o-down"
+                    aria-hidden="true"></i>
             </button>
-            <button class="ui-button ui-button_circle ui-button_flat ui-button_circle_mini wg-card-ad__angel" :class="{'wg-card-ad__angel_transit':descActive}" @click="isDascActive">
-                <i class="fa fa-angle-down" aria-hidden="true"></i>
+            <span class="wg-card-ad__counter">
+                12
+            </span>
+            <button class="ui-button ui-button_circle ui-button_circle_mini ui-button_flat">
+                <i class="fa fa-comments-o"
+                    aria-hidden="true"></i>
+            </button>
+            <span class="wg-card-ad__counter">
+                12 300
+            </span>
+            <button class="ui-button ui-button_circle ui-button_flat ui-button_circle_mini wg-card-ad__angel"
+                :class="{'wg-card-ad__angel_transit':descActive}"
+                @click="isDascActive">
+                <i class="fa fa-angle-down"
+                    aria-hidden="true"></i>
             </button>
         </div>
 
@@ -96,7 +124,7 @@
 export default {
   name: "wg-card-ad",
   data() {
-    return { showMenu: false,descActive: false };
+    return { showMenu: false, descActive: false };
   },
   methods: {
     isDascActive() {

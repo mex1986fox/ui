@@ -26,9 +26,7 @@
     }
     &__slider {
         margin-bottom: 15px;
-        &>.wg-slider__container{
-           height: 168px !important; 
-        }
+        height: 168px !important;
     }
     &__info {
         height: 168px;
@@ -130,6 +128,13 @@
         &-leave {
             max-height: 250px;
         }
+    }
+    &__counter {
+        position: relative;
+        margin: 15px 15px 15px 0px;
+        font-size: 13px;
+        float: left;
+        color: $color-disabled;
     }
 }
 

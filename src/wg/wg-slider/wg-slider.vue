@@ -28,14 +28,17 @@
     </div>
     <div ref="container"
       class="wg-slider__container">
-      <div class="wg-slider__frame"
+      <div ref="frame" class="wg-slider__frame"
+
         v-for="(val, key) in dSlide"
         :key="key"
         v-if="key<3">
         <img class="wg-slider__fon"
+ 
           :src="val.src"
           alt="">
         <img ref="photo"
+          @click="isZoom(val.number)"
           class="wg-slider__img"
           :src="val.src"
           alt="">
@@ -80,6 +83,11 @@ export default {
         this.$emit("onSelect", this.dSlide[0].number + 1);
       }
     },
+    //вызывает событие увеличения фотографий на весь экран
+    isZoom(number) {
+      console.log(number);
+      this.$emit("onZoom", number);
+    },
     //листает слайдер влево
     leafLeft() {
       this.$refs.container.style.cssText =
@@ -87,7 +95,7 @@ export default {
       setTimeout(() => {
         this.$refs.container.style.cssText = "";
         this.dSlide.push(this.dSlide.shift());
-        this.noOpacity=true;
+        this.noOpacity = true;
       }, 300);
     },
     leafRight() {
@@ -96,7 +104,7 @@ export default {
       setTimeout(() => {
         this.$refs.container.style.cssText = "";
         this.dSlide.unshift(this.dSlide.pop());
-        this.noOpacity=true;
+        this.noOpacity = true;
       }, 300);
     },
     // определяет размещение блока горизонтальное или вертикальное
@@ -105,7 +113,7 @@ export default {
     },
     // выравнивает фотографию относительно блока
     alignmentPhoto(htmlElPhoto) {
-      let locBlock = this.defineLocation(this.$refs.container);
+      let locBlock = this.defineLocation(this.$refs.frame[0]);
       let locPhoto = this.defineLocation(htmlElPhoto);
       if (locPhoto > locBlock) {
         htmlElPhoto.style.cssText = "height:100%; width:auto;";
@@ -184,20 +192,19 @@ export default {
           break;
         }
         if (this.dSlide[key].number == this.dSelect && key == 0) {
-           this.dSlide.unshift(this.dSlide.pop());
+          this.dSlide.unshift(this.dSlide.pop());
           break;
         }
       }
-      if(this.noOpacity==false){
-        this.$refs.container.style.cssText =
-        "opacity: 0;";
-      setTimeout(() => {
-         this.$refs.container.style.cssText =
-        "opacity: 1;  transition: opacity 0.5s;";
-      }, 100);
+      if (this.noOpacity == false) {
+        this.$refs.container.style.cssText = "opacity: 0;";
+        setTimeout(() => {
+          this.$refs.container.style.cssText =
+            "opacity: 1;  transition: opacity 0.5s;";
+        }, 100);
       }
-      
-      this.noOpacity=false;
+
+      this.noOpacity = false;
     }
   }
 };
