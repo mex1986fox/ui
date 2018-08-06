@@ -28,13 +28,12 @@
     </div>
     <div ref="container"
       class="wg-slider__container">
-      <div ref="frame" class="wg-slider__frame"
-
+      <div ref="frame"
+        class="wg-slider__frame"
         v-for="(val, key) in dSlide"
         :key="key"
         v-if="key<3">
         <img class="wg-slider__fon"
- 
           :src="val.src"
           alt="">
         <img ref="photo"
@@ -90,22 +89,27 @@ export default {
     },
     //листает слайдер влево
     leafLeft() {
+      let frameWidtch =this.$refs.frame[0].clientWidth+"px"
       this.$refs.container.style.cssText =
-        "margin-left: -200%;  transition: 0.2s;";
+        "transform: translateX(-"+frameWidtch+"); transition: transform 0.5s;";
+      // "margin-left: -200%;  transition: margin-left 0.4s;";
+
       setTimeout(() => {
         this.$refs.container.style.cssText = "";
         this.dSlide.push(this.dSlide.shift());
         this.noOpacity = true;
-      }, 300);
+      }, 600);
     },
     leafRight() {
+      let frameWidtch =this.$refs.frame[0].clientWidth+"px"
       this.$refs.container.style.cssText =
-        "margin-left: 0%;  transition: 0.2s;";
+       "transform: translateX("+frameWidtch+"); transition: transform 0.5s;";
+        // "margin-left: 0%;  transition: margin-left 0.4s;";
       setTimeout(() => {
         this.$refs.container.style.cssText = "";
         this.dSlide.unshift(this.dSlide.pop());
         this.noOpacity = true;
-      }, 300);
+      }, 600);
     },
     // определяет размещение блока горизонтальное или вертикальное
     defineLocation(htmlEl) {
