@@ -26,9 +26,12 @@
     }
     &__slider {
         margin-bottom: 15px;
-        &>.wg-slider__container{
-           height: 318px !important; 
+        &>.wg-slider__container {
+            height: 318px !important;
         }
+    }
+    &__slider-navig {
+        top: -5px;
     }
     &__angel {
         float: right;

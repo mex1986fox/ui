@@ -33,12 +33,13 @@
         <div class="row">
             <div class="col_6 col-phone_6">
                 <wg-slider class="wg-card-ad__slider" :slide='[
-                                        { src: "/public/img/cam1.jpg", show: true },
+                                        { src: "/public/img/cam1.jpg"},
                                         { src: "/public/img/cam2.jpg" },
                                         { src: "/public/img/cam3.jpg" },
                                         { src: "/public/img/cam4.jpg" },
                                         { src: "/public/img/cam5.jpg" }
-                                    ]'>
+                                    ]'
+                                    :select="1">
                 </wg-slider>
             </div>
             <div class="col_6 col-phone_6">

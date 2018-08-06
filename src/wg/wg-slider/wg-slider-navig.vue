@@ -1,4 +1,24 @@
-<template><div class="wg-slider-navig"><div ref="container" class="wg-slider-navig__container"><div ref="slide" class="wg-slider-navig__slide" :style="{'width':dWidthSlide}" :class="{'wg-slider-navig__slide_active':val.number==checked}" v-for="(val, key) in dSlide" :key="key"><img class="wg-slider__fon" :src="val.src"><img class="wg-slider-navig__img" :src="val.src"></div></div></div></template><script>
+<template>
+  <div class="wg-slider-navig">
+    <div ref="container"
+      class="wg-slider-navig__container">
+
+      <div ref="slide"
+        @click="isClick(val.number)"
+        class="wg-slider-navig__slide"
+        :style="{'width':dWidthSlide}"
+        :class="{'wg-slider-navig__slide_active':val.number==select}"
+        v-for="(val, key) in dSlide"
+        :key="key">
+        <img class="wg-slider__fon"
+          :src="val.src">
+        <img class="wg-slider__img"
+          :src="val.src">
+      </div>
+    </div>
+  </div>
+</template>
+    <script>
 export default {
   name: "wg-slider-navig",
   data() {
@@ -13,7 +33,7 @@ export default {
       type: Array,
       default: () => []
     },
-    checked: {
+    select: {
       type: Number,
       default: 1
     }
@@ -40,17 +60,17 @@ export default {
       let wSlide = this.$refs.container.clientHeight * 16 / 9; // количество слайдов помещающихся в контейнер
       let lengthSlids = Math.floor(wContainer / (wSlide + 2)); // центральный слайд
       let centerSlide = Math.floor(lengthSlids / 2);
-      if (centerSlide < this.getPosition(this.checked)) {
+      if (centerSlide < this.getPosition(this.select)) {
         this.dMarginSlide =
-          this.getPosition(this.checked) * (wSlide + 2) -
+          this.getPosition(this.select) * (wSlide + 2) -
           centerSlide * (wSlide + 2) +
           "px";
       }
-      if (this.getPosition(this.checked) < centerSlide) {
+      if (this.getPosition(this.select) < centerSlide) {
         this.dMarginSlide = "0px";
       }
       if (
-        this.dSlide.length - this.getPosition(this.checked) <=
+        this.dSlide.length - this.getPosition(this.select) <=
         lengthSlids - centerSlide
       ) {
         this.dMarginSlide =
@@ -78,6 +98,9 @@ export default {
       for (let key in this.dSlide) {
         this.dSlide[key].number = Number(key) + 1;
       }
+    },
+    isClick(number) {
+      this.$emit("onSelect", number);
     }
   }
 };
