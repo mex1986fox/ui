@@ -1,49 +1,49 @@
 <template>
-  <div class="wg-slider"
-    @mouseover="buttonsShow=true"
-    @mouseout="buttonsShow=false">
-    <div class="wg-slider__buttons"
-      :style="marginButtons"
-      v-show="buttonsShow">
-      <div class="wg-slider__left-button"
-        @click="leafLeft">
-        <button class="ui-button ui-button_circle ui-button_flat wg-slider__button_flat">
-          <i aria-hidden="true"
-            class="fa fa-angle-left"></i>
-        </button>
-      </div>
-      <div class="wg-slider__right-button"
-        @click="leafRight">
-        <button class="ui-button ui-button_circle ui-button_flat wg-slider__button_flat">
-          <i aria-hidden="true"
-            class="fa fa-angle-right"></i>
-        </button>
-      </div>
-    </div>
-    <div class="wg-slider__menu"
-      v-show="buttonsShow">
-      <div class="wg-slider__numeric">
-        {{dSlide[0].number}} / {{dSlide.length}}
-      </div>
-    </div>
-    <div ref="container"
-      class="wg-slider__container">
-      <div ref="frame"
-        class="wg-slider__frame"
-        v-for="(val, key) in dSlide"
-        :key="key"
-        v-if="key<3">
-        <img class="wg-slider__fon"
-          :src="val.src"
-          alt="">
-        <img ref="photo"
-          @click="isZoom(val.number)"
-          class="wg-slider__img"
-          :src="val.src"
-          alt="">
-      </div>
-    </div>
-  </div>
+	<div class="wg-slider"
+	     @mouseover="buttonsShow=true"
+	     @mouseout="buttonsShow=false">
+		<div class="wg-slider__buttons"
+		     :style="marginButtons"
+		     v-show="buttonsShow">
+			<div class="wg-slider__left-button"
+			     @click="leafLeft">
+				<button class="ui-button ui-button_circle ui-button_flat wg-slider__button_flat">
+					<i aria-hidden="true"
+					   class="fa fa-angle-left"></i>
+				</button>
+			</div>
+			<div class="wg-slider__right-button"
+			     @click="leafRight">
+				<button class="ui-button ui-button_circle ui-button_flat wg-slider__button_flat">
+					<i aria-hidden="true"
+					   class="fa fa-angle-right"></i>
+				</button>
+			</div>
+		</div>
+		<div class="wg-slider__menu"
+		     v-show="buttonsShow">
+			<div class="wg-slider__numeric">
+				{{dSlide[0].number}} / {{dSlide.length}}
+			</div>
+		</div>
+		<div ref="container"
+		     class="wg-slider__container">
+			<div ref="frame"
+			     class="wg-slider__frame"
+			     v-for="(val, key) in dSlide"
+			     :key="key"
+			     v-if="key<3">
+				<img class="wg-slider__fon"
+				     :src="val.src"
+				     alt="">
+				<img ref="photo"
+				     @click="isZoom(val.number)"
+				     class="wg-slider__img"
+				     :src="val.src"
+				     alt="">
+			</div>
+		</div>
+	</div>
 </template>
 <script>
 export default {
@@ -84,14 +84,15 @@ export default {
     },
     //вызывает событие увеличения фотографий на весь экран
     isZoom(number) {
-      console.log(number);
       this.$emit("onZoom", number);
     },
     //листает слайдер влево
     leafLeft() {
-      let frameWidtch =this.$refs.frame[0].clientWidth+"px"
+      let frameWidtch = this.$refs.frame[0].clientWidth + "px";
       this.$refs.container.style.cssText =
-        "transform: translateX(-"+frameWidtch+"); transition: transform 0.5s;";
+        "transform: translateX(-" +
+        frameWidtch +
+        "); transition: transform 0.5s;";
       // "margin-left: -200%;  transition: margin-left 0.4s;";
 
       setTimeout(() => {
@@ -101,10 +102,12 @@ export default {
       }, 600);
     },
     leafRight() {
-      let frameWidtch =this.$refs.frame[0].clientWidth+"px"
+      let frameWidtch = this.$refs.frame[0].clientWidth + "px";
       this.$refs.container.style.cssText =
-       "transform: translateX("+frameWidtch+"); transition: transform 0.5s;";
-        // "margin-left: 0%;  transition: margin-left 0.4s;";
+        "transform: translateX(" +
+        frameWidtch +
+        "); transition: transform 0.5s;";
+      // "margin-left: 0%;  transition: margin-left 0.4s;";
       setTimeout(() => {
         this.$refs.container.style.cssText = "";
         this.dSlide.unshift(this.dSlide.pop());

@@ -4,14 +4,14 @@
 
 			<div class="ui-avatar-block wg-card-ad__avatar-block">
 				<div class="ui-avatar">
-					<img src="/public/img/avatar.jpg"
+					<img :src="dObj.user.avatar"
 					     alt="">
 				</div>
-				<div class="ui-link ui-avatar-block__link">
-					Alisochka Frolova
-				</div>
+				<a class="ui-link ui-avatar-block__link">
+					{{dObj.user.name+" "+dObj.user.surname}}
+				</a>
 				<div class="ui-avatar-block__title">
-					25/17/2018
+					{{dObj.date}}
 				</div>
 
 			</div>
@@ -33,36 +33,18 @@
 
 		</div>
 		<a class="ui-link wg-card-ad__link"
-		   href="http://google.com">
-			Chevrolet Camaro 2009 г. Новокузнецк
+		   :href="dObj.link">
+			{{dObj.brand+" "+dObj.model+" "+dObj.year+"г. "+dObj.city}}
 		</a>
 		<div class="row">
 			<div class="col_6 col-phone_6">
 				<wg-slider class="wg-card-ad__slider"
-				           :slide='[
-                                        { src: "/public/img/cam1.jpg"},
-                                        { src: "/public/img/cam2.jpg" },
-                                        { src: "/public/img/cam3.jpg" },
-                                        { src: "/public/img/cam4.jpg" },
-                                        { src: "/public/img/cam5.jpg" }
-                                    ]'
+				           :slide="dObj.slide"
 				           :select="1"
 				           @onZoom="showZoomSlider=true">
 				</wg-slider>
-				<wg-slider-zoom :slide='[
-                                        { src: "/public/img/cam1.jpg"},
-                                        { src: "/public/img/cam2.jpg" },
-                                        { src: "/public/img/cam3.jpg" },
-                                        { src: "/public/img/cam4.jpg" },
-                                        { src: "/public/img/cam5.jpg" }
-                                        ]'
-				                :slideNavigation='[
-                                        { src: "/public/img/cam1.jpg"},
-                                        { src: "/public/img/cam2.jpg" },
-                                        { src: "/public/img/cam3.jpg" },
-                                        { src: "/public/img/cam4.jpg" },
-                                        { src: "/public/img/cam5.jpg" }
-                                        ]'
+				<wg-slider-zoom :slide="dObj.slide.slice(0)"
+				                :slideNavigation="dObj.slide_navigation.slice(0)"
 				                :select="1"
 				                :show="showZoomSlider"
 				                @onHide="showZoomSlider=false">
@@ -71,27 +53,28 @@
 			<div class="col_6 col-phone_6">
 				<div class="wg-card-ad__info">
 					<div class="wg-card-ad__info-header">
-						2 500 000 руб.
+						{{dObj.price}} руб.
 					</div>
 					<span class="wg-card-ad__info-param">
 						<span class="wg-card-ad__info-title">Двигатель</span>
-						<span class="wg-card-ad__info-value">бензин/2.3</span>
+						<span class="wg-card-ad__info-value">{{dObj.fuel +"/"+ dObj.volume}}
+						</span>
 					</span>
 					<span class="wg-card-ad__info-param">
 						<span class="wg-card-ad__info-title">Руль</span>
-						<span class="wg-card-ad__info-value">правый</span>
+						<span class="wg-card-ad__info-value">{{dObj.helm}}</span>
 					</span>
 					<span class="wg-card-ad__info-param">
 						<span class="wg-card-ad__info-title">Пробег</span>
-						<span class="wg-card-ad__info-value">234 000 км.</span>
+						<span class="wg-card-ad__info-value">{{dObj. mileage}} км.</span>
 					</span>
 					<span class="wg-card-ad__info-param">
 						<span class="wg-card-ad__info-title">Коробка</span>
-						<span class="wg-card-ad__info-value">вариатор</span>
+						<span class="wg-card-ad__info-value">{{dObj.transmission}}</span>
 					</span>
 					<span class="wg-card-ad__info-param">
 						<span class="wg-card-ad__info-title">Привод</span>
-						<span class="wg-card-ad__info-value">передний</span>
+						<span class="wg-card-ad__info-value">{{dObj.drive}}</span>
 					</span>
 				</div>
 			</div>
@@ -101,8 +84,7 @@
 		<transition name="wg-card-ad__description">
 			<span v-show="descActive"
 			      class="ui-description ui-description_mini wg-card-ad__description">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum atque ex vero nam, harum impedit velit ea aliquam dolorum quia quibusdam quo maiores quod maxime beatae praesentium ullam porro quae! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, minus quaerat fugiat iste nostrum expedita, sit voluptas dolorem ducimus quos provident impedit, vel tempora excepturi illum perspiciatis cupiditate accusantium aspernatur!Nostrum nobis libero magni maxime, vero, aliquid consequuntur eligendi nesciunt suscipit repellendus adipisci, ex dolorum? Perferendis culpa minus cumque harum rem corporis nostrum voluptatum sequi possimus in, ipsa deserunt maxime. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore libero voluptatum voluptatibus culpa illum odit vero. Error voluptatum animi tempora ad quos explicabo itaque rerum delectus incidunt, quaerat non accusamus!Magni eius nobis tempora eveniet recusandae molestias minima tempore praesentium quibusdam exercitationem, modi officia dolorem ullam omnis fuga aut architecto incidunt aperiam inventore, odio beatae! Perspiciatis maiores odio modi. Corrupti! Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum atque ex vero nam, harum impedit velit ea aliquam dolorum quia quibusdam quo maiores quod maxime beatae praesentium ullam porro quae! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, minus quaerat fugiat iste nostrum expedita, sit voluptas dolorem ducimus quos provident impedit, vel tempora excepturi illum perspiciatis cupiditate accusantium aspernatur!Nostrum nobis libero magni maxime, vero, aliquid consequuntur eligendi nesciunt suscipit repellendus adipisci, ex dolorum? Perferendis culpa minus cumque harum rem corporis nostrum voluptatum sequi possimus in, ipsa deserunt maxime. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore libero voluptatum voluptatibus culpa illum odit vero. Error voluptatum animi tempora ad quos explicabo itaque rerum delectus incidunt, quaerat non accusamus!Magni eius nobis tempora eveniet recusandae molestias minima tempore praesentium quibusdam exercitationem, modi officia dolorem ullam omnis fuga aut architecto incidunt aperiam inventore, odio beatae! Perspiciatis maiores odio modi. Corrupti!
-
+				{{dObj.description}}
 			</span>
 		</transition>
 
@@ -169,8 +151,15 @@ export default {
       showMenu: false,
       descActive: false,
       showZoomSlider: false,
-      commentShow: false
+      commentShow: false,
+      dObj: this.object
     };
+  },
+  props: {
+    object: {
+      type: Object,
+      default: () => {}
+    }
   },
   methods: {
     isDascActive() {
