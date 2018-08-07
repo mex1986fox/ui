@@ -1,22 +1,22 @@
 <template>
-  <div class="wg-slider-navig">
-    <div ref="container"
-      class="wg-slider-navig__container">
+	<div class="wg-slider-navig">
+		<div ref="container"
+		     class="wg-slider-navig__container">
 
-      <div ref="slide"
-        @click="isClick(val.number)"
-        class="wg-slider-navig__slide"
-        :style="{'width':dWidthSlide}"
-        :class="{'wg-slider-navig__slide_active':val.number==select}"
-        v-for="(val, key) in dSlide"
-        :key="key">
-        <img class="wg-slider__fon"
-          :src="val.src">
-        <img class="wg-slider__img"
-          :src="val.src">
-      </div>
-    </div>
-  </div>
+			<div ref="slide"
+			     @click="isClick(val.number)"
+			     class="wg-slider-navig__slide"
+			     :style="{'width':dWidthSlide}"
+			     :class="{'wg-slider-navig__slide_active':val.number==select}"
+			     v-for="(val, key) in dSlide"
+			     :key="key">
+				<img class="wg-slider__fon"
+				     :src="val.src">
+				<img class="wg-slider__img"
+				     :src="val.src">
+			</div>
+		</div>
+	</div>
 </template>
     <script>
 export default {

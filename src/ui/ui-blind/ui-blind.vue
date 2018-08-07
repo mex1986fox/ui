@@ -1,19 +1,24 @@
 <template>
-  <transition name="ui-blind" 
-  :enter-class="enter+'_'+animate" 
-  :leave-class="leave+'_'+animate" 
-  :enter-active-class="enterAct+'_'+animate" 
-  :leave-active-class="leaveAct+'_'+animate"
-  :enter-to-class="enterTo+'_'+animate" 
-  :leave-to-class="leaveTo+'_'+animate">
-    <div class="ui-blind" v-if="dShow" @click="isClick">
-      <div ref="content" class="ui-blind__content" :style="autoMargin" @click="isClick">
-        <slot>
+	<transition name="ui-blind"
+	            :enter-class="enter+'_'+animate"
+	            :leave-class="leave+'_'+animate"
+	            :enter-active-class="enterAct+'_'+animate"
+	            :leave-active-class="leaveAct+'_'+animate"
+	            :enter-to-class="enterTo+'_'+animate"
+	            :leave-to-class="leaveTo+'_'+animate">
+		<div class="ui-blind"
+		     v-if="dShow"
+		     @click="isClick">
+			<div ref="content"
+			     class="ui-blind__content"
+			     :style="autoMargin"
+			     @click="isClick">
+				<slot>
 
-        </slot>
-      </div>
-    </div>
-  </transition>
+				</slot>
+			</div>
+		</div>
+	</transition>
 </template>
 <script>
 export default {
@@ -23,13 +28,12 @@ export default {
       dShow: this.show,
       dMargin: "30px",
       dScrollHeight: 0,
-      enter:"ui-blind_enter",
-      leave:"ui-blind_leave",
-      enterAct:"ui-blind_enter-act",
-      leaveAct:"ui-blind_leave-act",
-      enterTo:"ui-blind_enter-to",
-      leaveTo:"ui-blind_leave-to",
-
+      enter: "ui-blind_enter",
+      leave: "ui-blind_leave",
+      enterAct: "ui-blind_enter-act",
+      leaveAct: "ui-blind_leave-act",
+      enterTo: "ui-blind_enter-to",
+      leaveTo: "ui-blind_leave-to"
     };
   },
   props: {
@@ -41,7 +45,7 @@ export default {
       type: Boolean,
       default: false
     },
-    animate:{
+    animate: {
       type: String,
       default: "left"
     }
@@ -57,21 +61,27 @@ export default {
         this.dShow = false;
         this.$emit("onHide");
       }
+    },
+    isCentering() {
+      if (this.centering && this.show) {
+        setTimeout(() => {
+          let wHeight = document.documentElement.clientHeight;
+          let el = this.$slots.default[0].elm;
+          el.style.overflow = "hidden";
+          let elHeight = el.offsetHeight;
+          el.style.overflow = "visible";
+          if (wHeight > elHeight) {
+            this.dMargin = (wHeight - elHeight) / 2 + "px";
+          }
+        }, 100);
+      }
     }
   },
+  mounted() {
+    this.isCentering();
+  },
   updated() {
-    if (this.centering && this.show) {
-      setTimeout(() => {
-        let wHeight = document.documentElement.clientHeight;
-        let el = this.$slots.default[0].elm;
-        el.style.overflow = "hidden";
-        let elHeight = el.offsetHeight;
-        el.style.overflow = "visible";
-        if (wHeight > elHeight) {
-          this.dMargin = (wHeight - elHeight) / 2 + "px";
-        }
-      }, 100);
-    }
+    this.isCentering();
   },
   computed: {
     autoMargin() {
