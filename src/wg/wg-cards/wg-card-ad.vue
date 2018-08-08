@@ -126,6 +126,7 @@
 		          :centering="true"
 		          animate="opacity">
 			<div class="container">
+
 				<div class="row">
 					<div class="col_8 col_offset-2">
 						<button @click="commentShow=false"
@@ -138,6 +139,7 @@
 						</wg-comments>
 					</div>
 				</div>
+
 			</div>
 		</ui-blind>
 

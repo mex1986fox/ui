@@ -6,10 +6,10 @@
 				     alt="">
 			</div>
 			<div class="wg-comments__description">
-				<ui-text value=""
-				         caption="Ваш комментарий">
-				</ui-text>
-
+				<ui-textarea value="dfdgd cxasdas"
+				             caption="Ваш комментарий"
+				             :autoresize="200">
+				</ui-textarea>
 				<button class="ui-button ui-button_blue ui-button_mini wg-comments__form-button">
 					Ok
 				</button>

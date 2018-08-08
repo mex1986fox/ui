@@ -1,51 +1,50 @@
 // имортируем всю библиотеку в глобальную область vue
 
-import Vue from 'vue/dist/vue.js';
-import UiText from './ui-text/ui-text.vue';
-Vue.component('ui-text', UiText);
-import UiCode from './ui-code/ui-code.vue';
-Vue.component('ui-code', UiCode);
-import UiSelect from './ui-select/ui-select.vue';
-Vue.component('ui-select', UiSelect);
-import UiCheckBox from './ui-check-box/ui-check-box.vue';
-Vue.component('ui-check-box', UiCheckBox);
-import UiRadio from './ui-radio/ui-radio.vue';
-Vue.component('ui-radio', UiRadio);
-import UiSwitch from './ui-switch/ui-switch.vue';
-Vue.component('ui-switch', UiSwitch);
-import UiDatepicker from './ui-datepicker/ui-datepicker.vue';
-Vue.component('ui-datepicker', UiDatepicker);
-import UiBlind from './ui-blind/ui-blind.vue';
-Vue.component('ui-blind', UiBlind);
-import UiNavigation from './ui-navigation/ui-navigation.vue';
-Vue.component('ui-navigation', UiNavigation);
-import UiNavigationList from './ui-navigation/ui-navigation-list.vue';
-Vue.component('ui-navigation-list', UiNavigationList);
-import UiTabs from './ui-tabs/ui-tabs.vue';
-Vue.component('ui-tabs', UiTabs);
-import UiTabsTab from './ui-tabs/ui-tabs-tab.vue';
-Vue.component('ui-tabs-tab', UiTabsTab);
+import Vue from "vue/dist/vue.js";
+import UiText from "./ui-text/ui-text.vue";
+Vue.component("ui-text", UiText);
+import UiTextArea from "./ui-text/ui-textarea.vue";
+Vue.component("ui-textarea", UiTextArea);
+import UiCode from "./ui-code/ui-code.vue";
+Vue.component("ui-code", UiCode);
+import UiSelect from "./ui-select/ui-select.vue";
+Vue.component("ui-select", UiSelect);
+import UiCheckBox from "./ui-check-box/ui-check-box.vue";
+Vue.component("ui-check-box", UiCheckBox);
+import UiRadio from "./ui-radio/ui-radio.vue";
+Vue.component("ui-radio", UiRadio);
+import UiSwitch from "./ui-switch/ui-switch.vue";
+Vue.component("ui-switch", UiSwitch);
+import UiDatepicker from "./ui-datepicker/ui-datepicker.vue";
+Vue.component("ui-datepicker", UiDatepicker);
+import UiBlind from "./ui-blind/ui-blind.vue";
+Vue.component("ui-blind", UiBlind);
+import UiNavigation from "./ui-navigation/ui-navigation.vue";
+Vue.component("ui-navigation", UiNavigation);
+import UiNavigationList from "./ui-navigation/ui-navigation-list.vue";
+Vue.component("ui-navigation-list", UiNavigationList);
+import UiTabs from "./ui-tabs/ui-tabs.vue";
+Vue.component("ui-tabs", UiTabs);
+import UiTabsTab from "./ui-tabs/ui-tabs-tab.vue";
+Vue.component("ui-tabs-tab", UiTabsTab);
 // import UiText2 from './ui-text2/ui-text2.vue'
 // Vue.component('ui-text2', UiText2);
-
 
 // import UiSelect2 from './ui-select2/ui-select2.vue'
 // Vue.component('ui-select2', UiSelect2);
 // import UiOption from './ui-option/ui-option.vue'
 // Vue.component('ui-option', UiOption);
 
-
 // import UiCard from './ui-card/ui-card.vue'
 // Vue.component('ui-card', UiCard);
 
-import UiMenu from './ui-menu/ui-menu.vue';
-Vue.component('ui-menu', UiMenu);
+import UiMenu from "./ui-menu/ui-menu.vue";
+Vue.component("ui-menu", UiMenu);
 // import UiButton from './ui-button/ui-button.vue'
 // Vue.component('ui-button', UiButton);
 
-
-import UiChips from './ui-chips/ui-chips.vue';
-Vue.component('ui-chips', UiChips);
+import UiChips from "./ui-chips/ui-chips.vue";
+Vue.component("ui-chips", UiChips);
 // import UiList from './ui-list/ui-list.vue'
 // Vue.component('ui-list', UiList);
 // import UiHeader from './ui-header/ui-header.vue'
