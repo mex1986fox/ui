@@ -1,0 +1,54 @@
+.wg-filter-ad {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: $color-fon;
+  padding: 0;
+  box-shadow: $color-shadow-active;
+  margin: 10px 0;
+  &__bar {
+    margin-bottom: 5px;
+    background-color: #1280b7;
+    padding: 0 30px;
+    height: 70px;
+    margin: 0;
+    box-shadow: $color-shadow;
+    margin-bottom: 10px;
+  }
+  &__close {
+    position: absolute;
+    z-index: 2;
+    top: 38px;
+    left: auto;
+    right: 20px;
+  }
+  &__header {
+    color: $color-fon;
+    margin: 0;
+    line-height: 67px;
+  }
+  &__content {
+    padding: 0 30px;
+    overflow: hidden;
+  }
+  &__hr {
+    border: 0;
+    border-top-color: currentcolor;
+    border-top-style: none;
+    border-top-width: 0px;
+    border-top: 1px solid $color-disabled;
+    margin: 0px 0 10px 0;
+    float: left;
+    position: relative;
+    width: 100%;
+  }
+  &__buttons {
+    padding: 30px;
+    overflow: hidden;
+  }
+  &__button {
+    left: auto;
+    float: right;
+    right: 0px;
+  }
+}

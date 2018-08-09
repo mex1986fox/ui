@@ -1,35 +1,67 @@
 <template>
-  <div class="ui-select" @click="isClick">
-    <ui-text ref="text" :disabled="dDisabled" :value="this.dValue" :caption="this.dCaption" :help="this.dHelp" :readonly="true" @onFocus="isFocus">
-    </ui-text>
+	<div class="ui-select"
+	     @click="isClick">
+		<ui-text ref="text"
+		         :disabled="dDisabled"
+		         :value="this.dValue"
+		         :caption="this.caption"
+		         :help="this.dHelp"
+		         :readonly="true"
+		         @onFocus="isFocus">
+		</ui-text>
 
-    <transition name="ui-select__arrow">
-      <div class="ui-select__arrow" v-if="!dFocus && !dDisabled" @click="dFocus=!dFocus">
-        <i class="fa fa-angle-down"></i>
-      </div>
-    </transition>
-    <transition name="ui-select__arrow_transit">
-      <div class="ui-select__arrow_transit" v-if="dFocus && !dDisabled" @click="dFocus=!dFocus">
-        <i class="fa fa-angle-down"></i>
-      </div>
-    </transition>
+		<transition name="ui-select__arrow">
+			<div class="ui-select__arrow"
+			     v-if="!dFocus && !dDisabled"
+			     @click="dFocus=!dFocus">
+				<i class="fa fa-angle-down"></i>
+			</div>
+		</transition>
+		<transition name="ui-select__arrow_transit">
+			<div class="ui-select__arrow_transit"
+			     v-if="dFocus && !dDisabled"
+			     @click="dFocus=!dFocus">
+				<i class="fa fa-angle-down"></i>
+			</div>
+		</transition>
+		<ui-blind :show="dFocus"
+		          @onHide="dFocus=false"
+		          animate="opacity"
+		          class="ui-select__blind">
 
-    <transition name="ui-select__menu">
-      <ul class="ui-select__menu" v-show="dFocus">
-        <template v-for="(val, key) in sortMenu">
-          <li v-if="key==0 || sortMenu[key-1].group!=sortMenu[key].group" class="ui-select__group" :key="key">
-            {{val.group}}
-          </li>
-          <li class="ui-select__option ui-select__option_disabled" :key="'option'+key" v-if="val.disabled">
-            <ui-check-box :name="dName" :disabled="true" :checked="val.selected" :value="val.value" v-show="dMultiple" /> {{val.option}}
-          </li>
-          <li class="ui-select__option" :key="'option'+key" @click="isClickOption(key)" v-if="!val.disabled">
-            <ui-check-box :name="dName" :disabled="false" :checked="val.selected" :value="val.value" v-show="dMultiple" /> {{val.option}}
-          </li>
-        </template>
-      </ul>
-    </transition>
-  </div>
+			<ul ref="menu"
+			    class="ui-select__menu"
+			    v-show="dFocus">
+				<template v-for="(val, key) in sortMenu">
+					<li v-if="key==0 || sortMenu[key-1].group!=sortMenu[key].group"
+					    class="ui-select__group"
+					    :key="key">
+						{{val.group}}
+					</li>
+					<li class="ui-select__option ui-select__option_disabled"
+					    :key="'option'+key"
+					    v-if="val.disabled">
+						<ui-check-box :name="dName"
+						              :disabled="true"
+						              :checked="val.selected"
+						              :value="val.value"
+						              v-show="dMultiple" /> {{val.option}}
+					</li>
+					<li class="ui-select__option"
+					    :key="'option'+key"
+					    @click="isClickOption(key)"
+					    v-if="!val.disabled">
+						<ui-check-box :name="dName"
+						              :disabled="false"
+						              :checked="val.selected"
+						              :value="val.value"
+						              v-show="dMultiple" /> {{val.option}}
+					</li>
+				</template>
+			</ul>
+
+		</ui-blind>
+	</div>
 
 </template>
 <script>
@@ -73,6 +105,16 @@ export default {
     }
   },
   methods: {
+    disableScrolling() {
+      var x = window.scrollX;
+      var y = window.scrollY;
+      window.onscroll = () => {
+        window.scrollTo(x, y);
+      };
+    },
+    enableScrolling() {
+      window.onscroll = function() {};
+    },
     isFocus() {
       this.dFocus = true;
     },
@@ -128,6 +170,21 @@ export default {
   watch: {
     dFocus(newQ) {
       newQ == true ? this.$emit("onFocus") : this.$emit("onBlur");
+      if (newQ == true) {
+        var rect = this.$el.getBoundingClientRect();
+        let interval = setInterval(() => {
+          if (this.$refs.menu != undefined) {
+            this.$refs.menu.style.top = rect.bottom - 10 + "px";
+            this.$refs.menu.style.left = rect.left + "px";
+            this.$refs.menu.style.width = this.$el.clientWidth + "px";
+            // console.log(this.$el);
+            clearTimeout(interval);
+          }
+        }, 1);
+        this.disableScrolling();
+      } else {
+        this.enableScrolling();
+      }
     }
   },
   mounted() {

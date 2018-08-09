@@ -125,6 +125,12 @@
                                         </div>
                                         Slider
                                     </router-link>
+                                    <router-link to="/filters" class="ui-navigation__unit__button">
+                                        <div class="ui-navigation__unit__icon">
+                                            <i class="fa fa-th" aria-hidden="true"></i>
+                                        </div>
+                                        Фильтры
+                                    </router-link>
                                 </div>
                             </ui-navigation-list>
                         </div>

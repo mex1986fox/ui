@@ -172,14 +172,17 @@ export default {
       this.alignmentPhoto(this.$refs.photo[k]);
       this.centerPhoto(this.$refs.container, this.$refs.photo[k]);
     }
-    setTimeout(() => {
-      for (let k in this.$refs.photo) {
-        if (this.$refs.photo[k].show != true) {
-          this.alignmentPhoto(this.$refs.photo[k]);
-          this.centerPhoto(this.$refs.container, this.$refs.photo[k]);
+    let interval = setInterval(() => {
+      if (this.$refs.photo != undefined) {
+        for (let k in this.$refs.photo) {
+          if (this.$refs.photo[k].show != true) {
+            this.alignmentPhoto(this.$refs.photo[k]);
+            this.centerPhoto(this.$refs.container, this.$refs.photo[k]);
+          }
         }
+        clearTimeout(interval);
       }
-    }, 100);
+    }, 1);
     this.isSelect();
   },
   props: {

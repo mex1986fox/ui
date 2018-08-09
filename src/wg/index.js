@@ -20,3 +20,5 @@ import WgAnswers from "./wg-comments/wg-answers.vue";
 Vue.component("wg-answers", WgAnswers);
 import WgAnswer from "./wg-comments/wg-answer.vue";
 Vue.component("wg-answer", WgAnswer);
+import WgFilterAd from "./wg-filters/wg-filter-ad.vue";
+Vue.component("wg-filter-ad", WgFilterAd);

@@ -82,6 +82,9 @@
     background-color: $color-fon;
     display: block;
     float: left;
+    overflow: hidden;
+    overflow-y: auto;
+    box-shadow: $color-shadow-active;
   }
   &__menu-li {
     position: relative;

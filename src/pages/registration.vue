@@ -18,30 +18,29 @@
 				</div>
 				<div class="col_5 col-phone_6">
 					<div class="pg-registration__card">
-						<div class="ui-border_25">
-							<div class="ui-header_1">Вход на Drovito.ru
-								<hr class="pg-registration__hr" />
 
-							</div>
-							<ui-text :value="'mex1986fox@mail.ru'"
-							         :caption="'Email или логин'">
-							</ui-text>
-							<ui-text :caption="'Пароль'">
-							</ui-text>
-
-							<div class="pg-registration__padding" />
-							<button class="ui-button ">Войти</button>
-							<button class="ui-button ui-button_red"
-							        @click="showRegistrationCard=!showRegistrationCard">Регистрация</button>
-
-							<hr class="pg-registration__hr" />
-
-							<span style="font-size: 12px; float: left; margin-bottom:10px;">Если вы забыли свой пароль, попробуйте его восстановить!</span><br/><br/>
-							<a style="font-size: 12px; float: left; width: 100%;"
-							   class="ui-link"
-							   href="http://www.google.com">Восстановить пароль</a>
+						<div class="ui-header_1 pg-registration__header">Вход на Drovito.ru
 
 						</div>
+						<!-- <hr class="pg-registration__hr" /> -->
+						<ui-text :value="'mex1986fox@mail.ru'"
+						         :caption="'Email или логин'">
+						</ui-text>
+						<ui-text :caption="'Пароль'">
+						</ui-text>
+
+						<div class="pg-registration__padding" />
+						<button class="ui-button ">Войти</button>
+						<button class="ui-button ui-button_red"
+						        @click="showRegistrationCard=true">Регистрация</button>
+
+						<hr class="pg-registration__hr" />
+
+						<span style="font-size: 12px; float: left; margin-bottom:10px;">Если вы забыли свой пароль, попробуйте его восстановить!</span><br/><br/>
+						<a style="font-size: 12px; float: left; width: 100%;"
+						   class="ui-link"
+						   href="http://www.google.com">Восстановить пароль</a>
+
 					</div>
 				</div>
 
@@ -49,148 +48,214 @@
 
 		</div>
 		<ui-blind @onHide="showRegistrationCard=!showRegistrationCard"
-		          :show="showRegistrationCard">
+		          :show="showRegistrationCard"
+		          animate="right"
+		          class="pg-registration__blind">
 			<div class="container">
 
-				<div class="pg-registration__card-registration">
+				<!-- <div class="pg-registration__card-registration">
+
 					<div class="row">
 						<div class="col_12">
-							<div class="ui-border_25">
-								<div class="ui-header_2">Регистрация нового пользователя
-								</div>
+
+							<div class="ui-header_2">Регистрация нового пользователя
 							</div>
+
 							<div class="pg-registration__padding" />
 						</div>
 					</div>
 					<div class="row">
 
 						<div class="col_12">
-							<div class="ui-border_25">
-								<hr class="pg-registration__hr" />
-								<div class="ui-header_4">1. Личные данные
-								</div>
-							</div>
-						</div>
-						<div class="col_4">
-							<div class="ui-border_25">
-								<ui-text :caption="'Укажите Ваше Имя'">
-								</ui-text>
-							</div>
-						</div>
-						<div class="col_4">
-							<div class="ui-border_25">
-								<ui-text :caption="'Укажите Вашу Фамилию'">
-								</ui-text>
-							</div>
-						</div>
 
-					</div>
+							<hr class="pg-registration__hr" />
+							<div class="ui-header_4">1. Личные данные
+							</div>
 
-					<div class="row">
+						</div>
 						<div class="col_3">
-							<div class="ui-border_25">
-								<ui-text :caption="'Укажите Вашу дату рождения'">
-								</ui-text>
-							</div>
+
+							<ui-text :caption="'Укажите Ваше Имя'">
+							</ui-text>
+
+						</div>
+						<div class="col_3 col_offset-1">
+
+							<ui-text :caption="'Укажите Вашу Фамилию'">
+							</ui-text>
+
+						</div>
+						<div class="col_3 col_offset-1">
+
+							<ui-text :caption="'Укажите Вашу дату рождения'">
+							</ui-text>
+
 						</div>
 						<div class="pg-registration__padding" />
 					</div>
 
 					<div class="row">
 						<div class="col_12">
-							<div class="ui-border_25">
-								<hr class="pg-registration__hr" />
-								<div class="ui-header_4">2. Местоположение
-								</div>
+
+							<hr class="pg-registration__hr" />
+							<div class="ui-header_4">2. Местоположение
+
 							</div>
 						</div>
 						<div class="col_3">
-							<div class="ui-border_25">
-								<ui-text :caption="'Выберите Ваш регион'">
-								</ui-text>
-							</div>
+
+							<ui-text :caption="'Выберите Ваш регион'">
+							</ui-text>
+
 						</div>
-						<div class="col_3">
-							<div class="ui-border_25">
-								<ui-text :caption="'Выберите Ваш город'">
-								</ui-text>
-							</div>
+						<div class="col_3 col_offset-1">
+
+							<ui-text :caption="'Выберите Ваш город'">
+							</ui-text>
 						</div>
+
 						<div class="pg-registration__padding" />
 					</div>
 
 					<div class="row">
 						<div class="col_12">
-							<div class="ui-border_25">
-								<hr class="pg-registration__hr" />
-								<div class="ui-header_4">3. Защита
-								</div>
-							</div>
-						</div>
-						<div class="col_3">
-							<div class="ui-border_25">
-								<ui-text :value="'mex1986fox'"
-								         :caption="'Придумайте логин'">
-								</ui-text>
-							</div>
-						</div>
-					</div>
 
-					<div class="row">
-						<div class="col_3">
-							<div class="ui-border_25">
-								<ui-text :caption="'Укажите пароль'">
-								</ui-text>
+							<hr class="pg-registration__hr" />
+							<div class="ui-header_4">3. Защита
 							</div>
+
 						</div>
 						<div class="col_3">
-							<div class="ui-border_25">
-								<ui-text :caption="'Повторите пароль еще раз'">
-								</ui-text>
-							</div>
+
+							<ui-text :value="'mex1986fox'"
+							         :caption="'Придумайте логин'">
+							</ui-text>
+
+						</div>
+						<div class="col_3 col_offset-1">
+
+							<ui-text :caption="'Укажите пароль'">
+							</ui-text>
+
+						</div>
+						<div class="col_3 col_offset-1">
+
+							<ui-text :caption="'Повторите пароль еще раз'">
+							</ui-text>
+
 						</div>
 					</div>
 					<div class="pg-registration__padding" />
 
 					<div class="row">
 						<div class="col_12">
-							<div class="ui-border_25">
-								<hr class="pg-registration__hr" />
-								<div class="ui-header_4">4. Связь
-								</div>
+
+							<hr class="pg-registration__hr" />
+							<div class="ui-header_4">4. Связь
+
 							</div>
 						</div>
 						<div class="col_3">
-							<div class="ui-border_25">
-								<ui-text :value="'mex1986fox@fox.ru'"
-								         :caption="'Укажите ваш Email'">
-								</ui-text>
-							</div>
+
+							<ui-text :value="'mex1986fox@fox.ru'"
+							         :caption="'Укажите ваш Email'">
+							</ui-text>
+
 						</div>
-					</div>
-					<div class="row">
-						<div class="col_3">
-							<div class="ui-border_25">
-								<ui-text :caption="'Укажите ваш номер телефона'">
-								</ui-text>
-							</div>
+						<div class="col_3 col_offset-1">
+
+							<ui-text :caption="'Укажите ваш номер телефона'">
+							</ui-text>
+
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="col_12">
-							<div class="ui-border_25">
-								<hr class="pg-registration__hr" />
 
-								<button class="ui-button ui-button_blue">Зарегистрироваться</button>
-								<button class="ui-button ui-button_flat"
-								        @click="showRegistrationCard=!showRegistrationCard">Отмена</button>
+							<hr class="pg-registration__hr" />
+
+							<button class="ui-button ui-button_blue">Зарегистрироваться</button>
+							<button class="ui-button ui-button_flat"
+							        @click="showRegistrationCard=!showRegistrationCard">Отмена</button>
+
+						</div>
+					</div>
+				</div> -->
+				<div class="row">
+					<div class="col_5 col_offset-7">
+						<div class="pg-registration__card">
+							<div class="row">
+								<div class="col_12">
+									<span class="ui-header_2">
+										Первый раз на Drovito?
+									</span>
+									<br/>
+									<p class="ui-description">
+										Здесь Вам рады. Регистрируйтесь!
+									</p>
+
+								</div>
+								<div class="col_12">
+
+									<hr class="pg-registration__hr" />
+									<div class="ui-header_4">1. Личные данные
+									</div>
+
+								</div>
+								<div class="col_5">
+									<ui-text value=""
+									         caption="Имя">
+									</ui-text>
+								</div>
+								<div class="col_6 col_offset-1">
+									<ui-text value=""
+									         caption="Фамилия">
+									</ui-text>
+								</div>
+								<div class="col_12">
+									<ui-datepicker :disabled="false"
+									               name="datepicker"
+									               caption="Дата рождения">
+									</ui-datepicker>
+
+								</div>
+								<div class="col_12">
+
+									<hr class="pg-registration__hr" />
+									<div class="ui-header_4">1. Безопасность
+									</div>
+
+								</div>
+								<div class="col_12">
+									<ui-text value=""
+									         caption="Прибумайте логин">
+									</ui-text>
+								</div>
+								<div class="col_5">
+									<ui-text value=""
+									         caption="Пароль">
+									</ui-text>
+								</div>
+								<div class="col_6 col_offset-1">
+									<ui-text value=""
+									         caption="Повторите пароль">
+									</ui-text>
+								</div>
+								<div class="col_12">
+
+									<hr class="pg-registration__hr" />
+
+									<button class="ui-button ui-button_blue">Зарегистрироваться</button>
+									<button class="ui-button ui-button_flat"
+									        @click="showRegistrationCard=!showRegistrationCard">Отмена</button>
+
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
 		</ui-blind>
 	</layout>
 </template>
@@ -231,10 +296,13 @@ export default {
     float: left;
     margin-top: 50px;
   }
+  &__header {
+    margin-bottom: 38px !important;
+  }
   &__hr {
     border: 0;
     border-top: 1px dashed #d2d2d2cc;
-    margin: 55px 0 10px 0;
+    margin: 30px 0 10px 0;
     float: left;
     position: relative;
     width: 100%;
@@ -264,12 +332,8 @@ export default {
       display: block;
     }
   }
-  &__card-registration {
-    margin: 50px 0;
-    background-color: #fff;
-    box-shadow: 0px 2px 8px rgba(100, 124, 137, 0.49);
-    padding: 40px;
-    overflow: hidden;
+  &__blind {
+    background-color: rgba(255, 255, 255, 0) !important;
   }
 }
 @media (min-width: 770px) and (max-width: 990px) {
@@ -277,7 +341,7 @@ export default {
     &__card {
       margin-top: 30px;
       padding: 40px;
-      overflow: hidden;
+      //   overflow: hidden;
     }
     &__logo {
       height: 110px;

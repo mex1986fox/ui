@@ -7,7 +7,7 @@
 	            :enter-to-class="enterTo+'_'+animate"
 	            :leave-to-class="leaveTo+'_'+animate">
 		<div class="ui-blind"
-		     v-if="dShow"
+		     v-if="show"
 		     @click="isClick">
 			<div ref="content"
 			     class="ui-blind__content"
@@ -25,7 +25,6 @@ export default {
   name: "UiBlind",
   data() {
     return {
-      dShow: this.show,
       dMargin: "30px",
       dScrollHeight: 0,
       enter: "ui-blind_enter",
@@ -50,15 +49,10 @@ export default {
       default: "left"
     }
   },
-  watch: {
-    show(newQ) {
-      this.dShow = newQ;
-    }
-  },
+
   methods: {
     isClick(event) {
       if (event.target == this.$el || event.target == this.$refs.content) {
-        this.dShow = false;
         this.$emit("onHide");
       }
     },
