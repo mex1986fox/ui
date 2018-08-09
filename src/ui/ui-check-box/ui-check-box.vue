@@ -1,17 +1,24 @@
 <template>
-<div class="ui-checkbox" @click="isClick()">
-    <span class="ui-checkbox__check" 
-          :class="{'ui-checkbox__check_disabled': dDisabled,
+	<div class="ui-checkbox"
+	     @click="isClick()">
+		<span class="ui-checkbox__check"
+		      :class="{'ui-checkbox__check_disabled': dDisabled,
                     'ui-checkbox__check_disabled_checked': dChecked && dDisabled,
                     'ui-checkbox__check_checked': dChecked && !dDisabled}">
-        <i class="fa fa-check" aria-hidden="true"></i>
-    </span>
-    <input class="ui-checkbox__input" type="checkbox" :name="dName" :disabled="dDisabled"  :checked="dChecked" :value="dValue"/>
-    <span  class="ui-checkbox__caption" 
-          :class="{'ui-checkbox__caption_disabled': dDisabled}">
-        <slot></slot>
-    </span>
-</div>
+			<i class="fa fa-check"
+			   aria-hidden="true"></i>
+		</span>
+		<input class="ui-checkbox__input"
+		       type="checkbox"
+		       :name="dName"
+		       :disabled="dDisabled"
+		       :checked="dChecked"
+		       :value="dValue" />
+		<span class="ui-checkbox__caption"
+		      :class="{'ui-checkbox__caption_disabled': dDisabled}">
+			<slot></slot>
+		</span>
+	</div>
 </template>
 <script>
 export default {
@@ -26,7 +33,7 @@ export default {
   },
   methods: {
     isClick() {
-      if(this.dDisabled==false){
+      if (this.dDisabled == false) {
         this.dChecked = !this.dChecked;
       }
       this.$emit("onClick", this.dChecked);
@@ -34,27 +41,31 @@ export default {
   },
 
   props: {
-    name:{
+    name: {
       type: String,
       default: ""
     },
-    value:{
+    value: {
       type: String,
       default: ""
     },
-    checked:{
+    checked: {
       type: Boolean,
       default: false
     },
-    disabled:{
+    disabled: {
       type: Boolean,
       default: false
-    } 
-  },
-    watch: {
-    checked(newQ, oldQ) {
-      this.dChecked = newQ;
     }
   },
+  watch: {
+    checked(newQ, oldQ) {
+      this.dChecked = newQ;
+      // console.log(newQ);
+    },
+    value(newQ) {
+      this.dValue = newQ;
+    }
+  }
 };
 </script>

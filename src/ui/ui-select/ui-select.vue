@@ -41,21 +41,23 @@
 					<li class="ui-select__option ui-select__option_disabled"
 					    :key="'option'+key"
 					    v-if="val.disabled">
-						<ui-check-box :name="dName"
+						<ui-check-box :key="'cheked'+key"
+						              :name="dName"
 						              :disabled="true"
 						              :checked="val.selected"
 						              :value="val.value"
-						              v-show="dMultiple" /> {{val.option}}
+						              v-show="multiple" /> {{val.option}}
 					</li>
 					<li class="ui-select__option"
 					    :key="'option'+key"
 					    @click="isClickOption(key)"
 					    v-if="!val.disabled">
-						<ui-check-box :name="dName"
+						<ui-check-box :key="'cheked'+key"
+						              :name="dName"
 						              :disabled="false"
 						              :checked="val.selected"
 						              :value="val.value"
-						              v-show="dMultiple" /> {{val.option}}
+						              v-show="multiple" />{{val.option}}
 					</li>
 				</template>
 			</ul>
@@ -71,7 +73,7 @@ export default {
       dName: this.name,
       dValue: "",
       dCaption: this.caption,
-      dMultiple: this.multiple,
+      // multiple: this.multiple,
       dHelp: this.help,
       dMenu: this.menu,
       dDisabled: this.disabled,
@@ -123,7 +125,7 @@ export default {
     },
     isClickOption(key) {
       let copyDMeny = this.dMenu;
-      if (this.dMultiple == true) {
+      if (this.multiple == true) {
         copyDMeny[key].selected = !copyDMeny[key].selected;
       } else {
         for (let k in copyDMeny) {
@@ -134,6 +136,7 @@ export default {
       }
 
       this.dMenu = copyDMeny;
+
       this.isCreatedValue();
 
       let selOdjects = [];
@@ -143,7 +146,7 @@ export default {
         }
       }
       this.$emit("onSelect", selOdjects);
-      this.dMultiple ? (this.dFocus = true) : (this.dFocus = false);
+      this.multiple ? (this.dFocus = true) : (this.dFocus = false);
     },
     isCreatedValue() {
       let selValStr = "";
@@ -159,10 +162,10 @@ export default {
   computed: {
     // возвращает отсортированное меню
     sortMenu() {
-      let menu = this.menu.sort(function(d1, d2) {
+      let menu = this.dMenu.sort(function(d1, d2) {
         return d1.option.toLowerCase() > d2.option.toLowerCase();
       });
-      return menu.sort(function(d1, d2) {
+      return this.dMenu.sort(function(d1, d2) {
         return d1.group.toLowerCase() > d2.group.toLowerCase();
       });
     }

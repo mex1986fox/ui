@@ -84,11 +84,11 @@
 					<ui-select name="model"
 					           caption="Выберите модель"
 					           :multiple="true"
-					           :menu='[{value:"1",option:"TT-100", group:"Audi", selected:true},
-                                        {value:"2",option:"fd-500", group:"Audi", selected:false},
-                                        {value:"3",option:"A-150", group:"Audi", selected:false},
-                                        {value:"4",option:"A-200", group:"Audi",selected:false},
-                                        {value:"5",option:"A-250", group:"Audi",selected:false}]'>
+					           :menu='[{value:"11",option:"TT-100", group:"Audi", selected:true},
+                                        {value:"22",option:"fd-500", group:"Audi", selected:false},
+                                        {value:"32",option:"A-150", group:"Audi", selected:false},
+                                        {value:"42",option:"A-200", group:"Audi",selected:false},
+                                        {value:"52",option:"A-250", group:"Audi",selected:false}]'>
 					</ui-select>
 					<ui-chips name="chips125"
 					          value="25"
@@ -218,7 +218,7 @@ export default {
   methods: {
     isTabs(id) {
       this.tabs = id;
-      console.log(id);
+      //   console.log(id);
     },
     isClose() {
       this.$emit("onHide");

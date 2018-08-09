@@ -38,62 +38,62 @@
 
 		<wg-slider class="wg-card-photo__slider"
 		           :slide='[
-                { src: "/public/img/cam1.jpg"},
-                { src: "/public/img/cam2.jpg" },
-                { src: "/public/img/cam3.jpg" },
-                { src: "/public/img/cam4.jpg" },
-                { src: "/public/img/cam5.jpg"},
-                { src: "/public/img/canvas.jpg" , },
-                { src: "/public/img/canvas2.jpg" },
-                { src: "/public/img/canvas3.jpg" },
-                { src: "/public/img/canvas4.jpg" },
-                { src: "/public/img/label.png" }
-            ]'
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen1200_305852445.jpg"},
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen1200_305852304.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen1200_305852320.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen1200_305852338.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen1200_305852364.jpg"},
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen1200_305852393.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen1200_305852424.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen1200_305852445.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen1200_305852304.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen1200_305852320.jpg" }
+                        ]'
 		           :select="numberPhoto"
 		           @onSelect="isSelectPhoto"
 		           @onZoom="isZoomPhoto">
 		</wg-slider>
 		<wg-slider-navig class="wg-card-photo__slider-navig"
 		                 :slide='[
-                    { src: "/public/img/cam1.jpg" },
-                { src: "/public/img/cam2.jpg" },
-                { src: "/public/img/cam3.jpg" },
-                { src: "/public/img/cam4.jpg" },
-                { src: "/public/img/cam5.jpg"},
-                { src: "/public/img/canvas.jpg" , },
-                { src: "/public/img/canvas2.jpg" },
-                { src: "/public/img/canvas3.jpg" },
-                { src: "/public/img/canvas4.jpg" },
-                { src: "/public/img/label.png" }
-            ]'
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen115_305852445.jpg"},
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen115_305852304.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen115_305852320.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen115_305852338.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen115_305852364.jpg"},
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen115_305852393.jpg" , },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen115_305852424.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen115_305852445.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen115_305852304.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen115_305852320.jpg" }
+                        ]'
 		                 :select="numberPhoto"
 		                 @onSelect="isSelectPhoto">
 		</wg-slider-navig>
 
 		<wg-slider-zoom :slide='[
-                { src: "/public/img/cam1.jpg"},
-                { src: "/public/img/cam2.jpg" },
-                { src: "/public/img/cam3.jpg" },
-                { src: "/public/img/cam4.jpg" },
-                { src: "/public/img/cam5.jpg"},
-                { src: "/public/img/canvas.jpg" , },
-                { src: "/public/img/canvas2.jpg" },
-                { src: "/public/img/canvas3.jpg" },
-                { src: "/public/img/canvas4.jpg" },
-                { src: "/public/img/label.png" }
-            ]'
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen1200_305852445.jpg"},
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen1200_305852304.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen1200_305852320.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen1200_305852338.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen1200_305852364.jpg"},
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen1200_305852393.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen1200_305852424.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen1200_305852445.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen1200_305852304.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen1200_305852320.jpg" }
+                        ]'
 		                :slideNavigation='[
-                { src: "/public/img/cam1.jpg"},
-                { src: "/public/img/cam2.jpg" },
-                { src: "/public/img/cam3.jpg" },
-                { src: "/public/img/cam4.jpg" },
-                { src: "/public/img/cam5.jpg"},
-                { src: "/public/img/canvas.jpg" , },
-                { src: "/public/img/canvas2.jpg" },
-                { src: "/public/img/canvas3.jpg" },
-                { src: "/public/img/canvas4.jpg" },
-                { src: "/public/img/label.png" }
-            ]'
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen115_305852445.jpg"},
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen115_305852304.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen115_305852320.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen115_305852338.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen115_305852364.jpg"},
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen115_305852393.jpg" , },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen115_305852424.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen115_305852445.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen115_305852304.jpg" },
+                            { src: "https://s.auto.drom.ru/i24223/s/photos/30552/30551169/gen115_305852320.jpg" }
+                        ]'
 		                :select="numberZoomPhoto"
 		                :show="showZoomSlider"
 		                @onHide="showZoomSlider=false">
