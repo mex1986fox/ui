@@ -1,49 +1,49 @@
 <template>
-	<div class="wg-slider"
-	     @mouseover="buttonsShow=true"
-	     @mouseout="buttonsShow=false">
-		<div class="wg-slider__buttons"
-		     :style="marginButtons"
-		     v-show="buttonsShow">
-			<div class="wg-slider__left-button"
-			     @click="leafLeft">
-				<button class="ui-button ui-button_circle ui-button_flat wg-slider__button_flat">
-					<i aria-hidden="true"
-					   class="fa fa-angle-left"></i>
-				</button>
-			</div>
-			<div class="wg-slider__right-button"
-			     @click="leafRight">
-				<button class="ui-button ui-button_circle ui-button_flat wg-slider__button_flat">
-					<i aria-hidden="true"
-					   class="fa fa-angle-right"></i>
-				</button>
-			</div>
-		</div>
-		<div class="wg-slider__menu"
-		     v-show="buttonsShow">
-			<div class="wg-slider__numeric">
-				{{dSlide[0].number}} / {{dSlide.length}}
-			</div>
-		</div>
-		<div ref="container"
-		     class="wg-slider__container">
-			<div ref="frame"
-			     class="wg-slider__frame"
-			     v-for="(val, key) in dSlide"
-			     :key="key"
-			     v-if="key<3">
-				<img class="wg-slider__fon"
-				     :src="val.src"
-				     alt="">
-				<img ref="photo"
-				     @click="isZoom(val.number)"
-				     class="wg-slider__img"
-				     :src="val.src"
-				     alt="">
-			</div>
-		</div>
-	</div>
+  <div class="wg-slider"
+    @mouseover="buttonsShow=true"
+    @mouseout="buttonsShow=false">
+    <div class="wg-slider__buttons"
+      :style="marginButtons"
+      v-show="buttonsShow">
+      <div class="wg-slider__left-button"
+        @click="leafLeft">
+        <button class="ui-button ui-button_circle ui-button_flat wg-slider__button_flat">
+          <i aria-hidden="true"
+            class="fa fa-angle-left"></i>
+        </button>
+      </div>
+      <div class="wg-slider__right-button"
+        @click="leafRight">
+        <button class="ui-button ui-button_circle ui-button_flat wg-slider__button_flat">
+          <i aria-hidden="true"
+            class="fa fa-angle-right"></i>
+        </button>
+      </div>
+    </div>
+    <div class="wg-slider__menu"
+      v-show="buttonsShow">
+      <div class="wg-slider__numeric">
+        {{dSlide[0].number}} / {{dSlide.length}}
+      </div>
+    </div>
+    <div ref="container"
+      class="wg-slider__container">
+      <div ref="frame"
+        class="wg-slider__frame"
+        v-for="(val, key) in dSlide"
+        :key="key"
+        v-if="key<3">
+        <img class="wg-slider__fon"
+          :src="val.src"
+          alt="">
+        <img ref="photo"
+          @click="isZoom(val.number)"
+          class="wg-slider__img"
+          :src="val.src"
+          alt="">
+      </div>
+    </div>
+  </div>
 </template>
 <script>
 export default {
@@ -88,31 +88,43 @@ export default {
     },
     //листает слайдер влево
     leafLeft() {
-      let frameWidtch = this.$refs.frame[0].clientWidth + "px";
-      this.$refs.container.style.cssText =
-        "transform: translateX(-" +
-        frameWidtch +
-        "); transition: transform 0.5s;";
-      // "margin-left: -200%;  transition: margin-left 0.4s;";
+      if (this.animate != "none") {
+        let frameWidtch = this.$refs.frame[0].clientWidth + "px";
+        this.$refs.container.style.cssText =
+          "transform: translateX(-" +
+          frameWidtch +
+          "); transition: transform 0.5s;";
+        // "margin-left: -200%;  transition: margin-left 0.4s;";
 
-      setTimeout(() => {
+        setTimeout(() => {
+          this.$refs.container.style.cssText = "";
+          this.dSlide.push(this.dSlide.shift());
+          this.noOpacity = true;
+        }, 600);
+      } else {
         this.$refs.container.style.cssText = "";
         this.dSlide.push(this.dSlide.shift());
         this.noOpacity = true;
-      }, 600);
+      }
     },
     leafRight() {
-      let frameWidtch = this.$refs.frame[0].clientWidth + "px";
-      this.$refs.container.style.cssText =
-        "transform: translateX(" +
-        frameWidtch +
-        "); transition: transform 0.5s;";
-      // "margin-left: 0%;  transition: margin-left 0.4s;";
-      setTimeout(() => {
+      if (this.animate != "none") {
+        let frameWidtch = this.$refs.frame[0].clientWidth + "px";
+        this.$refs.container.style.cssText =
+          "transform: translateX(" +
+          frameWidtch +
+          "); transition: transform 0.5s;";
+        // "margin-left: 0%;  transition: margin-left 0.4s;";
+        setTimeout(() => {
+          this.$refs.container.style.cssText = "";
+          this.dSlide.unshift(this.dSlide.pop());
+          this.noOpacity = true;
+        }, 600);
+      } else {
         this.$refs.container.style.cssText = "";
-        this.dSlide.unshift(this.dSlide.pop());
+        this.dSlide.push(this.dSlide.shift());
         this.noOpacity = true;
-      }, 600);
+      }
     },
     // определяет размещение блока горизонтальное или вертикальное
     defineLocation(htmlEl) {
@@ -190,6 +202,10 @@ export default {
     select: {
       type: Number,
       default: 1
+    },
+    animate: {
+      type: String,
+      default: undefined
     }
   },
   watch: {
@@ -206,7 +222,7 @@ export default {
           break;
         }
       }
-      if (this.noOpacity == false) {
+      if (this.noOpacity == false && this.animate!="none") {
         this.$refs.container.style.cssText = "opacity: 0;";
         setTimeout(() => {
           this.$refs.container.style.cssText =

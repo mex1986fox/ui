@@ -26,8 +26,8 @@
 						<ui-text :value="'mex1986fox@mail.ru'"
 						  :caption="'Email или логин'">
 						</ui-text>
-						<ui-text :caption="'Пароль'">
-						</ui-text>
+						<ui-password :caption="'Пароль'">
+						</ui-password>
 
 						<div class="pg-registration__padding" />
 						<button class="ui-button ">Войти</button>
@@ -103,14 +103,12 @@
 									</ui-text>
 								</div>
 								<div class="col_5 col-phone_6">
-									<ui-text value=""
-									  caption="Пароль">
-									</ui-text>
+									<ui-password caption="Пароль">
+									</ui-password>
 								</div>
 								<div class="col_6 col_offset-1 col-phone_6 col-phone_offset-0">
-									<ui-text value=""
-									  caption="Повторите пароль">
-									</ui-text>
+									<ui-password caption="Повторите пароль">
+									</ui-password>
 								</div>
 								<div class="col_12">
 
@@ -175,7 +173,7 @@ export default {
   }
   &__header {
     margin-bottom: 38px !important;
-		line-height: 30px;
+    line-height: 30px;
   }
   &__hr {
     border: 0;

@@ -5,6 +5,10 @@ import UiText from "./ui-text/ui-text.vue";
 Vue.component("ui-text", UiText);
 import UiTextArea from "./ui-text/ui-textarea.vue";
 Vue.component("ui-textarea", UiTextArea);
+import UiPassword from "./ui-text/ui-password.vue";
+Vue.component("ui-password", UiPassword);
+
+
 import UiCode from "./ui-code/ui-code.vue";
 Vue.component("ui-code", UiCode);
 import UiSelect from "./ui-select/ui-select.vue";

@@ -16,7 +16,8 @@
 						           class="wg-slider-zoom__slider"
 						           :slide="dSlide"
 						           :select="numberPhoto"
-						           @onSelect="isSelectPhoto">
+						           @onSelect="isSelectPhoto"
+                       animate="none">
 						</wg-slider>
 						<wg-slider-navig class="wg-slider-zoom__slider-navig"
 						                 :slide="dSlideNav"

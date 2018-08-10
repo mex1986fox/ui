@@ -155,6 +155,7 @@ export default {
   data() {
     return {
       numberPhoto: 1,
+      numberZoomPhoto: 1,
       showZoomSlider: false
     };
   },
