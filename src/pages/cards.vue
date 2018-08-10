@@ -49,7 +49,7 @@ export default {
         {
           id: 1,
           date: "25/17/2018",
-          link: "/link_ad",
+          link: "/add",
           city: "Кемерово",
           region: "Кемеровсая область",
           brand: "Chevrolet",
@@ -92,7 +92,7 @@ export default {
         {
           id: 1,
           date: "25/17/2018",
-          link: "/link_ad",
+          link: "/add",
           city: "Кемерово",
           region: "Кемеровсая область",
           brand: "Chevrolet",
@@ -135,7 +135,7 @@ export default {
         {
           id: 1,
           date: "25/17/2018",
-          link: "/link_ad",
+          link: "/add",
           city: "Кемерово",
           region: "Кемеровсая область",
           brand: "Chevrolet",

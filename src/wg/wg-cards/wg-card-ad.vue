@@ -5,7 +5,7 @@
 			<div class="ui-avatar-block wg-card-ad__avatar-block">
 				<div class="ui-avatar">
 					<img :src="dObj.user.avatar"
-					     alt="">
+					    alt="">
 				</div>
 				<a class="ui-link ui-avatar-block__link">
 					{{dObj.user.name+" "+dObj.user.surname}}
@@ -17,13 +17,13 @@
 			</div>
 
 			<button @click="showMenu=true"
-			        class="ui-button ui-button_flat ui-button_circle ui-button_circle_mini wg-card-ad__header-button">
+			    class="ui-button ui-button_flat ui-button_circle ui-button_circle_mini wg-card-ad__header-button">
 				<i class="fa fa-ellipsis-v"
-				   aria-hidden="true"></i>
+				    aria-hidden="true"></i>
 			</button>
 			<ui-menu :show="showMenu"
-			         @onHide="showMenu=false"
-			         position="left-bottom">
+			    @onHide="showMenu=false"
+			    position="left-bottom">
 				<ul class="wg-card-ad__menu">
 					<li class="wg-card-ad__menu-li">Комментарии</li>
 					<li class="wg-card-ad__menu-li">Пожаловаться</li>
@@ -32,22 +32,22 @@
 			</ui-menu>
 
 		</div>
-		<a class="ui-link wg-card-ad__link"
-		   :href="dObj.link">
+		<router-link class="ui-link wg-card-ad__link"
+		    :to="dObj.link">
 			{{dObj.brand+" "+dObj.model+" "+dObj.year+"г. "+dObj.city}}
-		</a>
+		</router-link>
 		<div class="row">
 			<div class="col_6 col-phone_6">
 				<wg-slider class="wg-card-ad__slider"
-				           :slide="dObj.slide"
-				           :select="1"
-				           @onZoom="showZoomSlider=true">
+				    :slide="dObj.slide"
+				    :select="1"
+				    @onZoom="showZoomSlider=true">
 				</wg-slider>
 				<wg-slider-zoom :slide="dObj.slide.slice(0)"
-				                :slideNavigation="dObj.slide_navigation.slice(0)"
-				                :select="1"
-				                :show="showZoomSlider"
-				                @onHide="showZoomSlider=false">
+				    :slideNavigation="dObj.slide_navigation.slice(0)"
+				    :select="1"
+				    :show="showZoomSlider"
+				    @onHide="showZoomSlider=false">
 				</wg-slider-zoom>
 			</div>
 			<div class="col_6 col-phone_6">
@@ -83,7 +83,7 @@
 
 		<transition name="wg-card-ad__description">
 			<span v-show="descActive"
-			      class="ui-description ui-description_mini wg-card-ad__description">
+			    class="ui-description ui-description_mini wg-card-ad__description">
 				{{dObj.description}}
 			</span>
 		</transition>
@@ -91,7 +91,7 @@
 		<div class="wg-card-ad__buttons">
 			<button class="ui-button ui-button_circle ui-button_circle_mini ui-button_flat">
 				<i class="fa fa-thumbs-o-up"
-				   aria-hidden="true"></i>
+				    aria-hidden="true"></i>
 
 			</button>
 			<span class="wg-card-ad__counter">
@@ -100,39 +100,39 @@
 
 			<button class="ui-button ui-button_circle ui-button_circle_mini ui-button_flat">
 				<i class="fa fa-thumbs-o-down"
-				   aria-hidden="true"></i>
+				    aria-hidden="true"></i>
 			</button>
 			<span class="wg-card-ad__counter">
 				12
 			</span>
 			<button @click="commentShow=true"
-			        class="ui-button ui-button_circle ui-button_circle_mini ui-button_flat">
+			    class="ui-button ui-button_circle ui-button_circle_mini ui-button_flat">
 				<i class="fa fa-comments-o"
-				   aria-hidden="true"></i>
+				    aria-hidden="true"></i>
 			</button>
 			<span class="wg-card-ad__counter">
 				12 300
 			</span>
 			<button class="ui-button ui-button_circle ui-button_flat ui-button_circle_mini wg-card-ad__angel"
-			        :class="{'wg-card-ad__angel_transit':descActive}"
-			        @click="isDascActive">
+			    :class="{'wg-card-ad__angel_transit':descActive}"
+			    @click="isDascActive">
 				<i class="fa fa-angle-down"
-				   aria-hidden="true"></i>
+				    aria-hidden="true"></i>
 			</button>
 		</div>
 		<ui-blind ref="blind"
-		          :show="commentShow"
-		          @onHide="commentShow=false"
-		          :centering="true"
-		          animate="opacity">
+		    :show="commentShow"
+		    @onHide="commentShow=false"
+		    :centering="true"
+		    animate="opacity">
 			<div class="container">
 
 				<div class="row">
 					<div class="col_8 col_offset-2">
 						<button @click="commentShow=false"
-						        class="ui-button ui-button_circle ui-button_circle_big ui-button_flat wg-card-ad__comments-close">
+						    class="ui-button ui-button_circle ui-button_circle_big ui-button_flat wg-card-ad__comments-close">
 							<i aria-hidden="true"
-							   class="fa fa-times"></i>
+							    class="fa fa-times"></i>
 						</button>
 						<wg-comments>
 

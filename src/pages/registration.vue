@@ -6,9 +6,9 @@
 			<div class="row">
 				<div class="col_7 col-phone_6">
 					<img class="pg-registration__logo"
-					     src="/public/img/label.png"
-					     alt=""
-					     srcset="">
+					  src="/public/img/label.png"
+					  alt=""
+					  srcset="">
 					<div class="pg-registration__remark">
 						<span class="pg-registration__remark-header">
 							Социальная сеть для автомобилистов
@@ -24,7 +24,7 @@
 						</div>
 						<!-- <hr class="pg-registration__hr" /> -->
 						<ui-text :value="'mex1986fox@mail.ru'"
-						         :caption="'Email или логин'">
+						  :caption="'Email или логин'">
 						</ui-text>
 						<ui-text :caption="'Пароль'">
 						</ui-text>
@@ -32,14 +32,14 @@
 						<div class="pg-registration__padding" />
 						<button class="ui-button ">Войти</button>
 						<button class="ui-button ui-button_red"
-						        @click="showRegistrationCard=true">Регистрация</button>
+						  @click="showRegistrationCard=true">Регистрация</button>
 
 						<hr class="pg-registration__hr" />
 
 						<span style="font-size: 12px; float: left; margin-bottom:10px;">Если вы забыли свой пароль, попробуйте его восстановить!</span><br/><br/>
 						<a style="font-size: 12px; float: left; width: 100%;"
-						   class="ui-link"
-						   href="http://www.google.com">Восстановить пароль</a>
+						  class="ui-link"
+						  href="http://www.google.com">Восстановить пароль</a>
 
 					</div>
 				</div>
@@ -48,143 +48,13 @@
 
 		</div>
 		<ui-blind @onHide="showRegistrationCard=!showRegistrationCard"
-		          :show="showRegistrationCard"
-		          animate="right"
-		          class="pg-registration__blind">
+		  :show="showRegistrationCard"
+		  animate="right"
+		  class="pg-registration__blind">
 			<div class="container">
-
-				<!-- <div class="pg-registration__card-registration">
-
-					<div class="row">
-						<div class="col_12">
-
-							<div class="ui-header_2">Регистрация нового пользователя
-							</div>
-
-							<div class="pg-registration__padding" />
-						</div>
-					</div>
-					<div class="row">
-
-						<div class="col_12">
-
-							<hr class="pg-registration__hr" />
-							<div class="ui-header_4">1. Личные данные
-							</div>
-
-						</div>
-						<div class="col_3">
-
-							<ui-text :caption="'Укажите Ваше Имя'">
-							</ui-text>
-
-						</div>
-						<div class="col_3 col_offset-1">
-
-							<ui-text :caption="'Укажите Вашу Фамилию'">
-							</ui-text>
-
-						</div>
-						<div class="col_3 col_offset-1">
-
-							<ui-text :caption="'Укажите Вашу дату рождения'">
-							</ui-text>
-
-						</div>
-						<div class="pg-registration__padding" />
-					</div>
-
-					<div class="row">
-						<div class="col_12">
-
-							<hr class="pg-registration__hr" />
-							<div class="ui-header_4">2. Местоположение
-
-							</div>
-						</div>
-						<div class="col_3">
-
-							<ui-text :caption="'Выберите Ваш регион'">
-							</ui-text>
-
-						</div>
-						<div class="col_3 col_offset-1">
-
-							<ui-text :caption="'Выберите Ваш город'">
-							</ui-text>
-						</div>
-
-						<div class="pg-registration__padding" />
-					</div>
-
-					<div class="row">
-						<div class="col_12">
-
-							<hr class="pg-registration__hr" />
-							<div class="ui-header_4">3. Защита
-							</div>
-
-						</div>
-						<div class="col_3">
-
-							<ui-text :value="'mex1986fox'"
-							         :caption="'Придумайте логин'">
-							</ui-text>
-
-						</div>
-						<div class="col_3 col_offset-1">
-
-							<ui-text :caption="'Укажите пароль'">
-							</ui-text>
-
-						</div>
-						<div class="col_3 col_offset-1">
-
-							<ui-text :caption="'Повторите пароль еще раз'">
-							</ui-text>
-
-						</div>
-					</div>
-					<div class="pg-registration__padding" />
-
-					<div class="row">
-						<div class="col_12">
-
-							<hr class="pg-registration__hr" />
-							<div class="ui-header_4">4. Связь
-
-							</div>
-						</div>
-						<div class="col_3">
-
-							<ui-text :value="'mex1986fox@fox.ru'"
-							         :caption="'Укажите ваш Email'">
-							</ui-text>
-
-						</div>
-						<div class="col_3 col_offset-1">
-
-							<ui-text :caption="'Укажите ваш номер телефона'">
-							</ui-text>
-
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col_12">
-
-							<hr class="pg-registration__hr" />
-
-							<button class="ui-button ui-button_blue">Зарегистрироваться</button>
-							<button class="ui-button ui-button_flat"
-							        @click="showRegistrationCard=!showRegistrationCard">Отмена</button>
-
-						</div>
-					</div>
-				</div> -->
 				<div class="row">
-					<div class="col_5 col_offset-7">
-						<div class="pg-registration__card">
+					<div class="col_5 col_offset-7 col-phone_6 col-phone_offset-0">
+						<div class="pg-registration__card-registration">
 							<div class="row">
 								<div class="col_12">
 									<span class="ui-header_2">
@@ -203,20 +73,20 @@
 									</div>
 
 								</div>
-								<div class="col_5">
+								<div class="col_5 col-phone_6">
 									<ui-text value=""
-									         caption="Имя">
+									  caption="Имя">
 									</ui-text>
 								</div>
-								<div class="col_6 col_offset-1">
+								<div class="col_6 col_offset-1 col-phone_6 col-phone_offset-0">
 									<ui-text value=""
-									         caption="Фамилия">
+									  caption="Фамилия">
 									</ui-text>
 								</div>
 								<div class="col_12">
 									<ui-datepicker :disabled="false"
-									               name="datepicker"
-									               caption="Дата рождения">
+									  name="datepicker"
+									  caption="Дата рождения">
 									</ui-datepicker>
 
 								</div>
@@ -229,26 +99,26 @@
 								</div>
 								<div class="col_12">
 									<ui-text value=""
-									         caption="Прибумайте логин">
+									  caption="Прибумайте логин">
 									</ui-text>
 								</div>
-								<div class="col_5">
+								<div class="col_5 col-phone_6">
 									<ui-text value=""
-									         caption="Пароль">
+									  caption="Пароль">
 									</ui-text>
 								</div>
-								<div class="col_6 col_offset-1">
+								<div class="col_6 col_offset-1 col-phone_6 col-phone_offset-0">
 									<ui-text value=""
-									         caption="Повторите пароль">
+									  caption="Повторите пароль">
 									</ui-text>
 								</div>
 								<div class="col_12">
 
 									<hr class="pg-registration__hr" />
 
-									<button class="ui-button ui-button_blue">Зарегистрироваться</button>
+									<button class="ui-button ui-button_blue">готово</button>
 									<button class="ui-button ui-button_flat"
-									        @click="showRegistrationCard=!showRegistrationCard">Отмена</button>
+									  @click="showRegistrationCard=!showRegistrationCard">Отмена</button>
 
 								</div>
 							</div>
@@ -291,6 +161,13 @@ export default {
     padding: 40px;
     overflow: hidden;
   }
+  &__card-registration {
+    margin-top: 30px;
+    background-color: #fff;
+    box-shadow: 0px 2px 8px rgba(100, 124, 137, 0.49);
+    padding: 40px;
+    overflow: hidden;
+  }
   &__logo {
     height: 160px;
     float: left;
@@ -298,6 +175,7 @@ export default {
   }
   &__header {
     margin-bottom: 38px !important;
+		line-height: 30px;
   }
   &__hr {
     border: 0;
@@ -343,6 +221,10 @@ export default {
       padding: 40px;
       //   overflow: hidden;
     }
+    &__card-registration {
+      padding: 40px;
+      //   overflow: hidden;
+    }
     &__logo {
       height: 110px;
       margin-top: 85px;
@@ -368,6 +250,10 @@ export default {
       margin-top: -129px;
       padding: 15px;
       overflow: hidden;
+    }
+    &__card-registration {
+      padding: 15px;
+      //   overflow: hidden;
     }
     &__logo {
       height: 55px;

@@ -2,6 +2,10 @@
     height: 100%;
     width: 280px;
     background-color: $color-fon;
+    &__burger {
+        color: $color-text-header !important;
+        font-size: 21px;
+    }
     &__header {
         margin: 10px 0;
         padding-bottom: 20px;
