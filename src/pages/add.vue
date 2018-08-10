@@ -71,7 +71,7 @@
                             :show="showZoomSlider"
                             @onHide="showZoomSlider=false">
                         </wg-slider-zoom>
-                        <div class="wg-comment__buttons">
+                        <div class="pg-add__buttons">
                             <button class="ui-button ui-button_circle ui-button_circle_mini ui-button_flat">
                                 <i aria-hidden="true"
                                     class="fa fa-thumbs-o-up"></i>
@@ -87,23 +87,7 @@
                                 123 369
                             </div>
                         </div>
-                        <div class="pg-add__contacts">
-                            <span class="pg-add__contacts-param">
-                                <span class="pg-add__contacts-title">
-                                    <i class="fa fa-mobile"
-                                        aria-hidden="true"></i>
-                                </span>
-                                <span class="pg-add__contacts-value">8-904-990-94-80</span>
-                            </span>
-                            <span class="pg-add__contacts-param">
-                                <span class="pg-add__contacts-title">
-                                    <i class="fa fa-envelope-o"
-                                        aria-hidden="true"></i>
-                                </span>
-                                <span class="pg-add__contacts-value">mex1986fox@mail.ru</span>
-                            </span>
-
-                        </div>
+                        
                     </div>
                     <div class="col_5 col-phone_6">
                         <div class="pg-add__info">
@@ -131,6 +115,43 @@
                                 <span class="pg-add__info-title">Привод</span>
                                 <span class="pg-add__info-value">передний</span>
                             </span>
+                                 <span class="pg-add__info-param">
+                                <span class="pg-add__info-title">Двигатель</span>
+                                <span class="pg-add__info-value">бензин/2.3</span>
+                            </span>
+
+                            <span class="pg-add__info-param">
+                                <span class="pg-add__info-title">Руль</span>
+                                <span class="pg-add__info-value">левый</span>
+                            </span>
+                            <span class="pg-add__info-param">
+                                <span class="pg-add__info-title">Пробег</span>
+                                <span class="pg-add__info-value">250 000 км.</span>
+                            </span>
+                            <span class="pg-add__info-param">
+                                <span class="pg-add__info-title">Коробка</span>
+                                <span class="pg-add__info-value">автомат</span>
+                            </span>
+                            <span class="pg-add__info-param">
+                                <span class="pg-add__info-title">Привод</span>
+                                <span class="pg-add__info-value">передний</span>
+                            </span>
+                            <div class="pg-add__contacts">
+                                <span class="pg-add__contacts-param">
+                                    <span class="pg-add__contacts-title">
+                                        <i class="fa fa-mobile"
+                                            aria-hidden="true"></i>
+                                    </span>
+                                    <span class="pg-add__contacts-value">8-904-990-94-80</span>
+                                </span>
+                                <span class="pg-add__contacts-param">
+                                    <span class="pg-add__contacts-title">
+                                        @
+                                    </span>
+                                    <span class="pg-add__contacts-value">mex1986fox@mail.ru</span>
+                                </span>
+
+                            </div>
                             <span class="ui-description pg-add__description">
                                 Мы находимся в г. Новосибирск. Наш сайт: https://fawnsk. china- faw. ru ГАРАНТИЯ 5 ЛЕТ!!! ПРИЕЗЖАЙТЕ НА ТЕСТ- ДРАЙВ - ВЫ БУДЕТЕ ПРИЯТНО УДИВЛЕНЫ! Стоимость 1 049 000 указана с учетом бонуса 50 000 при сдаче а/м в трейд ин + 50 000 выгода при покупке в кредит.* Подробности у менеджеров отдела продаж. Предложение действует до 31.08.2018!!! АТМОСФЕРНЫЙ ДВИГАТЕЛЬ - MAZDA!!! ЯПОНСКАЯ 6- ст АКПП - AISIN!!! БЕНЗИН - АИ-92!!! ДОРОЖНЫЙ ПРОСВЕТ - 21см!!! Современный, стильный, просторный, комфортный и безопасный кроссовер! Комплектация КОМФОРТ: ~ Системы безопасности: • Антиблокировочная система тормозов (ABS) • Функция электронного распределения тормозного усилия (EBD) • Антипробуксовочная или противопробуксовочная система (TCS) • Система помощи при экстренном торможении (EBA) • Система курсовой устойчивости (ESP) • Система помощи при трогании на уклоне (HSA) • Иммобилайзер • Центральный замок • Подушка безопасности водителя и переднего пассажира • Трехточечные ремни безопасности для передних и задних пассажиров • Сигнализация о непристегнутом ремне безопасности водителя и переднего пассажира • Ремни безопасности передних сидений с регулировкой высоты • Автоматическая блокировка (при движении) и разблокировка (при столкновении) дверей • Блокировка открытия задних боковых дверей изнутри («детский замок») • Устройство вызова экстренных служб «Эра- Глонасс» • Травмобезопасные подголовники
                             </span>
@@ -184,29 +205,33 @@ export default {
   &__slider-navig {
     height: 40px !important;
     margin: 10px 0;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  &__buttons {
+    margin-left: 0px;
+    display: block;
+    overflow: hidden;
+    width: 100%;
   }
   &__contacts {
     width: auto;
     position: relative;
-    margin-bottom: 25px;
+    margin: 36px 0 26px 0;
     font-size: 18px;
     &-param {
       display: block;
       font-size: 18px;
       overflow: hidden;
-      margin: 7px 0 0 0;
+      margin: 10px 0 0 0;
     }
     &-title {
       float: left;
-      font-size: 30px;
-      margin-left: 15px;
-      color: #2495ce;
+      font-size: 25px;
     }
     &-value {
-      float: left;
-      color: #adafbc;
       line-height: 30px;
       margin-left: 25px;
+      float: right;
     }
   }
   &__info {
@@ -234,22 +259,23 @@ export default {
 
   &__description {
     font-size: 14px !important;
-    margin: 33px 0;
+    margin:  0;
     display: inline-block;
   }
 }
 @media (max-width: 770px) {
   .pg-add {
+    &__buttons {
+      margin-left: 0px;
+      display: block;
+      overflow: hidden;
+      width: 100%;
+    }
     &__slider {
       height: 250px !important;
     }
-    &__contacts {
-      &-title {
-        margin-left: 10px;
-      }
-    }
     &__info {
-      padding: 10px;
+      padding: 0px;
     }
   }
 }

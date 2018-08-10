@@ -99,7 +99,7 @@
 								</div>
 								<div class="col_12">
 									<ui-text value=""
-									  caption="Прибумайте логин">
+									  caption="Логин">
 									</ui-text>
 								</div>
 								<div class="col_5 col-phone_6">
@@ -145,7 +145,7 @@ export default {
     position: fixed;
     height: 100%;
     width: 100%;
-    background: url(/public/img/canvas3.jpg) no-repeat center center fixed;
+    background: url(https://img2.goodfon.ru/original/1680x1050/2/bc/mashina-zerkalo-otrazhenie.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -157,10 +157,11 @@ export default {
     background-color: #fff;
     box-shadow: 0px 2px 8px rgba(100, 124, 137, 0.49);
     padding: 40px;
-    overflow: hidden;
+		overflow: hidden;
+		margin-bottom: 30px;
   }
   &__card-registration {
-    margin-top: 30px;
+    margin: 30px 0;
     background-color: #fff;
     box-shadow: 0px 2px 8px rgba(100, 124, 137, 0.49);
     padding: 40px;
@@ -217,11 +218,13 @@ export default {
     &__card {
       margin-top: 30px;
       padding: 40px;
-      //   overflow: hidden;
+			//   overflow: hidden;
+			margin-bottom: 30px;
     }
     &__card-registration {
       padding: 40px;
-      //   overflow: hidden;
+			//   overflow: hidden;
+				margin: 30px 0;
     }
     &__logo {
       height: 110px;
@@ -247,11 +250,13 @@ export default {
     &__card {
       margin-top: -129px;
       padding: 15px;
-      overflow: hidden;
+			overflow: hidden;
+			margin-bottom: 15px;
     }
     &__card-registration {
       padding: 15px;
-      //   overflow: hidden;
+			//   overflow: hidden;
+			margin: 15px 0;
     }
     &__logo {
       height: 55px;

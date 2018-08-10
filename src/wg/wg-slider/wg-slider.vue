@@ -229,7 +229,6 @@ export default {
             "opacity: 1;  transition: opacity 0.5s;";
         }, 100);
       }
-
       this.noOpacity = false;
     }
   }
