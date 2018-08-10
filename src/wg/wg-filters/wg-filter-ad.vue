@@ -6,32 +6,28 @@
 					<div class="ui-header ui-header_2 wg-filter-ad__header">
 						Фильтр объявлений
 					</div>
-					<button class="ui-button ui-button_circle wg-filter-ad__close"
+					<button class="ui-button ui-button_circle ui-button_flat wg-filter-ad__close"
 					        @click="isClose">
-						<i class="fa fa-angle-up"></i>
+						<i class="fa fa-angle-right"></i>
 					</button>
+					<ui-tabs class=" wg-filter-ad__tabs">
+						<ui-tabs-tab id="city"
+						             :checked="true"
+						             @onFocus="isTabs">
+							Города
+						</ui-tabs-tab>
+						<ui-tabs-tab id="model"
+						             @onFocus="isTabs">
+							Модели
+						</ui-tabs-tab>
+						<ui-tabs-tab id="param"
+						             @onFocus="isTabs">
+							Параметры
+						</ui-tabs-tab>
+					</ui-tabs>
+
 				</div>
 			</div>
-
-			<div class="col_12">
-				<ui-tabs>
-					<ui-tabs-tab id="city"
-					             :checked="true"
-					             @onFocus="isTabs">
-						Города
-					</ui-tabs-tab>
-					<ui-tabs-tab id="model"
-					             @onFocus="isTabs">
-						Модели
-					</ui-tabs-tab>
-					<ui-tabs-tab id="param"
-					             @onFocus="isTabs">
-						Параметры
-					</ui-tabs-tab>
-				</ui-tabs>
-			</div>
-
-			<hr class="wg-filter-ad__hr">
 
 			<div class="col_12"
 			     v-show="tabs=='city'">
@@ -53,21 +49,25 @@
                                         {value:"4",option:"Алтай", group:"Город",selected:false},
                                         {value:"5",option:"Яя", group:"Поселок",selected:false}]'>
 					</ui-select>
-					<ui-chips name="chips45"
-					          value="45"
-					          caption="Кемерово"
-					          deleted>
-					</ui-chips>
-					<ui-chips name="chips25"
-					          value="25"
-					          caption="Анжеро-судженск"
-					          deleted>
-					</ui-chips>
-					<ui-chips name="chips45"
-					          value="45"
-					          caption="Кемерово"
-					          deleted>
-					</ui-chips>
+					<div class="wg-filter-ad__block-chips">
+
+						<ui-chips name="chips45"
+						          value="45"
+						          caption="Кемерово"
+						          deleted>
+						</ui-chips>
+						<ui-chips name="chips25"
+						          value="25"
+						          caption="Анжеро-судженск"
+						          deleted>
+						</ui-chips>
+						<ui-chips name="chips45"
+						          value="45"
+						          caption="Кемерово"
+						          deleted>
+						</ui-chips>
+					</div>
+
 				</div>
 			</div>
 			<div class="col_12"
@@ -90,16 +90,18 @@
                                         {value:"42",option:"A-200", group:"Audi",selected:false},
                                         {value:"52",option:"A-250", group:"Audi",selected:false}]'>
 					</ui-select>
-					<ui-chips name="chips125"
-					          value="25"
-					          caption="fd-500"
-					          deleted>
-					</ui-chips>
-					<ui-chips name="chips145"
-					          value="45"
-					          caption="Chevrolet"
-					          deleted>
-					</ui-chips>
+					<div class="wg-filter-ad__block-chips">
+						<ui-chips name="chips125"
+						          value="25"
+						          caption="fd-500"
+						          deleted>
+						</ui-chips>
+						<ui-chips name="chips145"
+						          value="45"
+						          caption="Chevrolet"
+						          deleted>
+						</ui-chips>
+					</div>
 				</div>
 			</div>
 			<div class="col_12"
@@ -197,12 +199,13 @@
 			</div>
 			<div class="col_12">
 				<div class="wg-filter-ad__buttons">
-					<button class="ui-button  wg-filter-ad__button">
-						Отмена
-					</button>
-					<button class="ui-button ui-button_blue  wg-filter-ad__button">
+					<button class="ui-button ui-button_blue  ">
 						Применить
 					</button>
+					<button class="ui-button ui-button_flat ">
+						Отмена
+					</button>
+
 				</div>
 
 			</div>

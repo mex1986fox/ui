@@ -1,16 +1,32 @@
 <template>
-  <span class="ui-chips" v-if="dSelected" @click="isClick">
-    <input class="ui-chips__input" type="checkbox" :name="dName" :checked="dSelected" :value="dValue">
-    <span class="ui-chips__icon" v-if="dSrc">
-      <img class="ui-chips__img" :class="{'ui-chips__img_disabled':dDisabled}" :src="dSrc" alt="">
-    </span>
-    <span class="ui-chips__caption" :class="{'ui-chips__caption_disabled':dDisabled}" v-if="dCaption">
-      {{dCaption}}
-    </span>
-    <span class="ui-chips__button" :class="{'ui-chips__button_disabled':dDisabled}" v-if="dDeleted" @click="isDeleted">
-      <i class="fa fa-times" aria-hidden="true"></i>
-    </span>
-  </span>
+	<div class="ui-chips"
+	     v-if="dSelected"
+	     @click="isClick">
+		<input class="ui-chips__input"
+		       type="checkbox"
+		       :name="dName"
+		       :checked="dSelected"
+		       :value="dValue">
+		<div class="ui-chips__icon"
+		     v-if="dSrc">
+			<img class="ui-chips__img"
+			     :class="{'ui-chips__img_disabled':dDisabled}"
+			     :src="dSrc"
+			     alt="">
+		</div>
+		<span class="ui-chips__caption"
+		      :class="{'ui-chips__caption_disabled':dDisabled}"
+		      v-if="dCaption">
+			{{dCaption}}
+		</span>
+		<span class="ui-chips__button"
+		      :class="{'ui-chips__button_disabled':dDisabled}"
+		      v-if="dDeleted"
+		      @click="isDeleted">
+			<i class="fa fa-times"
+			   aria-hidden="true"></i>
+		</span>
+	</div>
 </template>
 
 <script>

@@ -17,12 +17,14 @@
 				<div class="col_12">
 					<ui-blind :show="showFilterAds"
 					          @onHide="showFilterAds=false"
-					          animate="top"
+					          animate="right"
 					          style="background-color: rgba(255, 255, 255, 0);">
 						<div class="container">
 							<div class="row">
-								<div class="col_5 col_offset-7">
-									<wg-filter-ad @onHide="showFilterAds=false">
+								<div class="col_5 col_offset-7 col-tablet_8 col-tablet_offset-4 col-phone_6 col-phone_offset-0">
+									<wg-filter-ad @onHide="
+								     showFilterAds=false
+								     ">
 
 									</wg-filter-ad>
 								</div>
