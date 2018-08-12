@@ -39,7 +39,7 @@
 		<div class="row">
 			<div class="col_6 col-phone_6">
 				<wg-slider class="wg-card-ad__slider"
-				    :slide="dObj.slide"
+				    :slide="dObj.slide.slice(0)"
 				    :select="1"
 				    @onZoom="showZoomSlider=true">
 				</wg-slider>

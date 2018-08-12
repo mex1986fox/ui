@@ -12,7 +12,7 @@
 			     :key="key">
 				<img class="wg-slider__fon"
 				     :src="val.src">
-				<img class="wg-slider__img"
+				<img ref="photo" class="wg-slider__img"
 				     :src="val.src">
 			</div>
 		</div>
@@ -45,9 +45,11 @@ export default {
   mounted() {
     this.computedWidth();
     this.computedMLeft();
+    this.setStyleImg()
   },
   updated() {
     this.computedMLeft();
+    this.setStyleImg();
   },
   methods: {
     //   вычисляет ширину слайдов
@@ -103,6 +105,21 @@ export default {
     },
     isClick(number) {
       this.$emit("onSelect", number);
+    },
+    // Устанавливает стиль для фотографий
+    setStyleImg() {
+      let interval = [];
+      for (let k in this.$refs.photo) {
+        this.$refs.photo[k].onload = function(event) {
+          let photo=event.target;
+           let locPhoto = photo.naturalHeight - photo.naturalWidth;
+          if (locPhoto < 0) {
+            photo.className = "wg-slider-navig__img_horizon";
+          } else {
+            photo.className = "wg-slider-navig__img_vertical";
+          }
+        };
+      }
     }
   }
 };

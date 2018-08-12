@@ -28,17 +28,19 @@
     </div>
     <div ref="container"
       class="wg-slider__container">
-      <div ref="frame"
+      <div ref="frame" @click="isZoom(val.number)"
         class="wg-slider__frame"
         v-for="(val, key) in dSlide"
         :key="key"
         v-if="key<3">
+         
         <img class="wg-slider__fon"
           :src="val.src"
           alt="">
-        <img ref="photo"
-          @click="isZoom(val.number)"
+         <img ref="photo"
+          
           class="wg-slider__img"
+          :class="val.style"
           :src="val.src"
           alt="">
       </div>
@@ -46,8 +48,26 @@
   </div>
 </template>
 <script>
-export default {
+export default { 
+  data() {
+    return {
+      buttonsShow: false,
+      marginButtons: {},
+      dSlide: this.slide,
+      dInsertNumber: 0,
+      dSelect: this.select,
+      noOpacity: true
+    };
+  },
+  
   methods: {
+    
+    //чистит dSlide
+    clearDSlide(){
+      for(let key in this.dSlide){
+        this.dSlide[key].select=undefined;
+      }
+    },
     //выравнивает кнопки по центру
     centerButtons() {
       if (this.$refs.container.clientHeight > 66) {
@@ -61,8 +81,8 @@ export default {
     //устанавливает главную фотку в свою позицию
     setPosition() {
       for (let key in this.dSlide) {
-        if (this.dSlide[key].number == this.dSelect && key >= 1) {
-          let elem = this.dSlide.splice(key - 1, this.dSlide.length - key + 1);
+        if (this.dSlide[key].number == this.dSelect && key != 0) {
+          let elem = this.dSlide.splice(key, this.dSlide.length - key);
           this.dSlide = elem.concat(this.dSlide);
           break;
         }
@@ -85,6 +105,7 @@ export default {
     //вызывает событие увеличения фотографий на весь экран
     isZoom(number) {
       this.$emit("onZoom", number);
+      console.log("zoom")
     },
     //листает слайдер влево
     leafLeft() {
@@ -95,7 +116,6 @@ export default {
           frameWidtch +
           "); transition: transform 0.5s;";
         // "margin-left: -200%;  transition: margin-left 0.4s;";
-
         setTimeout(() => {
           this.$refs.container.style.cssText = "";
           this.dSlide.push(this.dSlide.shift());
@@ -122,47 +142,60 @@ export default {
         }, 600);
       } else {
         this.$refs.container.style.cssText = "";
-        this.dSlide.push(this.dSlide.shift());
+        this.dSlide.unshift(this.dSlide.pop());
         this.noOpacity = true;
       }
     },
-    // определяет размещение блока горизонтальное или вертикальное
-    defineLocation(htmlEl) {
-      return htmlEl.clientHeight / htmlEl.clientWidth;
-    },
-    // выравнивает фотографию относительно блока
-    alignmentPhoto(htmlElPhoto) {
-      let locBlock = this.defineLocation(this.$refs.frame[0]);
-      let locPhoto = this.defineLocation(htmlElPhoto);
-      if (locPhoto > locBlock) {
-        htmlElPhoto.style.cssText = "height:100%; width:auto;";
-      } else {
-        htmlElPhoto.style.cssText = "height:auto; width:100%;";
+    //lобавляет клас к dSlide
+    setClassImg(src, style) {
+      for (let key in this.dSlide) {
+        if (src.indexOf(this.dSlide[key].src) !== -1) {
+          this.dSlide[key]["style"] = style;
+        }
       }
     },
-    //центрует фотки
-    centerPhoto(htmlEl, htmlElPhoto) {
-      if (htmlEl.clientHeight > htmlElPhoto.clientHeight) {
-        htmlElPhoto.style.marginTop =
-          (htmlEl.clientHeight - htmlElPhoto.clientHeight) / 2 + "px";
+    searchClass(src) {
+      for (let key in this.dSlide) {
+
+        if (
+          src.indexOf(this.dSlide[key].src) !== -1 &&
+          this.dSlide[key].style != undefined
+        ) {
+          // console.log("ok")
+          return true;
+          break;
+        }
+      }
+      return false;
+    },
+    // Устанавливает стиль для фотографий
+    setStyleImg() {
+      for (let k in this.$refs.photo) {
+        if (!this.searchClass(this.$refs.photo[k].src)) {
+          this.$refs.photo[k].onload = function(event) {
+            let photo = event.target;
+            let container = this.$refs.frame[0];
+             let locContainer = container.clientHeight / container.clientWidth;
+            let locPhoto = photo.naturalHeight / photo.naturalWidth;
+            if (locPhoto < locContainer) {
+              this.setClassImg(photo.src, "wg-slider__img_horizon");
+              photo.className = "wg-slider__img wg-slider__img_horizon";
+            } else {
+              this.setClassImg(photo.src, "wg-slider__img_vertical");
+              photo.className = "wg-slider__img wg-slider__img_vertical";
+            }
+          }.bind(this);
+        }
       }
     }
   },
-  data() {
-    return {
-      buttonsShow: false,
-      marginButtons: {},
-      dSlide: this.slide,
-      dInsertNumber: 0,
-      dSelect: this.select,
-      noOpacity: true
-    };
-  },
+
   beforeMount() {
+    this.clearDSlide();
     this.setNumbers();
     this.setPosition();
-  },
 
+  },
   mounted() {
     this.$el.style.transition = "opacity 0.6s";
     this.$el.style.opacity = 0;
@@ -170,31 +203,15 @@ export default {
       this.$el.style.transition = "opacity 0.6s";
       this.$el.style.opacity = 1;
     }, 600);
-    for (let k in this.$refs.photo) {
-      this.alignmentPhoto(this.$refs.photo[k]);
-      this.centerPhoto(this.$refs.container, this.$refs.photo[k]);
-    }
+    this.setStyleImg();
+
     setTimeout(() => {
       this.centerButtons();
     }, 100);
     this.isSelect();
   },
   updated() {
-    for (let k in this.$refs.photo) {
-      this.alignmentPhoto(this.$refs.photo[k]);
-      this.centerPhoto(this.$refs.container, this.$refs.photo[k]);
-    }
-    let interval = setInterval(() => {
-      if (this.$refs.photo != undefined) {
-        for (let k in this.$refs.photo) {
-          if (this.$refs.photo[k].show != true) {
-            this.alignmentPhoto(this.$refs.photo[k]);
-            this.centerPhoto(this.$refs.container, this.$refs.photo[k]);
-          }
-        }
-        clearTimeout(interval);
-      }
-    }, 1);
+    this.setStyleImg();
     this.isSelect();
   },
   props: {
@@ -222,7 +239,7 @@ export default {
           break;
         }
       }
-      if (this.noOpacity == false && this.animate!="none") {
+      if (this.noOpacity == false && this.animate != "none") {
         this.$refs.container.style.cssText = "opacity: 0;";
         setTimeout(() => {
           this.$refs.container.style.cssText =
@@ -233,7 +250,6 @@ export default {
     }
   }
 };
-
 // dSlide: [
 //         { src: "/static/img/photo_car1.jpg", show: true },
 //         { src: "/static/img/photo_car2.jpg" },

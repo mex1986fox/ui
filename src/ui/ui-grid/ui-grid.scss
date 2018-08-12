@@ -346,8 +346,9 @@ body {
 
 @media (max-width: 770px) {
     .container {
-        min-width: 1px;
-        max-width: 770px;
+        min-width: 100%;
+        max-width: 770;
+        box-sizing: border-box;
     }
     .col-phone_1 {
         width: (100%/6*1);

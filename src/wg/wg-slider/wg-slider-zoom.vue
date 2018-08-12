@@ -49,6 +49,7 @@ export default {
   },
   watch: {
     select(newQ) {
+      // console.log(newQ)
       this.numberPhoto = newQ;
     },
     show(newQ) {

@@ -45,6 +45,19 @@
         }
     }
     &__img {
-        height: 100%;
+        &_horizon {
+            //горизонтальное центрирование
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 100%;
+        }
+        &_vertical {
+            //вертикальное
+            height: 100%;
+        }
     }
 }
