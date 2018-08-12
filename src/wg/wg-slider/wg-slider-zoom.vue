@@ -11,7 +11,7 @@
 						<i class="fa fa-times"
 						   aria-hidden="true"></i>
 					</button>
-					<div class="wg-slider-zoom">
+					<div class="wg-slider-zoom" v-if="dShow">
 						<wg-slider ref="slider"
 						           class="wg-slider-zoom__slider"
 						           :slide="dSlide"
@@ -36,10 +36,14 @@ export default {
   data() {
     return {
       numberPhoto: this.select,
-      dSlide: this.slide,
-      dSlideNav: this.slideNavigation,
+      dSlide: JSON.parse(JSON.stringify(this.slide)),
+      dSlideNav: JSON.parse(JSON.stringify(this.slideNavigation)),
       dShow: this.show
     };
+  },
+  mounted(){
+    this.numberPhoto=this.select;
+    
   },
   updated() {
     if (this.dShow == true) {
@@ -49,7 +53,6 @@ export default {
   },
   watch: {
     select(newQ) {
-      // console.log(newQ)
       this.numberPhoto = newQ;
     },
     show(newQ) {
@@ -61,10 +64,10 @@ export default {
       }
     },
     slide(newQ) {
-      this.dSlide = newQ;
+      this.dSlide = JSON.parse(JSON.stringify(newQ));
     },
     slideNavigation(newQ) {
-      this.dSlideNav = newQ;
+      this.dSlideNav = JSON.parse(JSON.stringify(newQ));
     }
   },
   props: {

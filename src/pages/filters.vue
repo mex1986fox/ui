@@ -22,17 +22,43 @@
 						<div class="container">
 							<div class="row">
 								<div class="col_5 col_offset-7 col-tablet_8 col-tablet_offset-4 col-phone_6 col-phone_offset-0">
-									<wg-filter-ad @onHide="
+									<wg-filter-add @onHide="
 								     showFilterAds=false
 								     ">
 
-									</wg-filter-ad>
+									</wg-filter-add>
 								</div>
 							</div>
 						</div>
 
 					</ui-blind>
 				</div>
+				<div class="col_12">
+					<button @click="showFormAdd=true"
+					        class="ui-button">
+						Показать форму подачи объявления
+					</button>
+				</div>
+				<div class="col_12">
+					<ui-blind :show="showFormAdd"
+					          @onHide="showFormAdd=false"
+					          animate="top"
+					          style="background-color: rgba(255, 255, 255, 0);">
+						<div class="container">
+							<div class="row">
+								<div class="col_4 col_offset-8 col-tablet_8 col-tablet_offset-4 col-phone_6 col-phone_offset-0">
+									<wg-form-add @onHide="
+								     showFormAdd=false
+								     ">
+
+									</wg-form-add>
+								</div>
+							</div>
+						</div>
+
+					</ui-blind>
+				</div>
+
 			</div>
 		</div>
 	</layout>
@@ -42,7 +68,8 @@ export default {
   name: "wg-filters",
   data() {
     return {
-      showFilterAds: false
+      showFilterAds: false,
+			showFormAdd: false
     };
   }
 };

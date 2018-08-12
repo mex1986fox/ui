@@ -1,0 +1,120 @@
+<template>
+    <div class="wg-form-add">
+        <div class="row">
+            <div class="col-12">
+                <div class="wg-form-add__bar">
+                    <div class="ui-header ui-header_2 wg-form-add__header">
+                        <span>Форма подачи объявления</span>
+                    </div>
+                    <button class="ui-button ui-button_circle ui-button_flat wg-form-add__close"
+                        @click="isClose">
+                        <i class="fa fa-angle-up"></i>
+                    </button>
+                </div>
+
+                <div class="wg-form-add__content">
+
+                    <div class="wg-form-add__hr">
+                        <i class="fa fa-map-marker"
+                            aria-hidden="true"></i>
+                        Местоположение
+                    </div>
+                    <ui-select name="region"
+                        caption="Субъект"
+                        :menu='[{value:"1",option:"Кемеровская", group:"Область", selected:true},
+                                        {value:"2",option:"Новосибирская", group:"Область", selected:false},
+                                        {value:"3",option:"Омская", group:"Области", selected:false},
+                                        {value:"4",option:"Алтайский", group:"Край",selected:false},
+                                        {value:"5",option:"Камчатский", group:"Край",selected:false}]'>
+                    </ui-select>
+
+                    <ui-select name="city"
+                        caption="Город"
+                        :multiple="true"
+                        :menu='[{value:"1",option:"Анжеро-Судженск", group:"Город", selected:true},
+                                        {value:"2",option:"Новосибирск", group:"Город", selected:false},
+                                        {value:"3",option:"Кемерово", group:"Город", selected:false},
+                                        {value:"4",option:"Алтай", group:"Город",selected:false},
+                                        {value:"5",option:"Яя", group:"Поселок",selected:false}]'>
+                    </ui-select>
+
+                    <div class="wg-form-add__hr">
+                        <i class="fa fa-car"
+                            aria-hidden="true"></i>
+
+                        Автомобиль
+                    </div>
+                    <ui-select name="marca"
+                        caption="Марка"
+                        :menu='[{value:"1",option:"Audi", group:"Область", selected:true},
+                                        {value:"2",option:"Новосибирская", group:"Область", selected:false},
+                                        {value:"3",option:"Омская", group:"Области", selected:false},
+                                        {value:"4",option:"Алтайский", group:"Край",selected:false},
+                                        {value:"5",option:"Камчатский", group:"Край",selected:false}]'>
+                    </ui-select>
+                    <ui-select name="model"
+                        caption="Модель"
+                        :multiple="true"
+                        :menu='[{value:"1",option:"A-150", group:"Город", selected:true},
+                                        {value:"2",option:"Новосибирск", group:"Город", selected:false},
+                                        {value:"3",option:"Кемерово", group:"Город", selected:false},
+                                        {value:"4",option:"Алтай", group:"Город",selected:false},
+                                        {value:"5",option:"Яя", group:"Поселок",selected:false}]'>
+                    </ui-select>
+                    <ui-text caption="Пробег"></ui-text>
+                    <ui-textarea name="textarea1"
+                        caption="Описание"
+                        autoresize="250">
+                    </ui-textarea>
+                    <div class="wg-form-add__hr">
+                        <i class="fa fa-exclamation"
+                            aria-hidden="true"></i>
+                        Особые отметки
+                    </div>
+                    <div class="wg-form-add__checkboxs">
+                        <ui-check-box name="checkbox1"
+                            value="1"
+                            :checked="true">
+                            без документов
+                        </ui-check-box>
+                        <ui-check-box name="checkbox1"
+                            value="1"
+                            :checked="true">
+                            требует ремонта
+                        </ui-check-box>
+                        <ui-check-box name="checkbox1"
+                            value="1"
+                            :checked="true">
+                            готов к обмену
+                        </ui-check-box>
+                    </div>
+
+                    <div class="wg-form-add__hr">
+                        <i class="fa fa-phone"
+                            aria-hidden="true"></i>
+                        Связь
+                    </div>
+                    <ui-text caption="Телефон"></ui-text>
+                    <ui-text caption="Цена"></ui-text>
+                    <div class="wg-form-add__buttons">
+                        <button class="ui-button ui-button_blue  ">
+                            Сохранить
+                        </button>
+                        <button class="ui-button ui-button_flat ">
+                            Отмена
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>
+
+<script>
+export default {
+  name: "wg-form-add"
+};
+</script>
+

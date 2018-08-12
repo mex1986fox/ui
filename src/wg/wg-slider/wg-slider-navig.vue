@@ -23,7 +23,7 @@ export default {
   name: "wg-slider-navig",
   data() {
     return {
-      dSlide: this.slide,
+      dSlide: JSON.parse(JSON.stringify(this.slide)),
       dWidthSlide: "0px",
       dMarginSlide: "0px"
     };

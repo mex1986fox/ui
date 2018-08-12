@@ -1,16 +1,16 @@
 <template>
-	<div class="wg-filter-ad">
+	<div class="wg-filter-add">
 		<div class="row">
 			<div class="col_12">
-				<div class="wg-filter-ad__bar">
-					<div class="ui-header ui-header_2 wg-filter-ad__header">
+				<div class="wg-filter-add__bar">
+					<div class="ui-header ui-header_2 wg-filter-add__header">
 						Фильтр объявлений
 					</div>
-					<button class="ui-button ui-button_circle ui-button_flat wg-filter-ad__close"
+					<button class="ui-button ui-button_circle ui-button_flat wg-filter-add__close"
 					        @click="isClose">
 						<i class="fa fa-angle-right"></i>
 					</button>
-					<ui-tabs class=" wg-filter-ad__tabs">
+					<ui-tabs class=" wg-filter-add__tabs">
 						<ui-tabs-tab id="city"
 						             :checked="true"
 						             @onFocus="isTabs">
@@ -31,7 +31,7 @@
 
 			<div class="col_12"
 			     v-show="tabs=='city'">
-				<div class="wg-filter-ad__content">
+				<div class="wg-filter-add__content">
 					<ui-select name="region"
 					           caption="Выберите субъект"
 					           :menu='[{value:"1",option:"Кемеровская", group:"Область", selected:true},
@@ -49,7 +49,7 @@
                                         {value:"4",option:"Алтай", group:"Город",selected:false},
                                         {value:"5",option:"Яя", group:"Поселок",selected:false}]'>
 					</ui-select>
-					<div class="wg-filter-ad__block-chips">
+					<div class="wg-filter-add__block-chips">
 
 						<ui-chips name="chips45"
 						          value="45"
@@ -72,7 +72,7 @@
 			</div>
 			<div class="col_12"
 			     v-show="tabs=='model'">
-				<div class="wg-filter-ad__content">
+				<div class="wg-filter-add__content">
 					<ui-select name="marca"
 					           caption="Выберите марку"
 					           :menu='[{value:"1",option:"Audi", group:"Марка", selected:true},
@@ -90,7 +90,7 @@
                                         {value:"42",option:"A-200", group:"Audi",selected:false},
                                         {value:"52",option:"A-250", group:"Audi",selected:false}]'>
 					</ui-select>
-					<div class="wg-filter-ad__block-chips">
+					<div class="wg-filter-add__block-chips">
 						<ui-chips name="chips125"
 						          value="25"
 						          caption="fd-500"
@@ -106,7 +106,7 @@
 			</div>
 			<div class="col_12"
 			     v-show="tabs=='param'">
-				<div class="wg-filter-ad__content">
+				<div class="wg-filter-add__content">
 					<ui-select name="marca"
 					           caption="Сортировать по"
 					           :menu='[{value:"1",option:"Возростанию цены", group:"Цена", selected:true},
@@ -198,7 +198,7 @@
 
 			</div>
 			<div class="col_12">
-				<div class="wg-filter-ad__buttons">
+				<div class="wg-filter-add__buttons">
 					<button class="ui-button ui-button_blue  ">
 						Применить
 					</button>
@@ -214,7 +214,7 @@
 </template>
 <script>
 export default {
-  name: "wg-filter-ad",
+  name: "wg-filter-add",
   data() {
     return { tabs: "city" };
   },

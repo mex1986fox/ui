@@ -163,7 +163,7 @@
                                             <i class="fa fa-th"
                                                 aria-hidden="true"></i>
                                         </div>
-                                        Фильтры
+                                        Фильтры и формы
                                     </router-link>
                                 </div>
                             </ui-navigation-list>

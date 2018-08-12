@@ -39,16 +39,10 @@
 		<div class="row">
 			<div class="col_6 col-phone_6">
 				<wg-slider class="wg-card-ad__slider"
-				    :slide="dObj.slide.slice(0)"
+				    :slide="dObj.slide"
 				    :select="1"
 				    @onZoom="showZoomSlider=true">
 				</wg-slider>
-				<wg-slider-zoom :slide="dObj.slide.slice(0)"
-				    :slideNavigation="dObj.slide_navigation.slice(0)"
-				    :select="1"
-				    :show="showZoomSlider"
-				    @onHide="showZoomSlider=false">
-				</wg-slider-zoom>
 			</div>
 			<div class="col_6 col-phone_6">
 				<div class="wg-card-ad__info">
@@ -80,7 +74,6 @@
 			</div>
 
 		</div>
-
 		<transition name="wg-card-ad__description">
 			<span v-show="descActive"
 			    class="ui-description ui-description_mini wg-card-ad__description">
@@ -120,6 +113,14 @@
 				    aria-hidden="true"></i>
 			</button>
 		</div>
+		<wg-slider-zoom 
+			v-if="showZoomSlider"
+			:slide="dObj.slide"
+		    :slideNavigation="dObj.slide_navigation"
+		    :select="1"
+		    :show="showZoomSlider"
+		    @onHide="showZoomSlider=false">
+		</wg-slider-zoom>
 		<ui-blind ref="blind"
 		    :show="commentShow"
 		    @onHide="commentShow=false"
@@ -154,7 +155,7 @@ export default {
       descActive: false,
       showZoomSlider: false,
       commentShow: false,
-      dObj: this.object
+      dObj: JSON.parse(JSON.stringify(this.object))
     };
   },
   props: {

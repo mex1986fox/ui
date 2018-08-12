@@ -28,17 +28,17 @@
     </div>
     <div ref="container"
       class="wg-slider__container">
-      <div ref="frame" @click="isZoom(val.number)"
+      <div ref="frame"
+        @click="isZoom(val.number)"
         class="wg-slider__frame"
         v-for="(val, key) in dSlide"
         :key="key"
         v-if="key<3">
-         
+
         <img class="wg-slider__fon"
           :src="val.src"
           alt="">
-         <img ref="photo"
-          
+        <img ref="photo"
           class="wg-slider__img"
           :class="val.style"
           :src="val.src"
@@ -48,24 +48,23 @@
   </div>
 </template>
 <script>
-export default { 
+export default {
   data() {
     return {
       buttonsShow: false,
       marginButtons: {},
-      dSlide: this.slide,
+      dSlide: JSON.parse(JSON.stringify(this.slide)),
       dInsertNumber: 0,
       dSelect: this.select,
       noOpacity: true
     };
   },
-  
+
   methods: {
-    
     //чистит dSlide
-    clearDSlide(){
-      for(let key in this.dSlide){
-        this.dSlide[key].select=undefined;
+    clearDSlide() {
+       for (let key in this.dSlide) {
+        this.dSlide[key].style = undefined;
       }
     },
     //выравнивает кнопки по центру
@@ -96,16 +95,15 @@ export default {
     },
     // определяет номер выбранной фотки
     isSelect() {
-      if (this.dSlide[0].number == this.dSlide.length) {
-        this.$emit("onSelect", 1);
-      } else {
-        this.$emit("onSelect", this.dSlide[0].number + 1);
-      }
+      this.$emit("onSelect", this.dSlide[1].number);
     },
     //вызывает событие увеличения фотографий на весь экран
     isZoom(number) {
-      this.$emit("onZoom", number);
-      console.log("zoom")
+      let n = number != 1 ? number - 1 : this.dSlide.length;
+      this.$emit("onZoom", n);
+      this.setStyleImg();
+      for(let k in this.dSlide){
+        }
     },
     //листает слайдер влево
     leafLeft() {
@@ -150,18 +148,16 @@ export default {
     setClassImg(src, style) {
       for (let key in this.dSlide) {
         if (src.indexOf(this.dSlide[key].src) !== -1) {
-          this.dSlide[key]["style"] = style;
+          this.dSlide[key].style = style;
         }
       }
     },
     searchClass(src) {
       for (let key in this.dSlide) {
-
         if (
-          src.indexOf(this.dSlide[key].src) !== -1 &&
-          this.dSlide[key].style != undefined
+          src.indexOf(this.dSlide[key].src) != -1 &&
+          this.dSlide[key].style === undefined
         ) {
-          // console.log("ok")
           return true;
           break;
         }
@@ -171,11 +167,11 @@ export default {
     // Устанавливает стиль для фотографий
     setStyleImg() {
       for (let k in this.$refs.photo) {
-        if (!this.searchClass(this.$refs.photo[k].src)) {
+        if (this.searchClass(this.$refs.photo[k].src)==true) {
           this.$refs.photo[k].onload = function(event) {
             let photo = event.target;
             let container = this.$refs.frame[0];
-             let locContainer = container.clientHeight / container.clientWidth;
+            let locContainer = container.clientHeight / container.clientWidth;
             let locPhoto = photo.naturalHeight / photo.naturalWidth;
             if (locPhoto < locContainer) {
               this.setClassImg(photo.src, "wg-slider__img_horizon");
@@ -194,9 +190,9 @@ export default {
     this.clearDSlide();
     this.setNumbers();
     this.setPosition();
-
   },
   mounted() {
+
     this.$el.style.transition = "opacity 0.6s";
     this.$el.style.opacity = 0;
     setTimeout(() => {
@@ -227,7 +223,7 @@ export default {
   },
   watch: {
     select(newQ) {
-      this.dSelect = newQ;
+      this.dSelect = JSON.parse(JSON.stringify(newQ));
       for (let key in this.dSlide) {
         if (this.dSlide[key].number == this.dSelect && key >= 1) {
           let elem = this.dSlide.splice(key - 1, this.dSlide.length - key + 1);
