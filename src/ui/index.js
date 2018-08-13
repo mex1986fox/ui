@@ -7,6 +7,10 @@ import UiTextArea from "./ui-text/ui-textarea.vue";
 Vue.component("ui-textarea", UiTextArea);
 import UiPassword from "./ui-text/ui-password.vue";
 Vue.component("ui-password", UiPassword);
+import UiFile from "./ui-file/ui-file.vue";
+Vue.component("ui-file", UiFile);
+import UiFileImg from "./ui-file/ui-file-img.vue";
+Vue.component("ui-file-img", UiFileImg);
 
 
 import UiCode from "./ui-code/ui-code.vue";

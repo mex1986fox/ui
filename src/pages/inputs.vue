@@ -94,7 +94,8 @@
 				<div class="col_4 col-phone_6">
 					<ui-textarea value="Textarea Lorem ipsum..."
 					             caption="Многострочное текстовое поле"
-					             autoresize="250">
+					             autoresize="250"
+								 height="100">
 					</ui-textarea>
 				</div>
 				<div class="col_12">
@@ -102,7 +103,8 @@
     name="textarea1"                 
     value="Textarea Lorem ipsum..."
     caption="Многострочное текстовое поле"
-    autoresize="250">
+    autoresize="250"
+	height="100">
 </ui-textarea>'>
 					</ui-code>
 				</div>
@@ -122,6 +124,7 @@
                                 {name:'disabled', desc:'Устанавливает текстовое поле в положение неактивного',def:'false'},
                                  {name:'resize', desc:'Задает возможность растягивать элемент. // both 	Можно растягивать элемент по ширине и высоте. // horizontal 	Можно растягивать элемент только по ширине. // vertical 	Можно растягивать элемент только по высотею. // none 	Изменять размеры элемента нельзя. // inherit от родителя',def:'vertical'},
                                  {name:'autoresize', desc:'Устанавливает автоподбор высоты, при вводе текста, до указанной величины в px. type:Number',def:'undefined'},
+								 {name:'height', desc:'Устанавливает высоту, величина в px. type:Number',def:'undefined'},
                             ]"
 					                 :events="[
                                 {name:'onFocus',desc:'Событие возникает при фокусировке на текстовое поле',val:'Ничего не возвращает'},

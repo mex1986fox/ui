@@ -27,6 +27,9 @@
                 }
             }
         }
+        .ui-tabs__button {
+            color: $color-fon;
+        }
     }
     &__close {
         position: absolute;

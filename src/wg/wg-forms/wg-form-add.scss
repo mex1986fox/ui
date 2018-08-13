@@ -27,6 +27,23 @@
             z-index: -1;
         }
     }
+    &__tabs {
+        & .ui-tabs__tab {
+            color: $color-fon;
+            &:after {
+                background-color: $color-fon;
+            }
+            &_active {
+                color: $color-fon;
+                &:after {
+                    background-color: $color-fon;
+                }
+            }
+        }
+        .ui-tabs__button {
+            color: $color-fon;
+        }
+    }
     &__close {
         position: absolute;
         z-index: 2;
@@ -66,7 +83,7 @@
         float: left;
     }
     &__buttons {
-        padding: 50px 0px 20px;
+        padding: 50px 26px 20px 26px;
         overflow: hidden;
         float: left;
     }

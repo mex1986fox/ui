@@ -5,9 +5,7 @@
     box-sizing: border-box;
     box-sizing: border-box;
     margin: 4px 0;
-    height: 36px;
-    width: 36px;
-    height: auto;
+    height: 46;
     width: 100%;
     float: left;
     &:hover {
@@ -37,7 +35,7 @@
         background-color: $color-fon;
         line-height: 0px;
         transition-duration: 500ms;
-        margin: 6px 6px 6px 0;
+        margin: 7px 14px 7px 0;
         &_checked {
             border: 2px solid $color-links;
             background-color: $color-links;
@@ -55,12 +53,11 @@
         }
     }
     &__caption {
-        font-size: 16px;
+        font-size: 15px;
         color: #2b2b2b;
-        position: relative;
-        margin-top: -12px;
-        padding: 0px 0px 0px 32px;
-        line-height: 51px;
+        position: absolute;
+        padding: 0px 0px 0px 39px;
+        line-height: 28px;
         white-space: nowrap;
         float: left;
         display: block;

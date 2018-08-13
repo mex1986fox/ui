@@ -11,6 +11,9 @@
                     <ui-check-box name="checkbox1" value="1" :checked="true">
                         Классический чекбокс
                     </ui-check-box>
+                    <ui-check-box name="checkbox1" value="1" >
+                        Классический чекбокс
+                    </ui-check-box>
                 </div>
                 <div class="col_12">
                     <ui-code value='
@@ -50,6 +53,9 @@
                 </div>
                 <div class="col_4 col-phone_6">
                     <ui-switch name="switch1" value="1" :checked="false">
+                        Switch переключатель
+                    </ui-switch>
+                    <ui-switch name="switch1" value="1">
                         Switch переключатель
                     </ui-switch>
                 </div>

@@ -1,32 +1,41 @@
 <template>
-  <div class="ui-textarea"
+  <div class="ui-file"
     @click="isClick()">
-    <span class="ui-textarea__caption"
-      :class="{'ui-textarea__caption_active':modFocus, 
-                   'ui-textarea__caption_completed':modCompleted,
-                   'ui-textarea__caption_disabled':dDisabled}"
+    <input class="ui-file__input"
+      ref="file"
+      type="file"
+      :name="dName"
+      multiple>
+
+    <span class="ui-file__caption"
+      :class="{'ui-file__caption_active':modFocus, 
+                   'ui-file__caption_completed':modCompleted,
+                   'ui-file__caption_disabled':dDisabled}"
       @click="isClick()">
       {{dCaption}}
     </span>
-    <textarea class="ui-textarea__input"
-      :class="{'ui-textarea__input_active':modFocus,
-                   'ui-textarea__input_disabled':dDisabled}"
-      ref="textarea"
-      @focus="isFocus()"
-      @blur="isBlur()"
-      @input="isInputText()"
-      :name="dName"
-      :value="dValue"
-      :readonly="dReadonly"
-      :disabled="dDisabled">
 
-    </textarea>
-    <hr class="ui-textarea__border"
-      :class="{'ui-textarea__border_active':modFocus,
-                  'ui-textarea__border_disabled':dDisabled}">
-    <span class="ui-textarea__help"
-      :class="{'ui-textarea__help_active':dHelp,
-                    'ui-textarea__help_disabled':dDisabled}"
+    <div v-for="(val, key) in dFiles"
+      :key="key"
+      class="ui-file__file">
+      <div class="ui-file__file-icon">
+        <i class="fa fa-file-o"
+          aria-hidden="true"></i>
+      </div>
+      <div class="ui-file__file-type">
+        {{val.type.split("/")[1]}}
+      </div>
+      <div class="ui-file__file-src">
+        {{val.name}}
+      </div>
+    </div>
+
+    <hr class="ui-file__border"
+      :class="{'ui-file__border_active':modFocus,
+                  'ui-file__border_disabled':dDisabled}">
+    <span class="ui-file__help"
+      :class="{'ui-file__help_active':dHelp,
+                    'ui-file__help_disabled':dDisabled}"
       @click="isClick()">
       {{dHelp}}
     </span>
@@ -35,7 +44,7 @@
 
 <script>
 export default {
-  name: "ui-textarea",
+  name: "ui-file",
   data() {
     return {
       modFocus: false,
@@ -117,9 +126,7 @@ export default {
         let scrollHeigth = this.$refs.textarea.scrollHeight;
         this.$refs.textarea.style.height = scrollHeigth + "px";
       }
-      if (
-        this.$refs.textarea.clientHeight < this.height
-      ) {
+      if (this.$refs.textarea.clientHeight < this.height) {
         this.$refs.textarea.style.height = this.height + "px";
       }
     }

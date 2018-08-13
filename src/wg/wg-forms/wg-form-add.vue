@@ -10,33 +10,57 @@
                         @click="isClose">
                         <i class="fa fa-angle-up"></i>
                     </button>
+                    <ui-tabs class=" wg-form-add__tabs">
+                        <ui-tabs-tab id="basic"
+                            :checked="tabs=='basick'"
+                            @onFocus="isTabs">
+                            Основное
+                        </ui-tabs-tab>
+                        <ui-tabs-tab id="photo"
+                            :checked="tabs=='photo'"
+                            @onFocus="isTabs">
+                            Фотографии
+                        </ui-tabs-tab>
+                        <ui-tabs-tab id="excess"
+                            :checked="tabs=='excess'"
+                            @onFocus="isTabs">
+                            Дополнительно
+                        </ui-tabs-tab>
+                    </ui-tabs>
+
                 </div>
 
-                <div class="wg-form-add__content">
+                <div class="wg-form-add__content"
+                    v-if="tabs=='basic'">
 
                     <div class="wg-form-add__hr">
                         <i class="fa fa-map-marker"
                             aria-hidden="true"></i>
                         Местоположение
                     </div>
-                    <ui-select name="region"
-                        caption="Субъект"
-                        :menu='[{value:"1",option:"Кемеровская", group:"Область", selected:true},
+                    <div class="row">
+                        <div class="col_5">
+                            <ui-select name="region"
+                                caption="Субъект"
+                                :menu='[{value:"1",option:"Кемеровская", group:"Область", selected:true},
                                         {value:"2",option:"Новосибирская", group:"Область", selected:false},
                                         {value:"3",option:"Омская", group:"Области", selected:false},
                                         {value:"4",option:"Алтайский", group:"Край",selected:false},
                                         {value:"5",option:"Камчатский", group:"Край",selected:false}]'>
-                    </ui-select>
-
-                    <ui-select name="city"
-                        caption="Город"
-                        :multiple="true"
-                        :menu='[{value:"1",option:"Анжеро-Судженск", group:"Город", selected:true},
+                            </ui-select>
+                        </div>
+                        <div class="col_5 col_offset-2">
+                            <ui-select name="city"
+                                caption="Город"
+                                :multiple="true"
+                                :menu='[{value:"1",option:"Анжеро-Судженск", group:"Город", selected:true},
                                         {value:"2",option:"Новосибирск", group:"Город", selected:false},
                                         {value:"3",option:"Кемерово", group:"Город", selected:false},
                                         {value:"4",option:"Алтай", group:"Город",selected:false},
                                         {value:"5",option:"Яя", group:"Поселок",selected:false}]'>
-                    </ui-select>
+                            </ui-select>
+                        </div>
+                    </div>
 
                     <div class="wg-form-add__hr">
                         <i class="fa fa-car"
@@ -44,27 +68,39 @@
 
                         Автомобиль
                     </div>
-                    <ui-select name="marca"
-                        caption="Марка"
-                        :menu='[{value:"1",option:"Audi", group:"Область", selected:true},
+                    <div class="row">
+                        <div class="col_5">
+                            <ui-select name="marca"
+                                caption="Марка"
+                                :menu='[{value:"1",option:"Audi", group:"Область", selected:true},
                                         {value:"2",option:"Новосибирская", group:"Область", selected:false},
                                         {value:"3",option:"Омская", group:"Области", selected:false},
                                         {value:"4",option:"Алтайский", group:"Край",selected:false},
                                         {value:"5",option:"Камчатский", group:"Край",selected:false}]'>
-                    </ui-select>
-                    <ui-select name="model"
-                        caption="Модель"
-                        :multiple="true"
-                        :menu='[{value:"1",option:"A-150", group:"Город", selected:true},
+                            </ui-select>
+                        </div>
+                        <div class="col_5 col_offset-2">
+                            <ui-select name="model"
+                                caption="Модель"
+                                :multiple="true"
+                                :menu='[{value:"1",option:"A-150", group:"Город", selected:true},
                                         {value:"2",option:"Новосибирск", group:"Город", selected:false},
                                         {value:"3",option:"Кемерово", group:"Город", selected:false},
                                         {value:"4",option:"Алтай", group:"Город",selected:false},
                                         {value:"5",option:"Яя", group:"Поселок",selected:false}]'>
-                    </ui-select>
-                    <ui-text caption="Пробег"></ui-text>
+                            </ui-select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col_5">
+                            <ui-text caption="Пробег"></ui-text>
+                        </div>
+                    </div>
+
                     <ui-textarea name="textarea1"
                         caption="Описание"
-                        autoresize="250">
+                        :autoresize="250"
+                        :height="100">
                     </ui-textarea>
                     <div class="wg-form-add__hr">
                         <i class="fa fa-exclamation"
@@ -94,17 +130,37 @@
                             aria-hidden="true"></i>
                         Связь
                     </div>
-                    <ui-text caption="Телефон"></ui-text>
-                    <ui-text caption="Цена"></ui-text>
-                    <div class="wg-form-add__buttons">
-                        <button class="ui-button ui-button_blue  ">
-                            Сохранить
-                        </button>
-                        <button class="ui-button ui-button_flat ">
-                            Отмена
-                        </button>
-
+                    <div class="row">
+                        <div class="col_5">
+                            <ui-text caption="Телефон"></ui-text>
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="col_5">
+                            <ui-text caption="Цена"></ui-text>
+                        </div>
+                    </div>
+                </div>
+                <div class="wg-form-add__content"
+                    v-if="tabs=='photo'">
+
+                    <div class="wg-form-add__hr">
+                        <i class="fa fa-map-marker"
+                            aria-hidden="true"></i>
+                        Фотографии
+                    </div>
+                    <ui-file-img>
+                        
+                    </ui-file-img>
+                </div>
+                <div class="wg-form-add__buttons">
+                    <button class="ui-button ui-button_blue  ">
+                        Сохранить
+                    </button>
+                    <button class="ui-button ui-button_flat ">
+                        Отмена
+                    </button>
+
                 </div>
             </div>
         </div>
@@ -114,7 +170,19 @@
 
 <script>
 export default {
-  name: "wg-form-add"
+  name: "wg-form-add",
+  data() {
+    return { tabs: "photo" };
+  },
+  methods: {
+    isTabs(id) {
+      this.tabs = id;
+      //   console.log(id);
+    },
+    isClose() {
+      this.$emit("onHide");
+    }
+  }
 };
 </script>
 

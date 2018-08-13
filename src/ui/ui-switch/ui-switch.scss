@@ -1,7 +1,8 @@
 .ui-switch {
     position: relative;
-    height: 36px;
-    width: 36px;
+    margin: 4px 0;
+    height: 42px;
+    width: 100%;
     float: left;
     &__checkbox {
         position: absolute;
@@ -63,7 +64,7 @@
         }
     }
     &__caption {
-        font-size: 16px;
+        font-size: 15px;
         color: $color-text;
         z-index: 10;
         position: absolute;

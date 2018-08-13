@@ -1,5 +1,5 @@
 // элементы
-.ui-text {
+.ui-file {
     width: 100%;
     height: auto;
     transition-duration: 300ms;
@@ -7,6 +7,19 @@
     cursor: pointer;
     float: left;
     margin: 2px auto;
+    &__input {
+        position: absolute;
+        width: 0;
+        height: 0;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        -ms-appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        border: none;
+    }
     &__caption {
         width: 100%;
         height: 30px;
@@ -30,47 +43,49 @@
             color: $color-disabled;
         }
     }
-    &__input {
-        width: 100%;
-        height: 30px;
-        border: 0;
-        border-radius: 0px;
-        border-bottom: 1px solid $color-disabled;
-        color: $color-description;
-        font-size: 16px;
-        padding: 0;
-        margin-top: 30px;
-        transition-duration: 300ms;
-        white-space: nowrap;
+    &__file {
+        display: block;
+        padding: 10px 0;
         overflow: hidden;
-        text-overflow: ellipsis;
-        background-color: transparent;
-        &:invalid {
-            box-shadow: none;
+        position: relative;
+        &-src {
+            display: block;
+            padding: 2px 0px 2px 15px;
+            font-size: 13px;
+            overflow: hidden;
+            height: 35px;
+            line-height: 17px;
         }
-        &:-moz-submit-invalid {
-            box-shadow: none;
+        &-icon {
+            position: relative;
+            float: left;
+            color: #c8c8c8;
+            &>.fa {
+                font-size: 40px;
+            }
         }
-        &:-moz-ui-invalid {
-            box-shadow: none;
+        &-type {
+            position: absolute;
+            display: block;
+            margin: 11px 0 0 6px;
+            font-size: 10px;
+            width: 20px;
+            overflow: hidden;
+            height: 21px;
+            color: #898484;
         }
-        &:focus {
-            outline: none;
-        }
-        &_active {
-            border-bottom: 1px solid rgba(255, 255, 255, 0);
-            transition-duration: 300ms;
-        }
-        &_disabled {
-            background-color: rgba(255, 255, 255, 0);
-            color: $color-disabled;
+        &-del {
+            left: auto;
+            position: absolute;
+            right: 0px;
+            top: 2px;
         }
     }
     &__border {
         content: "";
-        top: 60px;
+        top: -2px;
         left: 0;
-        position: absolute;
+        position: relative;
         width: 0px;
         height: 3px;
         margin: 0;

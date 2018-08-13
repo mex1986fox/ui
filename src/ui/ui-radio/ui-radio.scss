@@ -2,7 +2,7 @@
     position: relative;
     overflow: hidden;
     height: 32px;
-    padding: 10px 0;
+    padding: 5px 0;
     cursor: pointer;
     margin: 5px 0;
     &__radio {
@@ -60,7 +60,7 @@
         border: none;
     }
     &__caption {
-        font-size: 16px;
+        font-size: 15px;
         color: $color-text;
         z-index: 10;
         position: absolute;
