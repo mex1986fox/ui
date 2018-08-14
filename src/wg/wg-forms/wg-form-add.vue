@@ -152,9 +152,12 @@
 						Фотографии
 					</div>
 					<ui-file-img caption="Выберите фотографии"
-					             captionCompleted="Выбранные фотографии">
+					             captionCompleted="Выбранные фотографии"
+					             :autoresize="300"
+					             accept="image/*">
 
 					</ui-file-img>
+
 				</div>
 
 				<div class="wg-form-add__buttons">

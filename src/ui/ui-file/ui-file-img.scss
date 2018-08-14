@@ -2,9 +2,8 @@
   display: block;
   float: left;
   position: relative;
-  overflow: hidden;
   width: 100%;
-  margin: 10px 0;
+  margin: 32px 0 2px 0;
   &__input {
     position: absolute;
     width: 0;
@@ -23,20 +22,27 @@
     height: 30px;
     font-size: 16px;
     color: #888888;
-    position: absolute;
     transition-duration: 300ms;
-    top: 10px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 38px;
+    margin-top: -4px;
+    position: absolute;
     &_completed {
       font-size: 13px;
+      margin-top: -32px;
       transition-duration: 300ms;
     }
     &_disabled {
-      color: $color-disabled;
+      color: $color-disabled !important;
     }
   }
   &__files {
-    border-bottom: 1px solid $color-disabled;
-    margin-top: 35px;
+    border-bottom: 1px solid #adadad;
+    min-height: 30px;
+    overflow: hidden;
+    overflow-y: auto;
     &-file {
       display: block;
       padding: 10px 0;
@@ -74,19 +80,22 @@
       height: 21px;
       color: #898484;
     }
-    &-del {
-      left: auto;
-      position: absolute;
-      right: 0px;
-      top: 2px;
+  }
+  &__badge {
+    position: absolute;
+    width: auto;
+    bottom: 10px;
+    right: 9px;
+    float: right;
+    &_disabled {
+      color: $color-disabled !important;
     }
   }
-  &__buttons {
-    position: relative;
-    width: auto;
-    bottom: 0px;
+  &__edit {
+    position: absolute;
     right: 0px;
-    float: right;
+    left: auto;
+    bottom: 0;
   }
 
   & > &__border {
@@ -101,6 +110,9 @@
     border: 0;
     background-color: $color-disabled;
     transition-duration: 300ms;
+    &_disabled {
+      display: none;
+    }
   }
   &:focus {
     & > .ui-file-img__border {

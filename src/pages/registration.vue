@@ -145,7 +145,7 @@ export default {
     position: fixed;
     height: 100%;
     width: 100%;
-    background: url(https://img2.goodfon.ru/original/1680x1050/2/bc/mashina-zerkalo-otrazhenie.jpg) no-repeat center center fixed;
+    background: url(http://s1.fotokto.ru/photo/full/13/130568.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

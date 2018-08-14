@@ -1,19 +1,24 @@
 <template>
 	<div class="ui-file-img"
-	     tabindex="0">
+	     tabindex="0"
+	     @click="isClickAddFile">
 		<input class="ui-file-img__input"
 		       ref="file"
 		       type="file"
 		       name="file"
+		       :accept="accept"
 		       multiple>
 		<span class="ui-file-img__caption"
-		      :class="{ 'ui-file-img__caption_completed':modCompleted}">
+		      :class="{ 'ui-file-img__caption_completed':modCompleted,
+                    'ui-file-img__caption_disabled':disabled}">
 			{{captionCompleted!="" && modCompleted?captionCompleted:caption}}
 		</span>
-		<div class="ui-file-img__files">
+		<div ref="files"
+		     class="ui-file-img__files">
 			<div class="ui-file-img__files-file"
 			     v-for="(val, key) in dFiles"
-			     :key="key">
+			     :key="key"
+			     @click="isSelectFile(key)">
 				<div class="ui-file-img__files-icon">
 					<i class="fa fa-file-o"
 					   aria-hidden="true"></i>
@@ -28,22 +33,22 @@
 
 		</div>
 
-		<hr class="ui-file-img__border">
-		<div class="ui-file-img__buttons">
-			<button v-if="dFiles.length==0"
-			        @click="isClickAddFile"
-			        class="ui-button ui-button_circle ui-button_circle_mini">
-				<i class="fa fa-plus"
-				   aria-hidden="true"></i>
+		<hr class="ui-file-img__border"
+		    :class="{ 'ui-file-img__border_disabled':disabled}">
+		<span v-if="dFiles.length==0"
+		      class="ui-file-img__badge"
+		      :class="{'ui-file-img__badge_disabled':disabled}">
+			<i class="fa fa-plus"
+			   aria-hidden="true"></i>
 
-			</button>
-			<button v-if="dFiles.length>0"
-			        @click="isClickAddFile"
-			        class="ui-button ui-button_circle ui-button_circle_mini">
-				<i class="fa fa-pencil"
-				   aria-hidden="true"></i>
-			</button>
-		</div>
+		</span>
+		<button v-if="dFiles.length>0"
+		        @click="isClickEditFile"
+		        class="ui-button ui-button_circle ui-button_circle_mini ui-file-img__edit">
+			<i class="fa fa-pencil"
+			   aria-hidden="true"></i>
+		</button>
+
 	</div>
 </template>
 
@@ -66,19 +71,23 @@ export default {
       type: String,
       default: ""
     },
-    caption: {
-      type: String,
-      default: ""
-    },
     captionCompleted: {
       type: String,
       default: ""
     },
-    readonly: {
+    disabled: {
       type: Boolean,
       default: false
     },
     help: {
+      type: String,
+      default: ""
+    },
+    autoresize: {
+      type: Number,
+      default: undefined
+    },
+    accept: {
       type: String,
       default: ""
     }
@@ -86,12 +95,32 @@ export default {
 
   methods: {
     isClickAddFile() {
-      this.$el.focus();
-      this.$refs.file.click();
+      if (this.modCompleted == false && this.disabled != true) {
+        this.$el.focus();
+        this.$refs.file.click();
+      }
     },
-    isClickDelFile(number) {}
+    isClickEditFile() {
+      if (this.modCompleted == true) {
+        this.$el.focus();
+        this.$refs.file.click();
+      }
+    },
+    isAutoresize() {
+      if (this.$refs.files.clientHeight < this.autoresize) {
+        this.$refs.files.style.maxHeight = this.autoresize + "px";
+      }
+    },
+    isSelectFile(number) {
+      for (let k in this.dFiles) {
+        if (k == number) {
+          this.$emit("onSelect", this.dPath + this.dFiles[k].name);
+        }
+      }
+    }
   },
   mounted() {
+    this.isAutoresize();
     this.$refs.file.addEventListener("change", event => {
       let split = event.target.value.split("\\");
       let newstring = "";
@@ -100,7 +129,6 @@ export default {
           newstring = newstring + split[k] + "\\";
         }
       }
-      console.log(event.target);
       this.dPath = newstring;
       this.dFiles = [];
       this.dFiles = event.target.files;

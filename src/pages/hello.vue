@@ -1,26 +1,26 @@
 <template>
-    <layout>
-        <div class="container">
-            <div class="row">
-                <div class="col_6 col_offset-3 col-tablet_8 col-tablet_offset-2 col-phone_6 col-phone_offset-0">
-                    <div class="pg-hello__card">
-                        <img class="pg-hello__label"
-                            src="/public/img/label.png"
-                            alt="">
-                        <div class="pg-hello__salute">
-                            <span class="ui-header ui-header_1">
-                                Салют!
-                            </span>
-                            <span class="ui-description">
+	<layout>
+		<div class="container">
+			<div class="row">
+				<div class="col_6 col_offset-3 col-tablet_8 col-tablet_offset-2 col-phone_6 col-phone_offset-0">
+					<div class="pg-hello__card">
+						<img class="pg-hello__label"
+						     src="/public/img/label.png"
+						     alt="">
+						<div class="pg-hello__salute">
+							<span class="ui-header ui-header_1">
+								Салют!
+							</span>
+							<span class="ui-description">
 
-                                Здесь ведется разработка VUE.JS компонетов для сайта DROVITO.RU
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </layout>
+								Здесь ведется разработка VUE.JS компонетов для сайта DROVITO.RU
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</layout>
 </template>
 <script>
 export default {
@@ -33,7 +33,7 @@ export default {
 <style lang="scss" scoped>
 .pg-hello {
   &__card {
-    background-image: url("/public/img/canvas.jpg");
+    background-image: url("http://s1.fotokto.ru/photo/full/13/130568.jpg");
     background-size: cover;
     width: 100%;
     height: auto;
