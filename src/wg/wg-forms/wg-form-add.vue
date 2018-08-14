@@ -11,7 +11,7 @@
 						<i class="fa fa-angle-up"></i>
 					</button>
 					<ui-tabs class=" wg-form-add__tabs">
-						<ui-tabs-tab id="basic"
+						<ui-tabs-tab id="basick"
 						             :checked="tabs=='basick'"
 						             @onFocus="isTabs">
 							Основное
@@ -31,7 +31,7 @@
 				</div>
 
 				<div class="wg-form-add__content"
-				     v-show="tabs=='basic'">
+				     v-show="tabs=='basick'">
 
 					<div class="wg-form-add__hr">
 						<i class="fa fa-map-marker"
@@ -132,7 +132,7 @@
 					</div>
 					<div class="row">
 						<div class="col_5">
-							<ui-text caption="Телефон"></ui-text>
+							<ui-phone caption="Телефон"></ui-phone>
 						</div>
 					</div>
 					<div class="row">
@@ -151,12 +151,12 @@
 
 						Фотографии
 					</div>
-					<ui-file-img caption="Выберите фотографии"
-					             captionCompleted="Выбранные фотографии"
-					             :autoresize="300"
-					             accept="image/*">
+					<ui-file caption="Выберите фотографии"
+					         captionCompleted="Выбранные фотографии"
+					         :autoresize="300"
+					         accept="image/*">
 
-					</ui-file-img>
+					</ui-file>
 
 				</div>
 
@@ -179,7 +179,7 @@
 export default {
   name: "wg-form-add",
   data() {
-    return { tabs: "photo" };
+    return { tabs: "basick" };
   },
   methods: {
     isTabs(id) {

@@ -1,45 +1,55 @@
 <template>
-  <div class="ui-file"
-    @click="isClick()">
-    <input class="ui-file__input"
-      ref="file"
-      type="file"
-      :name="dName"
-      multiple>
+	<div class="ui-file"
+	     tabindex="0"
+	     @click="isClickAddFile">
+		<input class="ui-file__input"
+		       ref="file"
+		       type="file"
+		       name="file"
+		       :accept="accept"
+		       multiple>
+		<span class="ui-file__caption"
+		      :class="{ 'ui-file__caption_completed':modCompleted,
+                    'ui-file__caption_disabled':disabled}">
+			{{captionCompleted!="" && modCompleted?captionCompleted:caption}}
+		</span>
+		<div ref="files"
+		     class="ui-file__files">
+			<div class="ui-file__files-file"
+			     v-for="(val, key) in dFiles"
+			     :key="key"
+			     @click="isSelectFile(key)">
+				<div class="ui-file__files-icon">
+					<i class="fa fa-file-o"
+					   aria-hidden="true"></i>
+				</div>
+				<div class="ui-file__files-type">
+					{{val.type.split("/")[1]}}
+				</div>
+				<div class="ui-file__files-src">
+					{{val.name}}
+				</div>
+			</div>
 
-    <span class="ui-file__caption"
-      :class="{'ui-file__caption_active':modFocus, 
-                   'ui-file__caption_completed':modCompleted,
-                   'ui-file__caption_disabled':dDisabled}"
-      @click="isClick()">
-      {{dCaption}}
-    </span>
+		</div>
 
-    <div v-for="(val, key) in dFiles"
-      :key="key"
-      class="ui-file__file">
-      <div class="ui-file__file-icon">
-        <i class="fa fa-file-o"
-          aria-hidden="true"></i>
-      </div>
-      <div class="ui-file__file-type">
-        {{val.type.split("/")[1]}}
-      </div>
-      <div class="ui-file__file-src">
-        {{val.name}}
-      </div>
-    </div>
+		<hr class="ui-file__border"
+		    :class="{ 'ui-file__border_disabled':disabled}">
+		<span v-if="dFiles.length==0"
+		      class="ui-file__badge"
+		      :class="{'ui-file__badge_disabled':disabled}">
+			<i class="fa fa-plus"
+			   aria-hidden="true"></i>
 
-    <hr class="ui-file__border"
-      :class="{'ui-file__border_active':modFocus,
-                  'ui-file__border_disabled':dDisabled}">
-    <span class="ui-file__help"
-      :class="{'ui-file__help_active':dHelp,
-                    'ui-file__help_disabled':dDisabled}"
-      @click="isClick()">
-      {{dHelp}}
-    </span>
-  </div>
+		</span>
+		<button v-if="dFiles.length>0"
+		        @click="isClickEditFile"
+		        class="ui-button ui-button_circle ui-button_circle_mini ui-file__edit">
+			<i class="fa fa-pencil"
+			   aria-hidden="true"></i>
+		</button>
+
+	</div>
 </template>
 
 <script>
@@ -47,14 +57,9 @@ export default {
   name: "ui-file",
   data() {
     return {
-      modFocus: false,
-      //modCompleted: false,
-      dName: this.name,
-      dValue: this.value,
-      dCaption: this.caption,
-      dDisabled: this.disabled,
-      dHelp: this.help,
-      dReadonly: this.readonly
+      dFiles: [],
+      dPath: undefined,
+      modCompleted: false
     };
   },
   props: {
@@ -62,15 +67,15 @@ export default {
       type: String,
       default: ""
     },
-    value: {
-      type: String,
-      default: ""
-    },
     caption: {
       type: String,
       default: ""
     },
-    readonly: {
+    captionCompleted: {
+      type: String,
+      default: ""
+    },
+    disabled: {
       type: Boolean,
       default: false
     },
@@ -78,76 +83,59 @@ export default {
       type: String,
       default: ""
     },
-    resize: {
-      type: String,
-      default: "vertical"
-      // both 	Можно растягивать элемент по ширине и высоте.
-      // horizontal 	Можно растягивать элемент только по ширине.
-      // vertical 	Можно растягивать элемент только по высоте.
-      // none 	Изменять размеры элемента нельзя.
-      // inherit от родителя
-    },
     autoresize: {
       type: Number,
       default: undefined
     },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    height: {
-      type: Number,
-      default: undefined
+    accept: {
+      type: String,
+      default: ""
     }
   },
+
   methods: {
-    isFocus() {
-      this.modFocus = true;
-      this.$emit("onFocus");
+    isClickAddFile() {
+      if (this.modCompleted == false && this.disabled == false) {
+        this.$el.focus();
+        this.$refs.file.click();
+      }
     },
-    isBlur() {
-      this.modFocus = false;
-      this.$emit("onBlur");
-    },
-    isClick() {
-      this.$emit("onClick");
-      this.$refs.textarea.focus();
-    },
-    isInputText() {
-      this.dValue = this.$refs.textarea.value;
-      this.isAutoresize();
-      this.$emit("onInput", this.dValue);
+    isClickEditFile() {
+      if (this.modCompleted == true) {
+        this.$el.focus();
+        this.$refs.file.click();
+      }
     },
     isAutoresize() {
-      if (
-        this.$refs.textarea.clientHeight != undefined &&
-        this.$refs.textarea.clientHeight < this.autoresize
-      ) {
-        let scrollHeigth = this.$refs.textarea.scrollHeight;
-        this.$refs.textarea.style.height = scrollHeigth + "px";
+      if (this.$refs.files.clientHeight < this.autoresize) {
+        this.$refs.files.style.maxHeight = this.autoresize + "px";
       }
-      if (this.$refs.textarea.clientHeight < this.height) {
-        this.$refs.textarea.style.height = this.height + "px";
+    },
+    isSelectFile(number) {
+      for (let k in this.dFiles) {
+        if (k == number) {
+          this.$emit("onSelect", this.dPath + this.dFiles[k].name);
+        }
       }
-    }
-  },
-  computed: {
-    modCompleted() {
-      if (this.dValue == "") {
-        return false;
-      } else {
-        return true;
-      }
-    }
-  },
-  watch: {
-    value(newQ, oldQ) {
-      this.dValue = newQ;
     }
   },
   mounted() {
-    this.$refs.textarea.style.resize = this.resize;
     this.isAutoresize();
+    this.$refs.file.addEventListener("change", event => {
+      let split = event.target.value.split("\\");
+      let newstring = "";
+      for (let k in split) {
+        if (k < split.length - 1) {
+          newstring = newstring + split[k] + "\\";
+        }
+      }
+      this.dPath = newstring;
+      this.dFiles = [];
+      this.dFiles = event.target.files;
+      if (this.dFiles.length > 0) {
+        this.modCompleted = true;
+      }
+    });
   }
 };
 </script>

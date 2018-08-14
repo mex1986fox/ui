@@ -6,9 +6,9 @@
 			<div class="row">
 				<div class="col_7 col-phone_6">
 					<img class="pg-registration__logo"
-					  src="/public/img/label.png"
-					  alt=""
-					  srcset="">
+					     src="/public/img/label.png"
+					     alt=""
+					     srcset="">
 					<div class="pg-registration__remark">
 						<span class="pg-registration__remark-header">
 							Социальная сеть для автомобилистов
@@ -24,7 +24,7 @@
 						</div>
 						<!-- <hr class="pg-registration__hr" /> -->
 						<ui-text :value="'mex1986fox@mail.ru'"
-						  :caption="'Email или логин'">
+						         :caption="'Email или логин'">
 						</ui-text>
 						<ui-password :caption="'Пароль'">
 						</ui-password>
@@ -32,14 +32,14 @@
 						<div class="pg-registration__padding" />
 						<button class="ui-button ">Войти</button>
 						<button class="ui-button ui-button_red"
-						  @click="showRegistrationCard=true">Регистрация</button>
+						        @click="showRegistrationCard=true">Регистрация</button>
 
 						<hr class="pg-registration__hr" />
 
 						<span style="font-size: 12px; float: left; margin-bottom:10px;">Если вы забыли свой пароль, попробуйте его восстановить!</span><br/><br/>
 						<a style="font-size: 12px; float: left; width: 100%;"
-						  class="ui-link"
-						  href="http://www.google.com">Восстановить пароль</a>
+						   class="ui-link"
+						   href="http://www.google.com">Восстановить пароль</a>
 
 					</div>
 				</div>
@@ -48,9 +48,9 @@
 
 		</div>
 		<ui-blind @onHide="showRegistrationCard=!showRegistrationCard"
-		  :show="showRegistrationCard"
-		  animate="right"
-		  class="pg-registration__blind">
+		          :show="showRegistrationCard"
+		          animate="right"
+		          class="pg-registration__blind">
 			<div class="container">
 				<div class="row">
 					<div class="col_5 col_offset-7 col-phone_6 col-phone_offset-0">
@@ -75,18 +75,18 @@
 								</div>
 								<div class="col_5 col-phone_6">
 									<ui-text value=""
-									  caption="Имя">
+									         caption="Имя">
 									</ui-text>
 								</div>
-								<div class="col_6 col_offset-1 col-phone_6 col-phone_offset-0">
+								<div class="col_5 col_offset-2 col-phone_6 col-phone_offset-0">
 									<ui-text value=""
-									  caption="Фамилия">
+									         caption="Фамилия">
 									</ui-text>
 								</div>
 								<div class="col_12">
 									<ui-datepicker :disabled="false"
-									  name="datepicker"
-									  caption="Дата рождения">
+									               name="datepicker"
+									               caption="Дата рождения">
 									</ui-datepicker>
 
 								</div>
@@ -99,14 +99,14 @@
 								</div>
 								<div class="col_12">
 									<ui-text value=""
-									  caption="Логин">
+									         caption="Логин">
 									</ui-text>
 								</div>
 								<div class="col_5 col-phone_6">
 									<ui-password caption="Пароль">
 									</ui-password>
 								</div>
-								<div class="col_6 col_offset-1 col-phone_6 col-phone_offset-0">
+								<div class="col_5 col_offset-2 col-phone_6 col-phone_offset-0">
 									<ui-password caption="Повторите пароль">
 									</ui-password>
 								</div>
@@ -116,7 +116,7 @@
 
 									<button class="ui-button ui-button_blue">готово</button>
 									<button class="ui-button ui-button_flat"
-									  @click="showRegistrationCard=!showRegistrationCard">Отмена</button>
+									        @click="showRegistrationCard=!showRegistrationCard">Отмена</button>
 
 								</div>
 							</div>
@@ -145,7 +145,8 @@ export default {
     position: fixed;
     height: 100%;
     width: 100%;
-    background: url(http://s1.fotokto.ru/photo/full/13/130568.jpg) no-repeat center center fixed;
+    background: url(http://s1.fotokto.ru/photo/full/13/130568.jpg) no-repeat
+      center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -157,8 +158,8 @@ export default {
     background-color: #fff;
     box-shadow: 0px 2px 8px rgba(100, 124, 137, 0.49);
     padding: 40px;
-		overflow: hidden;
-		margin-bottom: 30px;
+    overflow: hidden;
+    margin-bottom: 30px;
   }
   &__card-registration {
     margin: 30px 0;
@@ -218,13 +219,13 @@ export default {
     &__card {
       margin-top: 30px;
       padding: 40px;
-			//   overflow: hidden;
-			margin-bottom: 30px;
+      //   overflow: hidden;
+      margin-bottom: 30px;
     }
     &__card-registration {
       padding: 40px;
-			//   overflow: hidden;
-				margin: 30px 0;
+      //   overflow: hidden;
+      margin: 30px 0;
     }
     &__logo {
       height: 110px;
@@ -250,13 +251,13 @@ export default {
     &__card {
       margin-top: -129px;
       padding: 15px;
-			overflow: hidden;
-			margin-bottom: 15px;
+      overflow: hidden;
+      margin-bottom: 15px;
     }
     &__card-registration {
       padding: 15px;
-			//   overflow: hidden;
-			margin: 15px 0;
+      //   overflow: hidden;
+      margin: 15px 0;
     }
     &__logo {
       height: 55px;

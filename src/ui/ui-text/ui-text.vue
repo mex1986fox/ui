@@ -1,37 +1,35 @@
 <template>
-    <div class="ui-text" @click="isClick()">
-        <span 
-          class="ui-text__caption" 
-          :class="{'ui-text__caption_active':modFocus, 
+	<div class="ui-text"
+	     @click="isClick()">
+		<span class="ui-text__caption"
+		      :class="{'ui-text__caption_active':modFocus, 
                    'ui-text__caption_completed':modCompleted,
                    'ui-text__caption_disabled':dDisabled}"
-          @click="isClick()">
-            {{dCaption}}
-        </span>
-        <input 
-          class="ui-text__input" 
-          :class="{'ui-text__input_active':modFocus,
-                   'ui-text__input_disabled':dDisabled}" 
-          ref="input" 
-          @focus="isFocus()" 
-          @blur="isBlur()" 
-          @input="isInputText()"
-          :name="dName"
-          :value="dValue"
-          :readonly="dReadonly"
-          :disabled="dDisabled"
-          />
-        <hr 
-          class="ui-text__border" 
-          :class="{'ui-text__border_active':modFocus,
+		      @click="isClick()">
+			{{dCaption}}
+		</span>
+		<input class="ui-text__input"
+		       :class="{'ui-text__input_active':modFocus,
+                   'ui-text__input_disabled':dDisabled}"
+		       ref="input"
+		       @focus="isFocus()"
+		       @blur="isBlur()"
+		       @input="isInputText()"
+		       :name="dName"
+		       :value="dValue"
+		       :readonly="dReadonly"
+		       :disabled="dDisabled"
+		       :maxlength="maxlength" />
+		<hr class="ui-text__border"
+		    :class="{'ui-text__border_active':modFocus,
                   'ui-text__border_disabled':dDisabled}">
-        <span class="ui-text__help" 
-            :class="{'ui-text__help_active':dHelp,
+		<span class="ui-text__help"
+		      :class="{'ui-text__help_active':dHelp,
                     'ui-text__help_disabled':dDisabled}"
-            @click="isClick()">
-          {{dHelp}}
-        </span>
-    </div>
+		      @click="isClick()">
+			{{dHelp}}
+		</span>
+	</div>
 </template>
 
 <script>
@@ -41,16 +39,18 @@ export default {
     return {
       modFocus: false,
       //modCompleted: false,
-      dName:this.name,
+      dName: this.name,
       dValue: this.value,
       dCaption: this.caption,
       dDisabled: this.disabled,
       dHelp: this.help,
-      dReadonly: this.readonly
+      dReadonly: this.readonly,
+      dCaretStart: this.caretStart,
+      dCaretEnd: this.caretEnd
     };
   },
   props: {
-    name:{
+    name: {
       type: String,
       default: ""
     },
@@ -58,25 +58,43 @@ export default {
       type: String,
       default: ""
     },
-    caption:{
+    caption: {
       type: String,
       default: ""
     },
-    readonly:{
+    readonly: {
       type: Boolean,
       default: false
     },
-    help:{
+    help: {
       type: String,
       default: ""
     },
-    disabled:{
+    disabled: {
       type: Boolean,
       default: false
+    },
+    caretStart: {
+      type: Number,
+      default: undefined
+    },
+    caretEnd: {
+      type: Number,
+      default: undefined
+    },
+    maxlength: {
+      type: Number,
+      default: undefined
     }
-
   },
   methods: {
+    setCaret() {
+      if (this.dCaretStart != undefined && this.dCaretEnd != undefined) {
+        let ctrl = this.$refs.input;
+        ctrl.focus();
+        ctrl.setSelectionRange(this.dCaretStart, this.dCaretEnd);
+      }
+    },
     isFocus() {
       this.modFocus = true;
       this.$emit("onFocus");
@@ -88,6 +106,7 @@ export default {
     isClick() {
       this.$emit("onClick");
       this.$refs.input.focus();
+      this.setCaret();
     },
     isInputText() {
       this.dValue = this.$refs.input.value;
@@ -95,20 +114,29 @@ export default {
     }
   },
   computed: {
-    modCompleted(){
+    modCompleted() {
       if (this.dValue == "") {
         return false;
       } else {
         return true;
-      };
+      }
     }
   },
   watch: {
     value(newQ, oldQ) {
       this.dValue = newQ;
+    },
+    caretStart(newQ) {
+      this.dCaretStart = newQ;
+    },
+    caretEnd(newQ) {
+      this.dCaretEnd = newQ;
     }
   },
-  
-
+  updated() {
+    if (this.modFocus == true) {
+      this.setCaret();
+    }
+  }
 };
 </script>
