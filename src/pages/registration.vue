@@ -13,7 +13,7 @@
 						<span class="pg-registration__remark-header">
 							Социальная сеть для автомобилистов
 						</span>
-						<br/> Мы нацелены на объединение авомобилистов, автолюбителей, автоманьяков и всех кто хоть как-то связан с автомобилями.
+						<br/> Мы нацелены на объединение автомобилистов, автолюбителей, автоманьяков и всех кто хоть как-то связан с автомобилями.
 					</div>
 				</div>
 				<div class="col_5 col-phone_6">
@@ -30,10 +30,11 @@
 						</ui-password>
 
 						<div class="pg-registration__padding" />
-						<button class="ui-button ">Войти</button>
-						<button class="ui-button ui-button_red"
-						        @click="showRegistrationCard=true">Регистрация</button>
-
+						<div class="pg-registration__buttons">
+							<button class="ui-button ">Войти</button>
+							<button class="ui-button ui-button_red"
+							        @click="showRegistrationCard=true">Регистрация</button>
+						</div>
 						<hr class="pg-registration__hr" />
 
 						<span style="font-size: 12px; float: left; margin-bottom:10px;">Если вы забыли свой пароль, попробуйте его восстановить!</span><br/><br/>
@@ -68,10 +69,10 @@
 								</div>
 								<div class="col_12">
 
-									<hr class="pg-registration__hr" />
-									<div class="ui-header_4">1. Личные данные
-									</div>
-
+									<span class="pg-registration__hr">
+										<div class="ui-header_4">1. Личные данные
+										</div>
+									</span>
 								</div>
 								<div class="col_5 col-phone_6">
 									<ui-text value=""
@@ -83,7 +84,7 @@
 									         caption="Фамилия">
 									</ui-text>
 								</div>
-								<div class="col_12">
+								<div class="col_4">
 									<ui-datepicker :disabled="false"
 									               name="datepicker"
 									               caption="Дата рождения">
@@ -92,32 +93,52 @@
 								</div>
 								<div class="col_12">
 
-									<hr class="pg-registration__hr" />
-									<div class="ui-header_4">1. Безопасность
-									</div>
+									<span class="pg-registration__hr">
+										<div class="ui-header_4">2. Безопасность
+										</div>
+									</span>
 
+								</div>
+								<div class="row">
+									<div class="col_5 col-phone_6">
+										<ui-text value=""
+										         caption="Логин">
+										</ui-text>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col_5 col-phone_6">
+										<ui-password caption="Пароль">
+										</ui-password>
+									</div>
+									<div class="col_6 col_offset-1 col-phone_6 col-phone_offset-0">
+										<ui-password caption="Повторите пароль">
+										</ui-password>
+									</div>
+								</div>
+
+								<!-- <div class="col_12">
+
+									<span class="pg-registration__hr">
+										<div class="ui-header_4">3. Для восстановления пароля
+										</div>
+									</span>
 								</div>
 								<div class="col_12">
 									<ui-text value=""
-									         caption="Логин">
+									         caption="Придумайте вопрос">
 									</ui-text>
 								</div>
-								<div class="col_5 col-phone_6">
-									<ui-password caption="Пароль">
-									</ui-password>
-								</div>
-								<div class="col_5 col_offset-2 col-phone_6 col-phone_offset-0">
-									<ui-password caption="Повторите пароль">
-									</ui-password>
-								</div>
 								<div class="col_12">
-
-									<hr class="pg-registration__hr" />
-
-									<button class="ui-button ui-button_blue">готово</button>
-									<button class="ui-button ui-button_flat"
-									        @click="showRegistrationCard=!showRegistrationCard">Отмена</button>
-
+									<ui-text caption="Ответ на вопрос">
+									</ui-text>
+								</div> -->
+								<div class="col_12">
+									<div class="pg-registration__buttons">
+										<button class="ui-button ui-button_blue">готово</button>
+										<button class="ui-button ui-button_flat"
+										        @click="showRegistrationCard=!showRegistrationCard">Отмена</button>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -179,8 +200,8 @@ export default {
   }
   &__hr {
     border: 0;
-    border-top: 1px dashed #d2d2d2cc;
-    margin: 30px 0 10px 0;
+    border-bottom: 1px dashed #d2d2d2cc;
+    margin: 35px 0 0 0;
     float: left;
     position: relative;
     width: 100%;
@@ -212,6 +233,9 @@ export default {
   }
   &__blind {
     background-color: rgba(255, 255, 255, 0) !important;
+  }
+  &__buttons {
+    margin: 50px 0 20px -4px;
   }
 }
 @media (min-width: 770px) and (max-width: 990px) {

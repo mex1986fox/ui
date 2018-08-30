@@ -187,7 +187,7 @@ export default {
       let prevYear = this.compYear;
       if (prevMouth < 0) {
         prevMouth = 11;
-        --prevYear;
+        // --prevYear;
       }
       this.dDate = new Date(
         prevYear,
@@ -200,7 +200,7 @@ export default {
       let prevYear = this.compYear;
       if (prevMouth == 12) {
         prevMouth = 0;
-        ++prevYear;
+        // ++prevYear;
       }
       this.dDate = new Date(
         prevYear,

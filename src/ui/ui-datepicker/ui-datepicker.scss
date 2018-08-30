@@ -93,6 +93,7 @@
     line-height: 46px;
     font-size: $text-size-big;
     overflow: hidden;
+    margin-bottom: 12px;
   }
   &__button_left {
     float: left;
@@ -103,7 +104,7 @@
     left: 5px;
   }
   &__button {
-    float: right;
+    float: left;
     padding: 0 6px;
   }
   &__day {

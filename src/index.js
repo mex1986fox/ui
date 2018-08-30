@@ -1,19 +1,19 @@
-require('./ui/index.scss');
-require('./wg/index.scss');
+require("./ui/index.scss");
+require("./wg/index.scss");
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 //import Vue from 'vue'
-import Vue from 'vue/dist/vue.js'
-import router from './router/index.js'
+import Vue from "vue/dist/vue.js";
+import router from "./router/index.js";
 // import store from "./stores/index.js"
 
 // подключаем библиотеку UI-простейшие компоненты
-import "./ui/index.js"
+import "./ui/index.js";
 // подключаем библиотеку WG-компоненты виджетов
-import "./wg/index.js"
+import "./wg/index.js";
 // подключаем лейаут
-import Layout from './pages/layout.vue'
-Vue.component('layout', Layout);
+import Layout from "./pages/layout.vue";
+Vue.component("layout", Layout);
 
 //подключаем библиотеку AJAX запросов
 // import Resourсe from "vue-resource"
@@ -34,14 +34,14 @@ Vue.component('layout', Layout);
 
 /* eslint-disable no-new */
 const vue = new Vue({
-    router
-    //   store: store,
-    //   //глобальная шина событий
-    //   data: {
-    //     eventBus: EventBus
-    //   },
-    //   created() {
-    //     //загружаем типы транспорта в глобальное хранилище
-    //     store.dispatch('download');
-    //   }
-}).$mount('#app');
+  router
+  // store: store,
+  //   //глобальная шина событий
+  //   data: {
+  //     eventBus: EventBus
+  //   },
+  //   created() {
+  //     //загружаем типы транспорта в глобальное хранилище
+  //     store.dispatch('download');
+  //   }
+}).$mount("#app");
